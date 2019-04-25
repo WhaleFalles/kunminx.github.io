@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+<title>Android：你还在等那个，手把手带你重构的人出现吗？ - 大物始于小</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <meta name="description" content="前言高能预警：本文有一点长，建议收藏后再看。 以下你就可以看到，一位单枪匹马的帅哥，是如何以一己之力，重构整座“屎山”的。 这位帅哥一直在徘徊，本文到底该写给谁看？是只在乎写功能的码农吗？不了不了，码农若真的有心">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android：你还在等那个，手把手带你重构的人出现吗？">
+<meta property="og:url" content="https://kunminx.github.io/2018/10/21/Android：你还在等那个，手把手带你重构的人出现吗？/index.html">
+<meta property="og:site_name" content="大物始于小">
+<meta property="og:description" content="前言高能预警：本文有一点长，建议收藏后再看。 以下你就可以看到，一位单枪匹马的帅哥，是如何以一己之力，重构整座“屎山”的。 这位帅哥一直在徘徊，本文到底该写给谁看？是只在乎写功能的码农吗？不了不了，码农若真的有心">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://kunminx.github.io/images/og_image.png">
+<meta property="og:updated_time" content="2018-11-02T00:55:33.860Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android：你还在等那个，手把手带你重构的人出现吗？">
+<meta name="twitter:description" content="前言高能预警：本文有一点长，建议收藏后再看。 以下你就可以看到，一位单枪匹马的帅哥，是如何以一己之力，重构整座“屎山”的。 这位帅哥一直在徘徊，本文到底该写给谁看？是只在乎写功能的码农吗？不了不了，码农若真的有心">
+<meta name="twitter:image" content="https://kunminx.github.io/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="Android：你还在等那个，手把手带你重构的人出现吗？" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">Home</a>
+                
+                <a class="navbar-item" href="/archives">Archives</a>
+                
+                <a class="navbar-item" href="/categories">Categories</a>
+                
+                <a class="navbar-item" href="/tags">Tags</a>
+                
+                <a class="navbar-item" href="/about">About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="http://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2018-10-21T11:00:41.000Z">2018-10-21</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    20 minutes read (About 2941 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                Android：你还在等那个，手把手带你重构的人出现吗？
+            
+        </h1>
+        <div class="content">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>高能预警：本文有一点长，建议收藏后再看。</p>
+<p>以下你就可以看到，一位单枪匹马的帅哥，是如何以一己之力，重构整座“屎山”的。</p>
+<p>这位帅哥一直在徘徊，本文到底该写给谁看？是只在乎写功能的码农吗？不了不了，码农若真的有心<a id="more"></a>提升代码质量，就不会在项目中丧心病狂的堆积屎山。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/57036-f79e77563ab71b77.gif?imageMogr2/auto-orient/strip" alt></p>
+<p>于是干脆写写重构心得、分享重构思路，让那些有意识在这方面有所提升的帅哥美女们，少走些弯路！</p>
+<blockquote>
+<p>在此首先感谢主管的信任与支持。本次重构中，帅哥在部门内部兜售并率先使用某架构，5 天内完成 60 个类的核心模块的重构。（不要慌，架构已在 GitHub 开源，文末链接给出。）</p>
+</blockquote>
+<p>以下正文。</p>
+<h1 id="代码是如何越写越烂的？"><a href="#代码是如何越写越烂的？" class="headerlink" title="代码是如何越写越烂的？"></a>代码是如何越写越烂的？</h1><p>你是否经常听同事自嘲，“开始还想好好写，不知怎滴，后面越写越烂”？</p>
+<p>代码越写越烂，果真是个没有端倪、无法干预的魔咒玄学吗？</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/57036-7b10ae18235039f0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
+<p>让我们来<strong>快速浏览一下</strong> 重构前 项目里的代码是怎么写的。</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br></pre></td><td class="code"><pre><span class="line">protected void initView() &#123;</span><br><span class="line">        PagerAdapter pagerAdapter = new PagerAdapter();</span><br><span class="line">        viewPagerFix.setOffscreenPageLimit(4);</span><br><span class="line">        viewPagerFix.setAdapter(pagerAdapter);</span><br><span class="line">        mFragmentBinding.tabLayout.setTabData(pagerAdapter.titles);</span><br><span class="line">        mFragmentBinding.tabLayout.setOnTabSelectListener(new OnTabSelectListener() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public void onTabSelect(int position) &#123;</span><br><span class="line">                viewPagerFix.setCurrentItem(position);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            @Override</span><br><span class="line">            public void onTabReselect(int position) &#123;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        viewPagerFix.addOnPageChangeListener(new ViewPagerFix.OnPageChangeListener() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) &#123;</span><br><span class="line">                KeyboardUtils.hideSoftInput(getActivity());</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            @Override</span><br><span class="line">            public void onPageSelected(int position) &#123;</span><br><span class="line">                mFragmentBinding.tabLayout.setCurrentTab(position);</span><br><span class="line">                if (mViewModel.getXXXDetailTouchManager().isZZBG()) &#123; </span><br><span class="line"></span><br><span class="line">                    zzbgPageSelected(position);</span><br><span class="line"></span><br><span class="line">                &#125; else if (mViewModel.getXXXDetailTouchManager().isYBJZ()) &#123; </span><br><span class="line">                    switch (position) &#123;</span><br><span class="line">                        case 0:</span><br><span class="line">                        case 1:</span><br><span class="line">                            mViewModel.removeAllArrows();</span><br><span class="line"></span><br><span class="line">                            if (mAttachmentFragment != null) &#123;</span><br><span class="line">                                mAttachmentFragment.hideClickHighLight(ALBUM_ALL);</span><br><span class="line">                            &#125;</span><br><span class="line">                            break;</span><br><span class="line">                        case 2:</span><br><span class="line">                            if (mAttachmentFragment != null) &#123;</span><br><span class="line">                                mAttachmentFragment.initAttachTitle();</span><br><span class="line">                            &#125;</span><br><span class="line">                            mViewModel.showAllArrows();</span><br><span class="line"></span><br><span class="line">                            break;</span><br><span class="line">                        default:</span><br><span class="line">                            break;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    switch (position) &#123;</span><br><span class="line">                        case 0:</span><br><span class="line">                        case 1:</span><br><span class="line">                        case 2:</span><br><span class="line">                            mViewModel.removeAllArrows();</span><br><span class="line">                            //hideBottomLayout();</span><br><span class="line">                            if (mAttachmentFragment != null) &#123;</span><br><span class="line">                                mAttachmentFragment.hideClickHighLight(ALBUM_ALL);</span><br><span class="line">                            &#125;</span><br><span class="line">                            break;</span><br><span class="line">                        case 3:</span><br><span class="line">                            if (mAttachmentFragment != null) &#123;</span><br><span class="line">                                mAttachmentFragment.initAttachTitle();</span><br><span class="line">                            &#125;</span><br><span class="line">                            mViewModel.showAllArrows();</span><br><span class="line"></span><br><span class="line">                            break;</span><br><span class="line">                        default:</span><br><span class="line">                            break;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            @Override</span><br><span class="line">            public void onPageScrollStateChanged(int state) &#123;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        viewPagerFix.setCurrentItem(0);</span><br><span class="line">        mFragmentBinding.headContainer.getTitleView().setOnClickListener(new View.OnClickListener() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public void onClick(View v) &#123;</span><br><span class="line">                if (mViewModel.getXXXDetailTouchManager().isZZBG()) &#123; </span><br><span class="line">                    return;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                mViewModel.changeWyhcrwMajorState(); </span><br><span class="line">                EventBus.getDefault().post(new RefreshItemEventBus(</span><br><span class="line">                        mViewModel.getXXXDetailTouchManager().getCurrentWyhcrw()));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private void zzbgPageSelected(int position) &#123;</span><br><span class="line"></span><br><span class="line">        if (mScreenNum == 3) &#123;</span><br><span class="line"></span><br><span class="line">            switch (position) &#123;</span><br><span class="line">                case 0:</span><br><span class="line">                case 1:</span><br><span class="line">                    mViewModel.removeAllArrows();</span><br><span class="line"></span><br><span class="line">                    if (mAttachmentFragment != null) &#123;</span><br><span class="line">                        mAttachmentFragment.hideClickHighLight(ALBUM_ALL);</span><br><span class="line">                    &#125;</span><br><span class="line">                    break;</span><br><span class="line">                case 2:</span><br><span class="line">                    mViewModel.showAllArrows();</span><br><span class="line"></span><br><span class="line">                    break;</span><br><span class="line">                default:</span><br><span class="line">                    break;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125; else &#123;</span><br><span class="line"></span><br><span class="line">            switch (position) &#123;</span><br><span class="line">                case 0:</span><br><span class="line">                    mViewModel.removeAllArrows();</span><br><span class="line"></span><br><span class="line">                    if (mAttachmentFragment != null) &#123;</span><br><span class="line">                        mAttachmentFragment.hideClickHighLight(ALBUM_ALL);</span><br><span class="line">                    &#125;</span><br><span class="line">                    break;</span><br><span class="line">                case 1:</span><br><span class="line">                    mViewModel.showAllArrows();</span><br><span class="line"></span><br><span class="line">                    break;</span><br><span class="line">                default:</span><br><span class="line">                    break;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        ;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * viewPager适配器</span><br><span class="line">     */</span><br><span class="line">    private class PagerAdapter extends FragmentPagerAdapter &#123;</span><br><span class="line"></span><br><span class="line">        String[] titles;</span><br><span class="line"></span><br><span class="line">        PagerAdapter() &#123;</span><br><span class="line">            super(getChildFragmentManager());</span><br><span class="line">            if (mViewModel.getXXXDetailTouchManager().isZZBG()) &#123;</span><br><span class="line"></span><br><span class="line">                if (mScreenNum == 3) &#123;</span><br><span class="line"></span><br><span class="line">                    titles = getResources().getStringArray(R.array.XXX_detail_tabs_for_no_tbjt);</span><br><span class="line"></span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    titles = getResources().getStringArray(R.array.XXX_detail_tabs_for_zzbg);</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125; else if (mViewModel.getXXXDetailTouchManager().isYBJZ()) &#123;</span><br><span class="line">                titles = getResources().getStringArray(R.array.XXX_detail_tabs_for_ybjz);</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                titles = getResources().getStringArray(R.array.XXX_detail_tabs);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        @Override</span><br><span class="line">        public Fragment getItem(int position) &#123;</span><br><span class="line">            if (mViewModel.getXXXDetailTouchManager().isZZBG()) &#123;</span><br><span class="line"></span><br><span class="line">                return zzbgGetItem(position);</span><br><span class="line"></span><br><span class="line">            &#125; else if (mViewModel.getXXXDetailTouchManager().isYBJZ()) &#123;</span><br><span class="line">                switch (position) &#123;</span><br><span class="line">                    case 0:</span><br><span class="line">                        if (mXXXTuBanPicFragment == null) &#123;</span><br><span class="line">                            mXXXTuBanPicFragment = XXXTuBanPicFragment.newInstance(</span><br><span class="line">                                    mViewModel.getUniqueCode(),</span><br><span class="line">                                    mViewModel.getXXXTouchManger()</span><br><span class="line">                            );</span><br><span class="line">                        &#125;</span><br><span class="line">                        return mXXXTuBanPicFragment;</span><br><span class="line">                    case 1:</span><br><span class="line">                        if (mRecordFragment == null) &#123;</span><br><span class="line">                            mRecordFragment = XXXRecordFragment.newInstance(mViewModel.getXXXDetailTouchManager());</span><br><span class="line">                        &#125;</span><br><span class="line">                        return mRecordFragment;</span><br><span class="line"></span><br><span class="line">                    default:</span><br><span class="line">                        if (mAttachmentFragment == null) &#123;</span><br><span class="line">                            mAttachmentFragment = XXXAttachmentFragment.newInstance(</span><br><span class="line">                                    mViewModel.getAttachments(),</span><br><span class="line">                                    mViewModel.getOriginalAttachments(),</span><br><span class="line">                                    mViewModel.getUniqueCode(),</span><br><span class="line">                                    mViewModel.getXXXTouchManger(),</span><br><span class="line">                                    XXXDetailFragment.this</span><br><span class="line">                            );</span><br><span class="line">                        &#125;</span><br><span class="line">                        return mAttachmentFragment;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                switch (position) &#123;</span><br><span class="line">                    case 0:</span><br><span class="line">                        if (mXXXTuBanPicFragment == null) &#123;</span><br><span class="line">                            mXXXTuBanPicFragment = XXXTuBanPicFragment.newInstance(</span><br><span class="line">                                    mViewModel.getUniqueCode(),</span><br><span class="line">                                    mViewModel.getXXXTouchManger()</span><br><span class="line">                            );</span><br><span class="line">                        &#125;</span><br><span class="line">                        return mXXXTuBanPicFragment;</span><br><span class="line">                    case 1:</span><br><span class="line">                        if (mAttributeFragment == null) &#123;</span><br><span class="line">                            mAttributeFragment = XXXAttributeFragment.newInstance(</span><br><span class="line">                                    mViewModel.getUniqueCode(),</span><br><span class="line">                                    mViewModel.getXXXTouchManger()</span><br><span class="line">                            );</span><br><span class="line">                        &#125;</span><br><span class="line">                        return mAttributeFragment;</span><br><span class="line"></span><br><span class="line">                    case 2:</span><br><span class="line">                        if (mRecordFragment == null) &#123;</span><br><span class="line">                            mRecordFragment = XXXRecordFragment.newInstance(mViewModel.getXXXDetailTouchManager());</span><br><span class="line">                        &#125;</span><br><span class="line">                        return mRecordFragment;</span><br><span class="line">                    default:</span><br><span class="line">                        if (mAttachmentFragment == null) &#123;</span><br><span class="line">                            mAttachmentFragment = XXXAttachmentFragment.newInstance(</span><br><span class="line">                                    mViewModel.getAttachments(),</span><br><span class="line">                                    mViewModel.getOriginalAttachments(),</span><br><span class="line">                                    mViewModel.getUniqueCode(),</span><br><span class="line">                                    mViewModel.getXXXTouchManger(),</span><br><span class="line">                                    XXXDetailFragment.this</span><br><span class="line">                            );</span><br><span class="line">                        &#125;</span><br><span class="line">                        return mAttachmentFragment;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        private Fragment zzbgGetItem(int position) &#123;</span><br><span class="line"></span><br><span class="line">            if (mScreenNum == 3) &#123;</span><br><span class="line"></span><br><span class="line">                switch (position) &#123;</span><br><span class="line">                    case 0:</span><br><span class="line">                        if (mAttributeFragment == null) &#123;</span><br><span class="line">                            mAttributeFragment = XXXAttributeFragment.newInstance(</span><br><span class="line">                                    mViewModel.getUniqueCode(),</span><br><span class="line">                                    mViewModel.getXXXTouchManger()</span><br><span class="line">                            );</span><br><span class="line">                        &#125;</span><br><span class="line">                        return mAttributeFragment;</span><br><span class="line">                    case 1:</span><br><span class="line">                        if (mRecordFragment == null) &#123;</span><br><span class="line">                            mRecordFragment = XXXRecordFragment.newInstance(</span><br><span class="line">                                    mViewModel.getXXXDetailTouchManager());</span><br><span class="line">                        &#125;</span><br><span class="line">                        return mRecordFragment;</span><br><span class="line">                    default:</span><br><span class="line">                        if (mAttachmentFragment == null) &#123;</span><br><span class="line">                            mAttachmentFragment = XXXAttachmentFragment.newInstance(</span><br><span class="line">                                    mViewModel.getAttachments(),</span><br><span class="line">                                    mViewModel.getOriginalAttachments(),</span><br><span class="line">                                    mViewModel.getUniqueCode(),</span><br><span class="line">                                    mViewModel.getXXXTouchManger(),</span><br><span class="line">                                    XXXDetailFragment.this</span><br><span class="line">                            );</span><br><span class="line">                        &#125;</span><br><span class="line">                        return mAttachmentFragment;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                switch (position) &#123;</span><br><span class="line">                    case 0:</span><br><span class="line">                        if (mRecordFragment == null) &#123;</span><br><span class="line">                            mRecordFragment = XXXRecordFragment.newInstance(</span><br><span class="line">                                    mViewModel.getXXXDetailTouchManager());</span><br><span class="line">                        &#125;</span><br><span class="line">                        return mRecordFragment;</span><br><span class="line">                    default:</span><br><span class="line">                        if (mAttachmentFragment == null) &#123;</span><br><span class="line">                            mAttachmentFragment = XXXAttachmentFragment.newInstance(</span><br><span class="line">                                    mViewModel.getAttachments(),</span><br><span class="line">                                    mViewModel.getOriginalAttachments(),</span><br><span class="line">                                    mViewModel.getUniqueCode(),</span><br><span class="line">                                    mViewModel.getXXXTouchManger(),</span><br><span class="line">                                    XXXDetailFragment.this</span><br><span class="line">                            );</span><br><span class="line">                        &#125;</span><br><span class="line">                        return mAttachmentFragment;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        @Override</span><br><span class="line">        public Object instantiateItem(ViewGroup container, int position) &#123;</span><br><span class="line">            Object object = super.instantiateItem(container, position);</span><br><span class="line">            if (mViewModel.getXXXDetailTouchManager().isZZBG()) &#123;</span><br><span class="line">                if (mScreenNum == 3) &#123;</span><br><span class="line"></span><br><span class="line">                    switch (position) &#123;</span><br><span class="line">                        case 0:</span><br><span class="line">                            mAttributeFragment = (XXXAttributeFragment) object;</span><br><span class="line">                            break;</span><br><span class="line">                        case 1:</span><br><span class="line">                            mRecordFragment = (XXXRecordFragment) object;</span><br><span class="line">                            break;</span><br><span class="line">                        default:</span><br><span class="line">                            mAttachmentFragment = (XXXAttachmentFragment) object;</span><br><span class="line">                            break;</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    switch (position) &#123;</span><br><span class="line">                        case 0:</span><br><span class="line">                            mRecordFragment = (XXXRecordFragment) object;</span><br><span class="line">                            break;</span><br><span class="line">                        default:</span><br><span class="line">                            mAttachmentFragment = (XXXAttachmentFragment) object;</span><br><span class="line">                            break;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                return object;</span><br><span class="line">            &#125; else if (mViewModel.getXXXDetailTouchManager().isYBJZ()) &#123;</span><br><span class="line">                switch (position) &#123;</span><br><span class="line">                    case 0:</span><br><span class="line">                        mXXXTuBanPicFragment = (XXXTuBanPicFragment) object;</span><br><span class="line">                        break;</span><br><span class="line">                    case 1:</span><br><span class="line">                        mRecordFragment = (XXXRecordFragment) object;</span><br><span class="line">                        break;</span><br><span class="line">                    default:</span><br><span class="line">                        mAttachmentFragment = (XXXAttachmentFragment) object;</span><br><span class="line">                        break;</span><br><span class="line">                &#125;</span><br><span class="line">                return object;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                switch (position) &#123;</span><br><span class="line">                    case 0:</span><br><span class="line">                        mXXXTuBanPicFragment = (XXXTuBanPicFragment) object;</span><br><span class="line">                        break;</span><br><span class="line">                    case 1:</span><br><span class="line">                        mAttributeFragment = (XXXAttributeFragment) object;</span><br><span class="line">                        break;</span><br><span class="line">                    case 2:</span><br><span class="line">                        mRecordFragment = (XXXRecordFragment) object;</span><br><span class="line">                        break;</span><br><span class="line">                    default:</span><br><span class="line">                        mAttachmentFragment = (XXXAttachmentFragment) object;</span><br><span class="line">                        break;</span><br><span class="line">                &#125;</span><br><span class="line">                return object;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        @Override</span><br><span class="line">        public int getCount() &#123;</span><br><span class="line">            if (mViewModel != null) &#123;</span><br><span class="line">                if (mViewModel.getXXXDetailTouchManager().isZZBG()) &#123;</span><br><span class="line">                    if (mScreenNum == 3) &#123;</span><br><span class="line">                        return 3;</span><br><span class="line">                    &#125;</span><br><span class="line">                    return 2;</span><br><span class="line">                &#125;</span><br><span class="line">                if (mViewModel.getXXXDetailTouchManager().isYBJZ()) &#123;</span><br><span class="line">                    return 3;</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    return 4;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            return 0;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>（为保护隐私，模块类名已替换为“XXX”）</p>
+<p>可以看到，该主页目前服务于 3 个地区，每个地区对子页面的展示都有定制需求。</p>
+<p>if else switch if else switch，只在乎功能实现的码农就是这么写的。</p>
+<p>一个地区 50 行，那要是 10 个地区呢？公司领导放话要支持全国 100 个乡镇地区！那 100 个地区呢？？？</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/57036-5567a4dbacb38ef2.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
+<h1 id="抽象，顺应的是“开闭原则”"><a href="#抽象，顺应的是“开闭原则”" class="headerlink" title="抽象，顺应的是“开闭原则”"></a>抽象，顺应的是“开闭原则”</h1><p>这是一帮对“抽象”无感的码农。</p>
+<p>他们听到“抽象”，就像不爱锻炼的我听到父母、朋友劝我“健身”一样被动。（笑）</p>
+<p>正如我并不真的理解健身的意义所在，他们也当抽象是“耳边风”。</p>
+<p>“100 个地区”这种，天然的就是用工厂模式来抽象和定制，这原本是一目了然、毫无疑问的事。</p>
+<p>重构后的代码，主页抬头特意标注了警告。</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">/</span><br><span class="line"> * 友情提示：本类涂有防腐药品，切勿触碰，切勿触碰，切勿触碰！</span><br><span class="line"> * &lt;p&gt;</span><br><span class="line"> * 地区定制功能，包括特色的布局等，请继承于 AbstractDetailChildFragmentManager 单独编写！</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">public class XXXDetailFragment extends BaseFragment implements IResponse &#123;</span><br><span class="line">    protected void initView() &#123;</span><br><span class="line">        initViewPagerManager();</span><br><span class="line">        PagerAdapter pagerAdapter = new PagerAdapter();</span><br><span class="line">        viewPagerFix.setOffscreenPageLimit(4);</span><br><span class="line">        viewPagerFix.setAdapter(pagerAdapter);</span><br><span class="line">        mFragmentBinding.tabLayout.setTabData(pagerAdapter.titles);</span><br><span class="line">        mFragmentBinding.tabLayout.setOnTabSelectListener(new OnTabSelectListener() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public void onTabSelect(int position) &#123;</span><br><span class="line">                viewPagerFix.setCurrentItem(position);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            @Override</span><br><span class="line">            public void onTabReselect(int position) &#123;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        viewPagerFix.addOnPageChangeListener(new ViewPagerFix.OnPageChangeListener() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) &#123;</span><br><span class="line">                KeyboardUtils.hideSoftInput(getActivity());</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            @Override</span><br><span class="line">            public void onPageSelected(int position) &#123;</span><br><span class="line">                mFragmentBinding.tabLayout.setCurrentTab(position);</span><br><span class="line">                mDetailChildFragmentManager.onPageSelected(position);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            @Override</span><br><span class="line">            public void onPageScrollStateChanged(int state) &#123;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * viewPager适配器</span><br><span class="line">     */</span><br><span class="line">    private class PagerAdapter extends FragmentPagerAdapter &#123;</span><br><span class="line"></span><br><span class="line">        String[] titles;</span><br><span class="line"></span><br><span class="line">        PagerAdapter() &#123;</span><br><span class="line">            super(getChildFragmentManager());</span><br><span class="line">            titles = mDetailChildFragmentManager.getTitles();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        @Override</span><br><span class="line">        public Fragment getItem(int position) &#123;</span><br><span class="line">            return mDetailChildFragmentManager.getItem(position);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        @Override</span><br><span class="line">        public Object instantiateItem(ViewGroup container, int position) &#123;</span><br><span class="line">            Object object = super.instantiateItem(container, position);</span><br><span class="line">            return mDetailChildFragmentManager.instantiateItem(container, position, object);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        @Override</span><br><span class="line">        public int getCount() &#123;</span><br><span class="line">            return mDetailChildFragmentManager.getCount();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="代码是如何剪不断理还乱的？"><a href="#代码是如何剪不断理还乱的？" class="headerlink" title="代码是如何剪不断理还乱的？"></a>代码是如何剪不断理还乱的？</h1><p>听说过“代码耦合”和“解耦”的人很多，但真正理解这是怎么一回事的，<strong>恐怕只有你 ~</strong></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/57036-5540f4aa1b2b83fd.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
+<p>因为哪怕你不知，你也即将见证一位帅哥如何手把手带你解耦 ~</p>
+<p>我们先来看下重构前的代码！</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">public interface XXXListNavigator &#123;</span><br><span class="line"></span><br><span class="line">    void updateRecyclerView();</span><br><span class="line"></span><br><span class="line">    void showProgressDialog();</span><br><span class="line"></span><br><span class="line">    void dismissProgressDialog();</span><br><span class="line"></span><br><span class="line">    void updateListView();</span><br><span class="line"></span><br><span class="line">    void updateLayerWrapperList(List&lt;LayerWrapper&gt; list);</span><br><span class="line"></span><br><span class="line">    boolean isAnimationFinish();</span><br><span class="line"></span><br><span class="line">    void resetCount();</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class XXXListViewModel extends BaseViewModel &#123;</span><br><span class="line">    public void multiAddOrRemove(ArrayList&lt;String&gt; bsms, boolean isAdd) &#123;</span><br><span class="line">        if (null != mNavigator) &#123;</span><br><span class="line">            mNavigator.showProgressDialog();</span><br><span class="line">        &#125;</span><br><span class="line">        if (null == mMultiAddOrRemoveUseCase) &#123;</span><br><span class="line">            mMultiAddOrRemoveUseCase = new MultiAddOrRemoveUseCase();</span><br><span class="line">        &#125;</span><br><span class="line">        mUseCaseHandler.execute(mMultiAddOrRemoveUseCase, new MultiAddOrRemoveUseCase.RequestValues(isAdd, bsms,</span><br><span class="line">                        mLayerWrapperObservableField.get()),</span><br><span class="line">                new UseCase.UseCaseCallback&lt;MultiAddOrRemoveUseCase.ResponseValue&gt;() &#123;</span><br><span class="line">                    @Override</span><br><span class="line">                    public void onSuccess(MultiAddOrRemoveUseCase.ResponseValue response) &#123;</span><br><span class="line">                        ToastUtils.showShort(getApplicationContext(), &quot;操作成功&quot;);</span><br><span class="line">                        clearData();</span><br><span class="line">                        loadData(true, true);</span><br><span class="line">                        if (null != mNavigator) &#123;</span><br><span class="line">                            mNavigator.dismissProgressDialog();</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                    @Override</span><br><span class="line">                    public void onError() &#123;</span><br><span class="line">                        ToastUtils.showShort(getApplicationContext(), &quot;操作失败&quot;);</span><br><span class="line">                        if (null != mNavigator) &#123;</span><br><span class="line">                            mNavigator.dismissProgressDialog();</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看到，UI 过度暴露了“处理 UI 逻辑所依赖的过程 API”，并在业务中直接干预了 UI 逻辑，这是典型的 MVP 写法，这造成了耦合。一旦 UI 的需求有变动，View 和 Presenter 的编写者都会受到牵连。</p>
+<p>而且，职责过多造成了依赖过多，这个 Presenter 会因为过多的依赖，而越写越臃肿：受“破窗效应”的驱使，别的码农会因为此处已经有某个依赖，而不假思索的接着往下写。</p>
+<h1 id="到底怎样才算解耦"><a href="#到底怎样才算解耦" class="headerlink" title="到底怎样才算解耦"></a>到底怎样才算解耦</h1><p>所谓解耦，是符合工程设计、符合设计模式原则的编码。</p>
+<p>解耦的本质，我只说一遍：</p>
+<p><strong>职责边界明确，职责边界明确，职责边界明确。</strong></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/57036-8c5db4c735ca0880.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="viabus_flow_flow.png"></p>
+<p><strong>符合单一职责原则：</strong><br>UI 的职责仅限于“展示”，也就是发送请求、处理 UI 逻辑。业务的职责仅限于“提供数据”，也就是接收请求、处理业务逻辑、响应结果数据。</p>
+<p><strong>符合依赖倒置原则、最小知识原则：</strong><br>UI 不需要知道数据是经过怎样的周转得来的，它只需发送请求，并在拿到结果数据后，自己内部消化 UI 逻辑。业务只需处理数据并响应数据给 UI，它不需要知道 UI 会怎样使用数据，更无权干预。</p>
+<p>综上，无论是 UI 还是业务，都不应过度暴露内部逻辑 API 而受控于人，<strong>它们应只暴露请求 API，来响应外部的请求。过程逻辑应只在自己内部独立消化</strong>。</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line">public class XXXListBusinessProxy extends BaseBusiness&lt;XXXBus&gt; implements IXXXListFragmentRequest &#123;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">    public void multiAddOrRemove(final XXXListDTO dto) &#123;</span><br><span class="line">        handleRequest((e) -&gt; &#123;</span><br><span class="line">				...</span><br><span class="line">                if (TextUtils.isEmpty(existBsms)) &#123;</span><br><span class="line">                    sendMessage(e, new Result(XXXDataResultCode.XXX_LIST_FRAGMENT_MULTI_ADD_OR_REMOVE, false));</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    wyhcJgDBManager.insertAllTaskOfMine(existBsms, layersConfig);</span><br><span class="line">                    sendMessage(e, new Result(XXXDataResultCode.XXX_LIST_FRAGMENT_MULTI_ADD_OR_REMOVE, true));</span><br><span class="line">                &#125;</span><br><span class="line">                return null;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void refreshPatternOfXXXList(final XXXListDTO dto) &#123;</span><br><span class="line">        handleRequest((e) -&gt; &#123;</span><br><span class="line">				...</span><br><span class="line">                count.setMyXXXCount(wyhcJgDBManager.getMyXXXPatternCount());</span><br><span class="line">                return new Result(XXXDataResultCode.XXX_LIST_FRAGMENT_REFRESH_COUNT, count);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void changeXXXPatternOfMine(final XXXListDTO dto) &#123;</span><br><span class="line">        handleRequest((e) -&gt; &#123;</span><br><span class="line">                if (toMine) &#123;</span><br><span class="line">                    ...</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">					...		</span><br><span class="line">                    sendMessage(e, new Result(XXXDataResultCode.XXX_LIST_FRAGMENT_GET_ALL_PATTERN_OF_MINE, count));</span><br><span class="line">                &#125;</span><br><span class="line">                return null;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">public class XXXListFragment extends BaseFragment implements IResponse &#123;</span><br><span class="line"></span><br><span class="line">	XXXBus.XXX().queryList(mDto);</span><br><span class="line">	</span><br><span class="line">	XXXBus.XXX().multiAddOrRemove(mDto);</span><br><span class="line">	</span><br><span class="line">	XXXBus.XXX().queryPattern(mDto);</span><br><span class="line"></span><br><span class="line">	...</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">    public void onResult(Result testResult) &#123;</span><br><span class="line">        String code = (String) testResult.getResultCode();</span><br><span class="line">        switch (code) &#123;</span><br><span class="line">            case XXXDataResultCode.XXX_LIST_FRAGMENT_REFRESH_LIST:</span><br><span class="line">                updateRecyclerView((List&lt;Wyhcrw&gt;) testResult.getResultObject());</span><br><span class="line">                if (isNeedUpdateCount()) &#123;</span><br><span class="line">                    ...</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    finishLoading();</span><br><span class="line">                &#125;</span><br><span class="line">                break;</span><br><span class="line">            case XXXDataResultCode.XXX_LIST_FRAGMENT_MULTI_ADD_OR_REMOVE:</span><br><span class="line">                if ((boolean) testResult.getResultObject()) &#123;</span><br><span class="line">                    loadData(true, true);</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    ToastUtils.showShort(getContext(), &quot;操作失败&quot;);</span><br><span class="line">                &#125;</span><br><span class="line">                dismissProgressDialog();</span><br><span class="line">                break;</span><br><span class="line">			case XXXDataResultCode.XXX_LIST_FRAGMENT_REFRESH_PATTERN:</span><br><span class="line">				...</span><br><span class="line">				break;</span><br><span class="line">			default:</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="解耦有什么好处？"><a href="#解耦有什么好处？" class="headerlink" title="解耦有什么好处？"></a>解耦有什么好处？</h1><p>解耦的好处，福特最有话语权。</p>
+<p>100 多年前，福特发明了世界上第一条流水线，让工人职责边界明确，从而得以分工和专注各自领域。</p>
+<p>原先装配一辆车需 700 小时，通过流水线分工后，平均一辆 12.5 小时，这使得生产效率提升了近 60 倍！</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/57036-a868513e7eb1ea62.gif?imageMogr2/auto-orient/strip" alt></p>
+<p>软件工程同理。</p>
+<p>由于 UI 和业务职责边界明确，且相互通过接口通信，使得 UI 和业务的编写者能够<strong>真正的分工</strong>。</p>
+<p>写 UI 的人，不会被业务的编写打断，他可以一气呵成的写自己的 UI。写业务的人，同样<strong>不会被打断</strong>，他可以专注于业务逻辑、数据结构和算法的优化。</p>
+<p>写 UI 和写业务的人，都可以自己实现接口，去<strong>独立的完成单元测试</strong>，完全不必依赖和等候对方的实现。</p>
+<p>最后，在职责边界明确的情况下，UI 就算写 100 个 UI 逻辑，那也是 UI，业务就算写 100 个业务，那也是业务，<strong>纯种，所以不会杂乱</strong>，何况我们还可以借助“接口隔离原则”继续往下分工！</p>
+<p>…</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>综上，本文介绍了两个重构思路：<br><strong>1.顺应开闭原则，对定制化功能进行抽象。</strong><br><strong>2.顺应单一职责、最小知识、依赖倒置原则，让职责边界明确，防止代码耦合。</strong></p>
+<p>看完这篇文章，如你觉得有所收获和启发，请不吝点赞，你的点赞就是对我最大的支持！</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/57036-77cc4b752a390c32.gif?imageMogr2/auto-orient/strip" alt></p>
+<p>本次项目重构用到的，符合设计模式原则的 viabus 架构，已在 GitHub 开源：<br><a href="https://github.com/KunMinX/android-viabus-architecture" target="_blank" rel="noopener">GitHub：KunMinX/android-viabus-architecture</a></p>
+<h4 id="更多文章"><a href="#更多文章" class="headerlink" title="更多文章"></a>更多文章</h4><p><a href="https://www.jianshu.com/p/9ef813d5c1af" target="_blank" rel="noopener">Android：四大架构的优缺点，你真的了解吗？</a><br><a href="https://www.jianshu.com/p/0748c3ee1368" target="_blank" rel="noopener">Viabus - 年轻人的第一款架构</a><br><a href="https://www.jianshu.com/p/6545767d3e54" target="_blank" rel="noopener">wiki - 1分钟掌握 ViaBus 架构的使用</a><a href="https://www.jianshu.com/p/6545767d3e54" target="_blank" rel="noopener">https://www.jianshu.com/p/6545767d3e54</a>)</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<div class="notification is-danger">
+    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/04/18/你用不惯 RxJava，只因缺了这把钥匙/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">你用不惯 RxJava，只因缺了这把钥匙</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2018/09/30/Android：这是一个高级工程师的国庆充电规划/">
+                <span class="level-item">Android：这是一个高级工程师的国庆充电规划</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    
+                        <img class="image is-128x128 has-mb-6" src="/images/avatar.png" alt="Your name">
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        Your name
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Your title
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Your location</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Posts
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        7
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Categories
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        0
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Tags
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        0
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="http://github.com/ppoffice" target="_blank">
+                Follow</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="http://github.com/ppoffice">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Facebook" href="http://facebook.com">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Twitter" href="http://twitter.com">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Dribbble" href="http://dribbble.com">
+                
+                <i class="fab fa-dribbble"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Links
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://hexo.io" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Hexo</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">hexo.io</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://github.com/ppoffice" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">PPOffice</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">github.com</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Categories
+            </h3>
+            <ul class="menu-list">
+            
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/04/25/这样理解，你也能在 30 秒内讲明白 TCP 三次握手/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="这样理解，你也能在 30 秒内讲明白 TCP 三次握手">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-25T06:55:05.000Z">2019-04-25</time></div>
+                    <a href="/2019/04/25/这样理解，你也能在 30 秒内讲明白 TCP 三次握手/" class="has-link-black-ter is-size-6">这样理解，你也能在 30 秒内讲明白 TCP 三次握手</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/04/18/你用不惯 RxJava，只因缺了这把钥匙/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="你用不惯 RxJava，只因缺了这把钥匙">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-18T07:30:23.000Z">2019-04-18</time></div>
+                    <a href="/2019/04/18/你用不惯 RxJava，只因缺了这把钥匙/" class="has-link-black-ter is-size-6">你用不惯 RxJava，只因缺了这把钥匙</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2018/10/21/Android：你还在等那个，手把手带你重构的人出现吗？/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Android：你还在等那个，手把手带你重构的人出现吗？">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-10-21T11:00:41.000Z">2018-10-21</time></div>
+                    <a href="/2018/10/21/Android：你还在等那个，手把手带你重构的人出现吗？/" class="has-link-black-ter is-size-6">Android：你还在等那个，手把手带你重构的人出现吗？</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2018/09/30/Android：这是一个高级工程师的国庆充电规划/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Android：这是一个高级工程师的国庆充电规划">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-09-30T09:00:41.000Z">2018-09-30</time></div>
+                    <a href="/2018/09/30/Android：这是一个高级工程师的国庆充电规划/" class="has-link-black-ter is-size-6">Android：这是一个高级工程师的国庆充电规划</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2018/09/25/Android：四大架构的优缺点，你真的了解吗？/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Android：四大架构的优缺点，你真的了解吗？">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-09-25T15:00:41.000Z">2018-09-25</time></div>
+                    <a href="/2018/09/25/Android：四大架构的优缺点，你真的了解吗？/" class="has-link-black-ter is-size-6">Android：四大架构的优缺点，你真的了解吗？</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">April 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/10/">
+                <span class="level-start">
+                    <span class="level-item">October 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/04/25/这样理解，你也能在 30 秒内讲明白 TCP 三次握手/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="这样理解，你也能在 30 秒内讲明白 TCP 三次握手">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-25T06:55:05.000Z">2019-04-25</time></div>
+                    <a href="/2019/04/25/这样理解，你也能在 30 秒内讲明白 TCP 三次握手/" class="has-link-black-ter is-size-6">这样理解，你也能在 30 秒内讲明白 TCP 三次握手</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/04/18/你用不惯 RxJava，只因缺了这把钥匙/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="你用不惯 RxJava，只因缺了这把钥匙">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-18T07:30:23.000Z">2019-04-18</time></div>
+                    <a href="/2019/04/18/你用不惯 RxJava，只因缺了这把钥匙/" class="has-link-black-ter is-size-6">你用不惯 RxJava，只因缺了这把钥匙</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2018/10/21/Android：你还在等那个，手把手带你重构的人出现吗？/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Android：你还在等那个，手把手带你重构的人出现吗？">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-10-21T11:00:41.000Z">2018-10-21</time></div>
+                    <a href="/2018/10/21/Android：你还在等那个，手把手带你重构的人出现吗？/" class="has-link-black-ter is-size-6">Android：你还在等那个，手把手带你重构的人出现吗？</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2018/09/30/Android：这是一个高级工程师的国庆充电规划/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Android：这是一个高级工程师的国庆充电规划">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-09-30T09:00:41.000Z">2018-09-30</time></div>
+                    <a href="/2018/09/30/Android：这是一个高级工程师的国庆充电规划/" class="has-link-black-ter is-size-6">Android：这是一个高级工程师的国庆充电规划</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2018/09/25/Android：四大架构的优缺点，你真的了解吗？/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Android：四大架构的优缺点，你真的了解吗？">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-09-25T15:00:41.000Z">2018-09-25</time></div>
+                    <a href="/2018/09/25/Android：四大架构的优缺点，你真的了解吗？/" class="has-link-black-ter is-size-6">Android：四大架构的优缺点，你真的了解吗？</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">April 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/10/">
+                <span class="level-start">
+                    <span class="level-item">October 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="Android：你还在等那个，手把手带你重构的人出现吗？" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 KunMinX&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="http://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/js/clipboard.js" defer></script>
+    
+
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>

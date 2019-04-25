@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+<title>Android：这是一个高级工程师的国庆充电规划 - 大物始于小</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <meta name="description" content="前言前不久刚结束对 20 模块项目的第 3 轮重构，一路见证 MVC、MVP、Clean 的优缺点并形成自己的体会。 近期在总结工作经验的同时，开始写博客。 之所以将规划放出来，一来是总结的过程中已经形成底稿，不如和大家一块分享，各抒己见。二来粘贴布告，能有效督促自己执行。 Viabus 架构 的开源就是因为有一天，和同事聊着聊着说要开源，结果就真的就做了。  国庆规划由于 Viabus 对很多人">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android：这是一个高级工程师的国庆充电规划">
+<meta property="og:url" content="https://kunminx.github.io/2018/09/30/Android：这是一个高级工程师的国庆充电规划/index.html">
+<meta property="og:site_name" content="大物始于小">
+<meta property="og:description" content="前言前不久刚结束对 20 模块项目的第 3 轮重构，一路见证 MVC、MVP、Clean 的优缺点并形成自己的体会。 近期在总结工作经验的同时，开始写博客。 之所以将规划放出来，一来是总结的过程中已经形成底稿，不如和大家一块分享，各抒己见。二来粘贴布告，能有效督促自己执行。 Viabus 架构 的开源就是因为有一天，和同事聊着聊着说要开源，结果就真的就做了。  国庆规划由于 Viabus 对很多人">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://kunminx.github.io/images/og_image.png">
+<meta property="og:updated_time" content="2018-11-01T03:36:41.274Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android：这是一个高级工程师的国庆充电规划">
+<meta name="twitter:description" content="前言前不久刚结束对 20 模块项目的第 3 轮重构，一路见证 MVC、MVP、Clean 的优缺点并形成自己的体会。 近期在总结工作经验的同时，开始写博客。 之所以将规划放出来，一来是总结的过程中已经形成底稿，不如和大家一块分享，各抒己见。二来粘贴布告，能有效督促自己执行。 Viabus 架构 的开源就是因为有一天，和同事聊着聊着说要开源，结果就真的就做了。  国庆规划由于 Viabus 对很多人">
+<meta name="twitter:image" content="https://kunminx.github.io/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="Android：这是一个高级工程师的国庆充电规划" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">Home</a>
+                
+                <a class="navbar-item" href="/archives">Archives</a>
+                
+                <a class="navbar-item" href="/categories">Categories</a>
+                
+                <a class="navbar-item" href="/tags">Tags</a>
+                
+                <a class="navbar-item" href="/about">About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="http://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2018-09-30T09:00:41.000Z">2018-09-30</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    11 minutes read (About 1701 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                Android：这是一个高级工程师的国庆充电规划
+            
+        </h1>
+        <div class="content">
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前不久刚结束对 20 模块项目的第 3 轮重构，一路见证 MVC、MVP、Clean 的优缺点并形成自己的体会。</p>
+<p>近期在总结工作经验的同时，开始写博客。</p>
+<p>之所以将规划放出来，一来是总结的过程中已经形成底稿，不如和大家一块分享，各抒己见。二来粘贴布告，能有效督促自己执行。</p>
+<p><a href="https://www.jianshu.com/p/0748c3ee1368" target="_blank" rel="noopener">Viabus 架构</a> 的开源就是因为有一天，和同事聊着聊着说要开源，结果就真的就做了。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/57036-a30f0e8b4e4dd09c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="高能.jpg"></p>
+<h2 id="国庆规划"><a href="#国庆规划" class="headerlink" title="国庆规划"></a>国庆规划</h2><p>由于 Viabus 对很多人来说，是个很陌生的东西，因此如果想让更多人享受到，“合理而快捷” 的开发体验，可不是一件简单的事。</p>
+<p>对此我想的招是，先在网上找个文艺小清新的项目，重构，然后挂在 <a href="[https://github.com/KunMinX/android-viabus-architecture](https://github.com/KunMinX/android-viabus-architecture">Github 项目页面</a><br>) 下方，这样人们就愿意尝试，毕竟试错成本超级小嘛。</p>
+<p>在项目重构前，我需要利用国庆七天做一些准备工作。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/57036-48cd77747fd85237.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="技术堆栈.png"></p>
+<p>以上是我依据 “个人开发” 的顺序流程而罗列的技术堆栈。</p>
+<p>做过个人开发的一定知道，最头疼的莫过于被一些非专业层面的事情打断。例如如何设计一个好看的界面，这个页面的视觉交互该如何如何。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/57036-a6e19e5b914f8fbf.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="推眼镜.jpg"></p>
+<p>如果这些事情一开始没有定好，那软件开发根本无从开始。因为如果没有一个好看的界面，你都不会相信这个软件能受人喜欢，首先自己就不相信、不喜欢。</p>
+<p>再者，如果没有一个既定的界面设计，那么开发的过程中就会不断的斟酌，反反复复，消磨了开发的热情、拖延了进度。</p>
+<p>因此想到的好招就是上述说的，重构市面上已有的产品。</p>
+<h2 id="软件的本质"><a href="#软件的本质" class="headerlink" title="软件的本质"></a>软件的本质</h2><p><strong>软件的本质是数据的交互。数据是 app 的灵魂。</strong></p>
+<p>因而除了那些工具类软件，多数软件只有和后台建立了连接，才能源源不断的拿到数据和层出不穷的变换着展示。</p>
+<p>所以第一个要掌握的就是 <strong>抓包</strong>。</p>
+<p>教程网上一搜一大把，链接我就不提供了。可以使用 Charles（Mac） Fiddler（Windows） 来完成抓包工作。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/57036-d71e186f3e1fe701.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Charles.png"></p>
+<p>除此之外，过程中可能还要涉猎一番 http 协议和 TCPIP 体系结构。掌握它们的概念，都是会用的到的。</p>
+<h2 id="软件重构的目标"><a href="#软件重构的目标" class="headerlink" title="软件重构的目标"></a>软件重构的目标</h2><p>软件的本质是数据的交互。无论是多么简单还是复杂的软件，都遵守这一定律。小到一个方法：输入参数，返回结果，大到一个业务，一个模块，输入配置，返回结果。都是一个道理。</p>
+<p>那么软件重构的目标，就是将不符合软件本质定律开发的软件，推倒重来，依据该定律来开发。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/57036-3dc7a3a327c6e73d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="viabus_view_bus_business.png"></p>
+<p>在该定律的指导下，UI 和 业务 是完全分离的。UI 的职责仅限于请求数据和处理 UI 逻辑，业务的职责仅限于处理请求和返回结果。因此 UI 只负责 UI，它不需要知道业务是怎么准备数据的，业务只负责数据，它不需要 UI 在拿到数据后怎么使用怎么处理。</p>
+<p><strong>刚好符合设计模式的6大原则。</strong></p>
+<p>因此，进一步说，软件重构的目标，</p>
+<p><strong>一是使数据的交互标准化。</strong>底线是，数据配置和资源的存放位置，必须便于联想。数据名称的定义，必须规范化，不允许使用魔法值。</p>
+<p><strong>二是使数据的交互模式化。</strong>意思是，数据交互的双方职责明确、职责边界明确、独立自主、互不干涉。</p>
+<p>为此第二步就是，查阅一下数据交互框架的源码，对设计模式在 android 中的广泛应用有所见证。</p>
+<h2 id="通用必用-Widget-的准备"><a href="#通用必用-Widget-的准备" class="headerlink" title="通用必用 Widget 的准备"></a>通用必用 Widget 的准备</h2><p>磨刀不误砍柴工，平日里就要总结、归类和封装你在项目中必然会用的到的控件。例如列表、菜单、对话框等等。这样在编写新项目时，不会被打断。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/57036-b6f8f9a86cf1a1ee.gif?imageMogr2/auto-orient/strip" alt="capture.gif"></p>
+<p>根据使用场景，我将控件分为以下四类：</p>
+<p>1.展示类。是那些供展示，不可编辑的控件。例如引导页、信息展示页。</p>
+<p>2.提示类。像吐司、对话框等等，及时提醒用户必要信息的手段。我们可以通过它们来增强软件的表现力，以获取用户的信任。</p>
+<p>3.导航类。就是点击即可从此处跳转到别处的控件。例如列表、按钮等。</p>
+<p>4.表单类。就是可以执行输入、勾选等表单操作。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>以上就是国庆期间的规划：</p>
+<p>1.寻找文艺小清新项目，抓包，温习http和TCPIP。</p>
+<p>2.归类和整理通用必用控件，供后期不断封装。</p>
+<p>3.查阅数据交互框架的源码，见证设计模式。</p>
+<h4 id="感谢你的阅读，欢迎点赞评论督促我完成！"><a href="#感谢你的阅读，欢迎点赞评论督促我完成！" class="headerlink" title="感谢你的阅读，欢迎点赞评论督促我完成！"></a>感谢你的阅读，欢迎点赞评论督促我完成！</h4><p><img src="https://upload-images.jianshu.io/upload_images/57036-c250e21e65533ec7.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="老司机.jpg"></p>
+<h4 id="更多文章"><a href="#更多文章" class="headerlink" title="更多文章"></a>更多文章</h4><p><a href="https://github.com/KunMinX/android-viabus-architecture" target="_blank" rel="noopener">Github : KunMinX / android-viabus-architecture</a><br><a href="https://www.jianshu.com/p/9ef813d5c1af" target="_blank" rel="noopener">Android：四大架构的优缺点，你真的了解吗？</a><br><a href="https://www.jianshu.com/p/0748c3ee1368" target="_blank" rel="noopener">Viabus - 年轻人的第一款架构</a><br><a href="https://www.jianshu.com/p/22e110193ea9" target="_blank" rel="noopener">Android：你还在等那个，手把手带你重构的人出现吗？</a></p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<div class="notification is-danger">
+    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2018/10/21/Android：你还在等那个，手把手带你重构的人出现吗？/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">Android：你还在等那个，手把手带你重构的人出现吗？</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2018/09/25/Android：四大架构的优缺点，你真的了解吗？/">
+                <span class="level-item">Android：四大架构的优缺点，你真的了解吗？</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    
+                        <img class="image is-128x128 has-mb-6" src="/images/avatar.png" alt="Your name">
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        Your name
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Your title
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Your location</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Posts
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        7
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Categories
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        0
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Tags
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        0
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="http://github.com/ppoffice" target="_blank">
+                Follow</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="http://github.com/ppoffice">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Facebook" href="http://facebook.com">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Twitter" href="http://twitter.com">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Dribbble" href="http://dribbble.com">
+                
+                <i class="fab fa-dribbble"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Links
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://hexo.io" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Hexo</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">hexo.io</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://github.com/ppoffice" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">PPOffice</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">github.com</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Categories
+            </h3>
+            <ul class="menu-list">
+            
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/04/25/这样理解，你也能在 30 秒内讲明白 TCP 三次握手/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="这样理解，你也能在 30 秒内讲明白 TCP 三次握手">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-25T06:55:05.000Z">2019-04-25</time></div>
+                    <a href="/2019/04/25/这样理解，你也能在 30 秒内讲明白 TCP 三次握手/" class="has-link-black-ter is-size-6">这样理解，你也能在 30 秒内讲明白 TCP 三次握手</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/04/18/你用不惯 RxJava，只因缺了这把钥匙/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="你用不惯 RxJava，只因缺了这把钥匙">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-18T07:30:23.000Z">2019-04-18</time></div>
+                    <a href="/2019/04/18/你用不惯 RxJava，只因缺了这把钥匙/" class="has-link-black-ter is-size-6">你用不惯 RxJava，只因缺了这把钥匙</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2018/10/21/Android：你还在等那个，手把手带你重构的人出现吗？/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Android：你还在等那个，手把手带你重构的人出现吗？">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-10-21T11:00:41.000Z">2018-10-21</time></div>
+                    <a href="/2018/10/21/Android：你还在等那个，手把手带你重构的人出现吗？/" class="has-link-black-ter is-size-6">Android：你还在等那个，手把手带你重构的人出现吗？</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2018/09/30/Android：这是一个高级工程师的国庆充电规划/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Android：这是一个高级工程师的国庆充电规划">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-09-30T09:00:41.000Z">2018-09-30</time></div>
+                    <a href="/2018/09/30/Android：这是一个高级工程师的国庆充电规划/" class="has-link-black-ter is-size-6">Android：这是一个高级工程师的国庆充电规划</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2018/09/25/Android：四大架构的优缺点，你真的了解吗？/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Android：四大架构的优缺点，你真的了解吗？">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-09-25T15:00:41.000Z">2018-09-25</time></div>
+                    <a href="/2018/09/25/Android：四大架构的优缺点，你真的了解吗？/" class="has-link-black-ter is-size-6">Android：四大架构的优缺点，你真的了解吗？</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">April 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/10/">
+                <span class="level-start">
+                    <span class="level-item">October 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/04/25/这样理解，你也能在 30 秒内讲明白 TCP 三次握手/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="这样理解，你也能在 30 秒内讲明白 TCP 三次握手">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-25T06:55:05.000Z">2019-04-25</time></div>
+                    <a href="/2019/04/25/这样理解，你也能在 30 秒内讲明白 TCP 三次握手/" class="has-link-black-ter is-size-6">这样理解，你也能在 30 秒内讲明白 TCP 三次握手</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/04/18/你用不惯 RxJava，只因缺了这把钥匙/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="你用不惯 RxJava，只因缺了这把钥匙">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-18T07:30:23.000Z">2019-04-18</time></div>
+                    <a href="/2019/04/18/你用不惯 RxJava，只因缺了这把钥匙/" class="has-link-black-ter is-size-6">你用不惯 RxJava，只因缺了这把钥匙</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2018/10/21/Android：你还在等那个，手把手带你重构的人出现吗？/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Android：你还在等那个，手把手带你重构的人出现吗？">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-10-21T11:00:41.000Z">2018-10-21</time></div>
+                    <a href="/2018/10/21/Android：你还在等那个，手把手带你重构的人出现吗？/" class="has-link-black-ter is-size-6">Android：你还在等那个，手把手带你重构的人出现吗？</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2018/09/30/Android：这是一个高级工程师的国庆充电规划/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Android：这是一个高级工程师的国庆充电规划">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-09-30T09:00:41.000Z">2018-09-30</time></div>
+                    <a href="/2018/09/30/Android：这是一个高级工程师的国庆充电规划/" class="has-link-black-ter is-size-6">Android：这是一个高级工程师的国庆充电规划</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2018/09/25/Android：四大架构的优缺点，你真的了解吗？/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Android：四大架构的优缺点，你真的了解吗？">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-09-25T15:00:41.000Z">2018-09-25</time></div>
+                    <a href="/2018/09/25/Android：四大架构的优缺点，你真的了解吗？/" class="has-link-black-ter is-size-6">Android：四大架构的优缺点，你真的了解吗？</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">April 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/10/">
+                <span class="level-start">
+                    <span class="level-item">October 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="Android：这是一个高级工程师的国庆充电规划" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 KunMinX&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="http://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/js/clipboard.js" defer></script>
+    
+
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
