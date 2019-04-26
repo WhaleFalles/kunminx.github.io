@@ -2,23 +2,21 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Android：1分钟掌握 ViaBus 架构的使用 - 大物始于小</title>
+<title>Android：1分钟掌握 ViaBus 架构的使用 - KunMinX 的个人博客</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="0. 在模块的 build.gradle 添加如下依赖1implementation &amp;quot;com.kunminx.viabus:viabus-architecture:0.4.3&amp;quot; 1. 定义接口，用于发送请求。 接口须继承于 IRequest，如：12345678public interface INoteRequest extends IRequest&amp;#123;    v">
+    <meta name="keywords" content="KunMinX">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android：1分钟掌握 ViaBus 架构的使用">
 <meta property="og:url" content="https://kunminx.github.io/2018/09/25/Android：1分钟掌握 ViaBus 架构的使用/index.html">
-<meta property="og:site_name" content="大物始于小">
-<meta property="og:description" content="0. 在模块的 build.gradle 添加如下依赖1implementation &amp;quot;com.kunminx.viabus:viabus-architecture:0.4.3&amp;quot; 1. 定义接口，用于发送请求。 接口须继承于 IRequest，如：12345678public interface INoteRequest extends IRequest&amp;#123;    v">
+<meta property="og:site_name" content="KunMinX 的个人博客">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://kunminx.github.io/images/og_image.png">
-<meta property="og:updated_time" content="2019-01-09T08:27:56.173Z">
+<meta property="og:updated_time" content="2019-04-26T00:14:39.447Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android：1分钟掌握 ViaBus 架构的使用">
-<meta name="twitter:description" content="0. 在模块的 build.gradle 添加如下依赖1implementation &amp;quot;com.kunminx.viabus:viabus-architecture:0.4.3&amp;quot; 1. 定义接口，用于发送请求。 接口须继承于 IRequest，如：12345678public interface INoteRequest extends IRequest&amp;#123;    v">
 <meta name="twitter:image" content="https://kunminx.github.io/images/og_image.png">
 
 
@@ -117,7 +115,7 @@
                 
                     
                     
-                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="http://github.com/ppoffice/hexo-theme-icarus">
+                    <a class="navbar-item" target="_blank" title="GitHub" href="https://github.com/KunMinX">
                         
                         <i class="fab fa-github"></i>
                         
@@ -150,7 +148,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    3 minutes read (About 474 words)
+                    3 minutes read (About 477 words)
                 </span>
                 
                 
@@ -163,7 +161,8 @@
             
         </h1>
         <div class="content">
-            <p><img src="https://upload-images.jianshu.io/upload_images/57036-faac2a0be6453690.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="viabus_flow.png"></p>
+            <p><img src="https://upload-images.jianshu.io/upload_images/57036-8c5db4c735ca0880.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="viabus_flow_flow.png"></p>
+<a id="more"></a>
 <p><strong>0. 在模块的 build.gradle 添加如下依赖</strong><br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">implementation &quot;com.kunminx.viabus:viabus-architecture:0.4.3&quot;</span><br></pre></td></tr></table></figure></p>
 <p><strong>1. 定义接口，用于发送请求</strong>。</p>
 <p>接口须继承于 IRequest，如：<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public interface INoteRequest extends IRequest&#123;</span><br><span class="line"></span><br><span class="line">    void queryList();</span><br><span class="line"></span><br><span class="line">    void insert(NoteBean bean);</span><br><span class="line"></span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -193,28 +192,13 @@
         <div class="buttons is-centered">
             
                 
-<div class="notification is-danger">
-    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                
-<div class="notification is-danger">
-    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
-
-<div class="notification is-danger">
-    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                
-<div class="notification is-danger">
-    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
-</div>
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>Wechat</span>
+    <div class="qrcode"><img src="https://upload-images.jianshu.io/upload_images/57036-dc3af94a5daf478c.jpg" alt="Wechat"></div>
+</a>
 
                 
         </div>
@@ -260,22 +244,24 @@
             <div class="level-item has-text-centered">
                 <div>
                     
-                        <img class="image is-128x128 has-mb-6" src="/images/avatar.png" alt="Your name">
+                        <figure class="image container is-128x128 has-mb-6">
+                            <img class="is-rounded" src="https://www.gravatar.com/avatar/f57558e2f70d54908ab959dc8cbd39cf?s=128" alt="KunMinX">
+                        </figure>
                     
                     
                     <p class="is-size-4 is-block">
-                        Your name
+                        KunMinX
                     </p>
                     
                     
                     <p class="is-size-6 is-block">
-                        Your title
+                        Indie developer
                     </p>
                     
                     
                     <p class="is-size-6 is-flex is-flex-center has-text-grey">
                         <i class="fas fa-map-marker-alt has-mr-7"></i>
-                        <span>Your location</span>
+                        <span>HangZhou, China</span>
                     </p>
                     
                 </div>
@@ -321,21 +307,15 @@
         
         <div class="level is-mobile">
             
-            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="http://github.com/ppoffice">
+            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="https://github.com/KunMinX">
                 
                 <i class="fab fa-github"></i>
                 
             </a>
             
-            <a class="level-item button is-white is-marginless" target="_blank" title="Facebook" href="http://facebook.com">
+            <a class="level-item button is-white is-marginless" target="_blank" title="WeChat" href="https://upload-images.jianshu.io/upload_images/57036-dc3af94a5daf478c.jpg">
                 
-                <i class="fab fa-facebook"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank" title="Twitter" href="http://twitter.com">
-                
-                <i class="fab fa-twitter"></i>
+                <i class="fab fa-wechat"></i>
                 
             </a>
             
@@ -369,20 +349,20 @@
         <ul class="menu-list">
         
             <li>
-                <a class="level is-mobile" href="https://hexo.io" target="_blank">
+                <a class="level is-mobile" href="https://juejin.im/user/58ab0de9ac502e006975d757/posts" target="_blank">
                     <span class="level-left">
-                        <span class="level-item">Hexo</span>
+                        <span class="level-item">掘金</span>
                     </span>
                     <span class="level-right">
-                        <span class="level-item tag">hexo.io</span>
+                        <span class="level-item tag">juejin.im</span>
                     </span>
                 </a>
             </li>
         
             <li>
-                <a class="level is-mobile" href="https://github.com/ppoffice" target="_blank">
+                <a class="level is-mobile" href="https://github.com/KunMinX/RxJava2-Operators-Sample" target="_blank">
                     <span class="level-left">
-                        <span class="level-item">PPOffice</span>
+                        <span class="level-item">Rx钥匙</span>
                     </span>
                     <span class="level-right">
                         <span class="level-item tag">github.com</span>
@@ -800,7 +780,7 @@
                 </p>
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="http://github.com/ppoffice/hexo-theme-icarus">
+                    <a class="button is-white is-large" target="_blank" title="GitHub" href="https://github.com/KunMinX">
                         
                         <i class="fab fa-github"></i>
                         

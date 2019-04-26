@@ -2,23 +2,24 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Android：四大架构的优缺点，你真的了解吗？ - 大物始于小</title>
+<title>Android：四大架构的优缺点，你真的了解吗？ - KunMinX 的个人博客</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="前言你准备好了吗？本次列车开往 “重构” 之巅，时速 900km/s。风太大听不见，但我就是可以很简单很直的，给你讲述事物本质和解决方案！⚡ 项目常用架构比对以下，对常见的 MVC、MVP、Clean、AAC 架构做个比对。 首先，一张表格展示各架构的类冗余情况： 需求是，写三个页面，ListFragment、DetailFragment、PreviewFragment，每个页面至少用到 3个 N">
+    <meta name="description" content="前言你准备好了吗？本次列车开往 “重构” 之巅，时速 900km/s。风太大听不见，但我就是可以很简单很直的，给你讲述事物本质和解决方案！⚡">
+<meta name="keywords" content="KunMinX">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android：四大架构的优缺点，你真的了解吗？">
 <meta property="og:url" content="https://kunminx.github.io/2018/09/25/Android：四大架构的优缺点，你真的了解吗？/index.html">
-<meta property="og:site_name" content="大物始于小">
-<meta property="og:description" content="前言你准备好了吗？本次列车开往 “重构” 之巅，时速 900km/s。风太大听不见，但我就是可以很简单很直的，给你讲述事物本质和解决方案！⚡ 项目常用架构比对以下，对常见的 MVC、MVP、Clean、AAC 架构做个比对。 首先，一张表格展示各架构的类冗余情况： 需求是，写三个页面，ListFragment、DetailFragment、PreviewFragment，每个页面至少用到 3个 N">
+<meta property="og:site_name" content="KunMinX 的个人博客">
+<meta property="og:description" content="前言你准备好了吗？本次列车开往 “重构” 之巅，时速 900km/s。风太大听不见，但我就是可以很简单很直的，给你讲述事物本质和解决方案！⚡">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://kunminx.github.io/images/og_image.png">
-<meta property="og:updated_time" content="2019-01-15T12:50:20.781Z">
+<meta property="og:updated_time" content="2019-04-26T00:14:59.660Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android：四大架构的优缺点，你真的了解吗？">
-<meta name="twitter:description" content="前言你准备好了吗？本次列车开往 “重构” 之巅，时速 900km/s。风太大听不见，但我就是可以很简单很直的，给你讲述事物本质和解决方案！⚡ 项目常用架构比对以下，对常见的 MVC、MVP、Clean、AAC 架构做个比对。 首先，一张表格展示各架构的类冗余情况： 需求是，写三个页面，ListFragment、DetailFragment、PreviewFragment，每个页面至少用到 3个 N">
+<meta name="twitter:description" content="前言你准备好了吗？本次列车开往 “重构” 之巅，时速 900km/s。风太大听不见，但我就是可以很简单很直的，给你讲述事物本质和解决方案！⚡">
 <meta name="twitter:image" content="https://kunminx.github.io/images/og_image.png">
 
 
@@ -117,7 +118,7 @@
                 
                     
                     
-                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="http://github.com/ppoffice/hexo-theme-icarus">
+                    <a class="navbar-item" target="_blank" title="GitHub" href="https://github.com/KunMinX">
                         
                         <i class="fab fa-github"></i>
                         
@@ -150,7 +151,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    15 minutes read (About 2301 words)
+                    15 minutes read (About 2302 words)
                 </span>
                 
                 
@@ -164,6 +165,7 @@
         </h1>
         <div class="content">
             <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>你准备好了吗？本次列车开往 <a href="https://juejin.im/post/5bcd58b6e51d45404c71d23f" target="_blank" rel="noopener">“重构”</a> 之巅，时速 900km/s。风太大听不见，但我就是可以很简单很直的，给你讲述事物本质和解决方案！⚡</p>
+<a id="more"></a>
 <h2 id="项目常用架构比对"><a href="#项目常用架构比对" class="headerlink" title="项目常用架构比对"></a>项目常用架构比对</h2><p>以下，对常见的 MVC、MVP、Clean、AAC 架构做个比对。</p>
 <p>首先，一张表格展示各架构的类冗余情况：</p>
 <p>需求是，写三个页面，ListFragment、DetailFragment、PreviewFragment，每个页面至少用到 3个 Note 业务、3个 User 业务。问：上述架构分别需编写多少类？</p>
@@ -257,28 +259,13 @@
         <div class="buttons is-centered">
             
                 
-<div class="notification is-danger">
-    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                
-<div class="notification is-danger">
-    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
-
-<div class="notification is-danger">
-    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                
-<div class="notification is-danger">
-    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
-</div>
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>Wechat</span>
+    <div class="qrcode"><img src="https://upload-images.jianshu.io/upload_images/57036-dc3af94a5daf478c.jpg" alt="Wechat"></div>
+</a>
 
                 
         </div>
@@ -324,22 +311,24 @@
             <div class="level-item has-text-centered">
                 <div>
                     
-                        <img class="image is-128x128 has-mb-6" src="/images/avatar.png" alt="Your name">
+                        <figure class="image container is-128x128 has-mb-6">
+                            <img class="is-rounded" src="https://www.gravatar.com/avatar/f57558e2f70d54908ab959dc8cbd39cf?s=128" alt="KunMinX">
+                        </figure>
                     
                     
                     <p class="is-size-4 is-block">
-                        Your name
+                        KunMinX
                     </p>
                     
                     
                     <p class="is-size-6 is-block">
-                        Your title
+                        Indie developer
                     </p>
                     
                     
                     <p class="is-size-6 is-flex is-flex-center has-text-grey">
                         <i class="fas fa-map-marker-alt has-mr-7"></i>
-                        <span>Your location</span>
+                        <span>HangZhou, China</span>
                     </p>
                     
                 </div>
@@ -385,21 +374,15 @@
         
         <div class="level is-mobile">
             
-            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="http://github.com/ppoffice">
+            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="https://github.com/KunMinX">
                 
                 <i class="fab fa-github"></i>
                 
             </a>
             
-            <a class="level-item button is-white is-marginless" target="_blank" title="Facebook" href="http://facebook.com">
+            <a class="level-item button is-white is-marginless" target="_blank" title="WeChat" href="https://upload-images.jianshu.io/upload_images/57036-dc3af94a5daf478c.jpg">
                 
-                <i class="fab fa-facebook"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank" title="Twitter" href="http://twitter.com">
-                
-                <i class="fab fa-twitter"></i>
+                <i class="fab fa-wechat"></i>
                 
             </a>
             
@@ -433,20 +416,20 @@
         <ul class="menu-list">
         
             <li>
-                <a class="level is-mobile" href="https://hexo.io" target="_blank">
+                <a class="level is-mobile" href="https://juejin.im/user/58ab0de9ac502e006975d757/posts" target="_blank">
                     <span class="level-left">
-                        <span class="level-item">Hexo</span>
+                        <span class="level-item">掘金</span>
                     </span>
                     <span class="level-right">
-                        <span class="level-item tag">hexo.io</span>
+                        <span class="level-item tag">juejin.im</span>
                     </span>
                 </a>
             </li>
         
             <li>
-                <a class="level is-mobile" href="https://github.com/ppoffice" target="_blank">
+                <a class="level is-mobile" href="https://github.com/KunMinX/RxJava2-Operators-Sample" target="_blank">
                     <span class="level-left">
-                        <span class="level-item">PPOffice</span>
+                        <span class="level-item">Rx钥匙</span>
                     </span>
                     <span class="level-right">
                         <span class="level-item tag">github.com</span>
@@ -864,7 +847,7 @@
                 </p>
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="http://github.com/ppoffice/hexo-theme-icarus">
+                    <a class="button is-white is-large" target="_blank" title="GitHub" href="https://github.com/KunMinX">
                         
                         <i class="fab fa-github"></i>
                         
