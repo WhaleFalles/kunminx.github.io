@@ -2,24 +2,20 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>你用不惯 RxJava，只因缺了这把钥匙 - KunMinX 的个人博客</title>
+<title>Category: Architecture - KunMinX 的个人博客</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="前言本文最初是为部门内部培训而准备的，但经过一番调研发现，同事们用不惯 RxJava，并不是因为网上介绍 “怎么用” 的教程不够多，恰恰是因为，一上来就急着发车的教程无数、却从未有过哪篇教程 舍得用几句话的功夫点破 RxJava 操作符究竟为何方神圣、我们为什么要用、为什么要那样用。">
-<meta name="keywords" content="解决困扰,RxJava">
-<meta property="og:type" content="article">
-<meta property="og:title" content="你用不惯 RxJava，只因缺了这把钥匙">
-<meta property="og:url" content="https://kunminx.github.io/2019/04/18/你用不惯 RxJava，只因缺了这把钥匙/index.html">
+    <meta name="keywords" content="KunMinX">
+<meta property="og:type" content="website">
+<meta property="og:title" content="KunMinX 的个人博客">
+<meta property="og:url" content="https://kunminx.github.io/categories/Architecture/index.html">
 <meta property="og:site_name" content="KunMinX 的个人博客">
-<meta property="og:description" content="前言本文最初是为部门内部培训而准备的，但经过一番调研发现，同事们用不惯 RxJava，并不是因为网上介绍 “怎么用” 的教程不够多，恰恰是因为，一上来就急着发车的教程无数、却从未有过哪篇教程 舍得用几句话的功夫点破 RxJava 操作符究竟为何方神圣、我们为什么要用、为什么要那样用。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://kunminx.github.io/images/og_image.png">
-<meta property="og:updated_time" content="2019-04-26T01:13:27.935Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="你用不惯 RxJava，只因缺了这把钥匙">
-<meta name="twitter:description" content="前言本文最初是为部门内部培训而准备的，但经过一番调研发现，同事们用不惯 RxJava，并不是因为网上介绍 “怎么用” 的教程不够多，恰恰是因为，一上来就急着发车的教程无数、却从未有过哪篇教程 舍得用几句话的功夫点破 RxJava 操作符究竟为何方神圣、我们为什么要用、为什么要那样用。">
+<meta name="twitter:title" content="KunMinX 的个人博客">
 <meta name="twitter:image" content="https://kunminx.github.io/images/og_image.png">
 
 
@@ -94,7 +90,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="你用不惯 RxJava，只因缺了这把钥匙" height="28">
+                <img src="/images/logo.svg" alt="KunMinX 的个人博客" height="28">
             
             </a>
         </div>
@@ -140,22 +136,34 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    <div class="card-content">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="/categories">Categories</a></li>
+            
+            <li class="is-active"><a href="#" aria-current="page">Architecture</a></li>
+        </ul>
+        </nav>
+    </div>
+</div>
+
+    <div class="card">
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-04-18T07:30:23.000Z">2019-04-18</time>
+                <time class="level-item has-text-grey" datetime="2018-10-21T11:00:41.000Z">2018-10-21</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/RxJava/">RxJava</a>
+                <a class="has-link-grey -link" href="/categories/Architecture/">Architecture</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    6 minutes read (About 943 words)
+                    20 minutes read (About 2941 words)
                 </span>
                 
                 
@@ -164,94 +172,244 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                你用不惯 RxJava，只因缺了这把钥匙
+                <a class="has-link-black-ter" href="/2018/10/21/Android：你还在等那个，手把手带你重构的人出现吗？/">Android：你还在等那个，手把手带你重构的人出现吗？</a>
             
         </h1>
         <div class="content">
-            <p><img src="https://upload-images.jianshu.io/upload_images/57036-a656f3cb7ab534cd.jpg" alt></p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文最初是为部门内部培训而准备的，但经过一番调研发现，同事们用不惯 RxJava，并不是因为网上介绍 “怎么用” 的教程不够多，恰恰是因为，一上来就急着发车的教程无数、却从未有过哪篇教程 <strong>舍得用几句话的功夫点破 RxJava 操作符究竟为何方神圣</strong>、我们为什么要用、为什么要那样用。</p>
-<a id="more"></a>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Observable.just(<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">7</span>, <span class="hljs-number">9</span>)</span><br><span class="line">    .map(i -&gt; i + <span class="hljs-number">1</span>)</span><br><span class="line">    .filter(i -&gt; i &lt; <span class="hljs-number">5</span>)</span><br><span class="line">    .subscribe(getObserve());</span><br></pre></td></tr></table></figure>
-<p>事实上，在相当长的一段时间里，我也和大部分人一样，只知道使用 RxJava 来完成异步回调，至于那些操作符，则是能不用尽量不用，因为不知道葫芦里卖的什么药，看不懂、不会用。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/57036-a20c7618a0416530.png" alt="RxJava三连"></p>
-<p>因此，本文的初衷绝不是翻译官方文档、教大家怎么用，而是旨在帮助大家对 RxJava 操作符 <strong>完成感性上的认识</strong>。鉴于本次培训的效果还不错、同事们听了都说好，我便在 GitHub 开源了全套操作符示例代码（不要慌，链接文末已给出）。如果你在阅读本文后觉得恍然大悟，原来 RxJava 操作符是这么回事，那么我的愿望也就达到了。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/57036-4a1585f97c9876a4.png" alt="然而我并不发车"></p>
-<h2 id="编程语言包含多种编程范式"><a href="#编程语言包含多种编程范式" class="headerlink" title="编程语言包含多种编程范式"></a>编程语言包含多种编程范式</h2><p>我对操作符本质的顿悟，始于我对编程语言的理解。和你一样，我是做安卓开发，但有一天，我决定跳出 Java，从整个计算机科学的角度来学习和理解编程语言的本质，在这过程中，我接触了“编程范式”这个概念，了解到原来每个编程语言大都包含多种编程范式。</p>
-<p>常见的编程范式有：命令式编程、声明式编程等。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/57036-d09589d947e65251.png" alt="编程范式"></p>
-<p>以 Java 为例，咱们 Java 最主要的编程范式是命令式编程。命令式编程 即按顺序执行具体的命令，这些命令<strong>不仅交待了做什么，还详细交待了每一步怎么做</strong>。</p>
-<p>SQL 也是种编程语言，是一种典型的声明式编程。声明式编程的特点是，<strong>只交待做什么，但无须交待怎么做</strong>。</p>
-<h2 id="操作符的本质是声明式编程"><a href="#操作符的本质是声明式编程" class="headerlink" title="操作符的本质是声明式编程"></a>操作符的本质是声明式编程</h2><p>下面回到我们最初的问题上来。你之所以用不惯 RxJava 操作符，是因为你习惯性地使用命令式编程思维 来理解实际上是声明式编程的操作符。<br>学习操作符，就和你在大学里接受的 SQL 语句一样理所当然。</p>
-<p>SQL 你是理解的，就是按一定的规则，向数据库中的数据声明你要做什么。<br><img src="https://upload-images.jianshu.io/upload_images/57036-da21d86723997dd8.png" alt="SQL代码示例"></p>
-<p>同理，RxJava 也是按一定的规则，向数据流声明你要做什么。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/57036-4dd92d6d426660d5.png" alt="操作符伪代码示例"></p>
-<p>转换成代码，便成为以下这样。</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Observable.just(<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">7</span>, <span class="hljs-number">9</span>)</span><br><span class="line">    .map(i -&gt; i + <span class="hljs-number">1</span>)</span><br><span class="line">    .filter(i -&gt; i &lt; <span class="hljs-number">5</span>)</span><br><span class="line">    .subscribe(getObserve());</span><br></pre></td></tr></table></figure>
-<p>这样说，你理解了吗？</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/57036-3e15111b4263be48.png" alt="请点赞 ~"></p>
-<blockquote>
-<p>全套操作符示例代码<br><a href="https://github.com/KunMinX/RxJava2-Operators-Sample" target="_blank" rel="noopener">https://github.com/KunMinX/RxJava2-Operators-Sample</a></p>
-</blockquote>
-
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>高能预警：本文有一点长，建议收藏后再看。</p>
+<p>以下你就可以看到，一位单枪匹马的帅哥，是如何以一己之力，重构整座“屎山”的。</p>
+<p>这位帅哥一直在徘徊，本文到底该写给谁看？是只在乎写功能的码农吗？不了不了，码农若真的有心</p>
         </div>
         
-        <div class="level is-size-7 is-uppercase">
+        
+        <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/RxJava/">RxJava</a>, <a class="has-link-grey -link" href="/tags/解决困扰/">解决困扰</a>
+                <a class="button is-size-7 is-light" href="/2018/10/21/Android：你还在等那个，手把手带你重构的人出现吗？/#more">Read More</a>
                 </div>
             </div>
         </div>
         
         
-        
     </div>
 </div>
 
 
 
-<div class="card">
-    <div class="card-content">
-        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
-        <div class="buttons is-centered">
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2018-09-30T09:00:41.000Z">2018-09-30</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Architecture/">Architecture</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    11 minutes read (About 1702 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                
-<a class="button is-success donate">
-    <span class="icon is-small">
-        <i class="fab fa-weixin"></i>
-    </span>
-    <span>Wechat</span>
-    <div class="qrcode"><img src="https://upload-images.jianshu.io/upload_images/57036-dc3af94a5daf478c.jpg" alt="Wechat"></div>
-</a>
-
-                
+                <a class="has-link-black-ter" href="/2018/09/30/Android：这是一个高级工程师的国庆充电规划/">Android：这是一个高级工程师的国庆充电规划</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前不久刚结束对 20 模块项目的第 3 轮重构，一路见证 MVC、MVP、Clean 的优缺点并形成自己的体会。</p>
+<p>近期在总结工作经验的同时，开始写博客。</p>
+<p>之所以将规划放出来，一来是总结的过程中已经形成底稿，不如和大家一块分享，各抒己见。二来粘贴布告，能有效督促自己执行。</p>
+<p><a href="https://www.jianshu.com/p/0748c3ee1368" target="_blank" rel="noopener">Viabus 架构</a> 的开源就是因为有一天，和同事聊着聊着说要开源，结果就真的就做了。</p>
         </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2018/09/30/Android：这是一个高级工程师的国庆充电规划/#more">Read More</a>
+                </div>
+            </div>
+        </div>
+        
+        
     </div>
 </div>
 
 
 
-<div class="card card-transparent">
-    <div class="level post-navigation is-flex-wrap is-mobile">
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/04/25/这样理解，你也能在 30 秒内讲明白 TCP 三次握手/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">这样理解，你也能在 30 秒内讲明白 TCP 三次握手</span>
-            </a>
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2018-09-25T15:00:41.000Z">2018-09-25</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Architecture/">Architecture</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    15 minutes read (About 2302 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2018/09/25/Android：四大架构的优缺点，你真的了解吗？/">Android：四大架构的优缺点，你真的了解吗？</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>你准备好了吗？本次列车开往 <a href="https://juejin.im/post/5bcd58b6e51d45404c71d23f" target="_blank" rel="noopener">“重构”</a> 之巅，时速 900km/s。风太大听不见，但我就是可以很简单很直的，给你讲述事物本质和解决方案！⚡</p>
         </div>
         
         
-        <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2018/10/21/Android：你还在等那个，手把手带你重构的人出现吗？/">
-                <span class="level-item">Android：你还在等那个，手把手带你重构的人出现吗？</span>
-                <i class="level-item fas fa-chevron-right"></i>
-            </a>
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2018/09/25/Android：四大架构的优缺点，你真的了解吗？/#more">Read More</a>
+                </div>
+            </div>
         </div>
+        
         
     </div>
 </div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2018-09-25T13:00:41.000Z">2018-09-25</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Architecture/">Architecture</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3 minutes read (About 477 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2018/09/25/Android：1分钟掌握 ViaBus 架构的使用/">Android：1分钟掌握 ViaBus 架构的使用</a>
+            
+        </h1>
+        <div class="content">
+            <p><img src="https://upload-images.jianshu.io/upload_images/57036-8c5db4c735ca0880.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="viabus_flow_flow.png"></p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2018/09/25/Android：1分钟掌握 ViaBus 架构的使用/#more">Read More</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2018-09-25T11:00:41.000Z">2018-09-25</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Architecture/">Architecture</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    4 minutes read (About 596 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2018/09/25/Android：Viabus - 年轻人的第一款架构/">Android：Viabus - 年轻人的第一款架构</a>
+            
+        </h1>
+        <div class="content">
+            <p><img src="https://upload-images.jianshu.io/upload_images/57036-ff9c68e1237509de.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2018/09/25/Android：Viabus - 年轻人的第一款架构/#more">Read More</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
 
 
 </div>
@@ -877,7 +1035,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="你用不惯 RxJava，只因缺了这把钥匙" height="28">
+                    <img src="/images/logo.svg" alt="KunMinX 的个人博客" height="28">
                 
                 </a>
                 <p class="is-size-7">

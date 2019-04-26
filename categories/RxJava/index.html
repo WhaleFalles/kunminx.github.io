@@ -2,24 +2,20 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>你用不惯 RxJava，只因缺了这把钥匙 - KunMinX 的个人博客</title>
+<title>Category: RxJava - KunMinX 的个人博客</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="前言本文最初是为部门内部培训而准备的，但经过一番调研发现，同事们用不惯 RxJava，并不是因为网上介绍 “怎么用” 的教程不够多，恰恰是因为，一上来就急着发车的教程无数、却从未有过哪篇教程 舍得用几句话的功夫点破 RxJava 操作符究竟为何方神圣、我们为什么要用、为什么要那样用。">
-<meta name="keywords" content="解决困扰,RxJava">
-<meta property="og:type" content="article">
-<meta property="og:title" content="你用不惯 RxJava，只因缺了这把钥匙">
-<meta property="og:url" content="https://kunminx.github.io/2019/04/18/你用不惯 RxJava，只因缺了这把钥匙/index.html">
+    <meta name="keywords" content="KunMinX">
+<meta property="og:type" content="website">
+<meta property="og:title" content="KunMinX 的个人博客">
+<meta property="og:url" content="https://kunminx.github.io/categories/RxJava/index.html">
 <meta property="og:site_name" content="KunMinX 的个人博客">
-<meta property="og:description" content="前言本文最初是为部门内部培训而准备的，但经过一番调研发现，同事们用不惯 RxJava，并不是因为网上介绍 “怎么用” 的教程不够多，恰恰是因为，一上来就急着发车的教程无数、却从未有过哪篇教程 舍得用几句话的功夫点破 RxJava 操作符究竟为何方神圣、我们为什么要用、为什么要那样用。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://kunminx.github.io/images/og_image.png">
-<meta property="og:updated_time" content="2019-04-26T01:13:27.935Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="你用不惯 RxJava，只因缺了这把钥匙">
-<meta name="twitter:description" content="前言本文最初是为部门内部培训而准备的，但经过一番调研发现，同事们用不惯 RxJava，并不是因为网上介绍 “怎么用” 的教程不够多，恰恰是因为，一上来就急着发车的教程无数、却从未有过哪篇教程 舍得用几句话的功夫点破 RxJava 操作符究竟为何方神圣、我们为什么要用、为什么要那样用。">
+<meta name="twitter:title" content="KunMinX 的个人博客">
 <meta name="twitter:image" content="https://kunminx.github.io/images/og_image.png">
 
 
@@ -94,7 +90,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="你用不惯 RxJava，只因缺了这把钥匙" height="28">
+                <img src="/images/logo.svg" alt="KunMinX 的个人博客" height="28">
             
             </a>
         </div>
@@ -140,6 +136,18 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    <div class="card-content">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="/categories">Categories</a></li>
+            
+            <li class="is-active"><a href="#" aria-current="page">RxJava</a></li>
+        </ul>
+        </nav>
+    </div>
+</div>
+
+    <div class="card">
     
     <div class="card-content article ">
         
@@ -164,94 +172,32 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                你用不惯 RxJava，只因缺了这把钥匙
+                <a class="has-link-black-ter" href="/2019/04/18/你用不惯 RxJava，只因缺了这把钥匙/">你用不惯 RxJava，只因缺了这把钥匙</a>
             
         </h1>
         <div class="content">
             <p><img src="https://upload-images.jianshu.io/upload_images/57036-a656f3cb7ab534cd.jpg" alt></p>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文最初是为部门内部培训而准备的，但经过一番调研发现，同事们用不惯 RxJava，并不是因为网上介绍 “怎么用” 的教程不够多，恰恰是因为，一上来就急着发车的教程无数、却从未有过哪篇教程 <strong>舍得用几句话的功夫点破 RxJava 操作符究竟为何方神圣</strong>、我们为什么要用、为什么要那样用。</p>
-<a id="more"></a>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Observable.just(<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">7</span>, <span class="hljs-number">9</span>)</span><br><span class="line">    .map(i -&gt; i + <span class="hljs-number">1</span>)</span><br><span class="line">    .filter(i -&gt; i &lt; <span class="hljs-number">5</span>)</span><br><span class="line">    .subscribe(getObserve());</span><br></pre></td></tr></table></figure>
-<p>事实上，在相当长的一段时间里，我也和大部分人一样，只知道使用 RxJava 来完成异步回调，至于那些操作符，则是能不用尽量不用，因为不知道葫芦里卖的什么药，看不懂、不会用。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/57036-a20c7618a0416530.png" alt="RxJava三连"></p>
-<p>因此，本文的初衷绝不是翻译官方文档、教大家怎么用，而是旨在帮助大家对 RxJava 操作符 <strong>完成感性上的认识</strong>。鉴于本次培训的效果还不错、同事们听了都说好，我便在 GitHub 开源了全套操作符示例代码（不要慌，链接文末已给出）。如果你在阅读本文后觉得恍然大悟，原来 RxJava 操作符是这么回事，那么我的愿望也就达到了。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/57036-4a1585f97c9876a4.png" alt="然而我并不发车"></p>
-<h2 id="编程语言包含多种编程范式"><a href="#编程语言包含多种编程范式" class="headerlink" title="编程语言包含多种编程范式"></a>编程语言包含多种编程范式</h2><p>我对操作符本质的顿悟，始于我对编程语言的理解。和你一样，我是做安卓开发，但有一天，我决定跳出 Java，从整个计算机科学的角度来学习和理解编程语言的本质，在这过程中，我接触了“编程范式”这个概念，了解到原来每个编程语言大都包含多种编程范式。</p>
-<p>常见的编程范式有：命令式编程、声明式编程等。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/57036-d09589d947e65251.png" alt="编程范式"></p>
-<p>以 Java 为例，咱们 Java 最主要的编程范式是命令式编程。命令式编程 即按顺序执行具体的命令，这些命令<strong>不仅交待了做什么，还详细交待了每一步怎么做</strong>。</p>
-<p>SQL 也是种编程语言，是一种典型的声明式编程。声明式编程的特点是，<strong>只交待做什么，但无须交待怎么做</strong>。</p>
-<h2 id="操作符的本质是声明式编程"><a href="#操作符的本质是声明式编程" class="headerlink" title="操作符的本质是声明式编程"></a>操作符的本质是声明式编程</h2><p>下面回到我们最初的问题上来。你之所以用不惯 RxJava 操作符，是因为你习惯性地使用命令式编程思维 来理解实际上是声明式编程的操作符。<br>学习操作符，就和你在大学里接受的 SQL 语句一样理所当然。</p>
-<p>SQL 你是理解的，就是按一定的规则，向数据库中的数据声明你要做什么。<br><img src="https://upload-images.jianshu.io/upload_images/57036-da21d86723997dd8.png" alt="SQL代码示例"></p>
-<p>同理，RxJava 也是按一定的规则，向数据流声明你要做什么。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/57036-4dd92d6d426660d5.png" alt="操作符伪代码示例"></p>
-<p>转换成代码，便成为以下这样。</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Observable.just(<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">7</span>, <span class="hljs-number">9</span>)</span><br><span class="line">    .map(i -&gt; i + <span class="hljs-number">1</span>)</span><br><span class="line">    .filter(i -&gt; i &lt; <span class="hljs-number">5</span>)</span><br><span class="line">    .subscribe(getObserve());</span><br></pre></td></tr></table></figure>
-<p>这样说，你理解了吗？</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/57036-3e15111b4263be48.png" alt="请点赞 ~"></p>
-<blockquote>
-<p>全套操作符示例代码<br><a href="https://github.com/KunMinX/RxJava2-Operators-Sample" target="_blank" rel="noopener">https://github.com/KunMinX/RxJava2-Operators-Sample</a></p>
-</blockquote>
-
         </div>
         
-        <div class="level is-size-7 is-uppercase">
+        
+        <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/RxJava/">RxJava</a>, <a class="has-link-grey -link" href="/tags/解决困扰/">解决困扰</a>
+                <a class="button is-size-7 is-light" href="/2019/04/18/你用不惯 RxJava，只因缺了这把钥匙/#more">Read More</a>
                 </div>
             </div>
         </div>
         
         
-        
     </div>
 </div>
 
 
 
-<div class="card">
-    <div class="card-content">
-        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
-        <div class="buttons is-centered">
-            
-                
-<a class="button is-success donate">
-    <span class="icon is-small">
-        <i class="fab fa-weixin"></i>
-    </span>
-    <span>Wechat</span>
-    <div class="qrcode"><img src="https://upload-images.jianshu.io/upload_images/57036-dc3af94a5daf478c.jpg" alt="Wechat"></div>
-</a>
-
-                
-        </div>
-    </div>
-</div>
 
 
 
-<div class="card card-transparent">
-    <div class="level post-navigation is-flex-wrap is-mobile">
-        
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/04/25/这样理解，你也能在 30 秒内讲明白 TCP 三次握手/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">这样理解，你也能在 30 秒内讲明白 TCP 三次握手</span>
-            </a>
-        </div>
-        
-        
-        <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2018/10/21/Android：你还在等那个，手把手带你重构的人出现吗？/">
-                <span class="level-item">Android：你还在等那个，手把手带你重构的人出现吗？</span>
-                <i class="level-item fas fa-chevron-right"></i>
-            </a>
-        </div>
-        
-    </div>
-</div>
 
 
 </div>
@@ -877,7 +823,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="你用不惯 RxJava，只因缺了这把钥匙" height="28">
+                    <img src="/images/logo.svg" alt="KunMinX 的个人博客" height="28">
                 
                 </a>
                 <p class="is-size-7">
