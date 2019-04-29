@@ -2,7 +2,7 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Tag: Web - KunMinX 的个人博客</title>
+<title>Tag: 项目推荐 - KunMinX 的个人博客</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
@@ -10,7 +10,7 @@
     <meta name="keywords" content="KunMinX">
 <meta property="og:type" content="website">
 <meta property="og:title" content="KunMinX 的个人博客">
-<meta property="og:url" content="https://kunminx.github.io/tags/Web/index.html">
+<meta property="og:url" content="https://kunminx.github.io/tags/项目推荐/index.html">
 <meta property="og:site_name" content="KunMinX 的个人博客">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://kunminx.github.io/images/og_image.png">
@@ -140,7 +140,7 @@
         <nav class="breadcrumb" aria-label="breadcrumbs">
         <ul>
             <li><a href="/tags">Tags</a></li>
-            <li class="is-active"><a href="#" aria-current="page">Web</a></li>
+            <li class="is-active"><a href="#" aria-current="page">项目推荐</a></li>
         </ul>
         </nav>
     </div>
@@ -152,17 +152,17 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-04-25T06:55:05.000Z">2019-04-25</time>
+                <time class="level-item has-text-grey" datetime="2019-04-29T07:24:45.000Z">2019-04-29</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Web/">Web</a>
+                <a class="has-link-grey -link" href="/categories/RxJava/">RxJava</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    10 minutes read (About 1552 words)
+                    5 minutes read (About 774 words)
                 </span>
                 
                 
@@ -171,19 +171,104 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/04/25/这样理解，你也能在 30 秒内讲明白 TCP 三次握手/">这样理解，你也能在 30 秒内讲明白 TCP 三次握手</a>
+                <a class="has-link-black-ter" href="/2019/04/29/Rx钥匙：为无聊而生的 Android 开发者工具/">Rx钥匙：为无聊而生的 Android 开发者工具</a>
             
         </h1>
         <div class="content">
-            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>某四年经验的同事，去一家包括老板在内总人数只有 13 人的创业团队，面试一份 <strong>移动端技术经理</strong> 的职位。开始聊得还挺好的，涉及的不外乎何时何地项目上解决了哪些用户痛点、开发过程中遇到过哪些问题、怎么看待和诊断遇到过的问题、有没有业余的开源项目等等。</p>
-<p>毕竟四年老手，面试前也有些准备，轻松地就答复了前面这些疑问，只是没想到，面试官最后抛出这样一个问题，把同事给难住了：如何用 30 秒给新手讲明白 TCP 三次握手？</p>
+            <p><img src="https://user-gold-cdn.xitu.io/2019/4/29/16a67c5328707335?w=1472&amp;h=801&amp;f=jpeg&amp;s=238694" alt></p>
+<p>很高兴和大家见面！</p>
+<p>缘于 4 月中旬，我在掘金发表的 <a href="https://juejin.im/post/5cb82a42e51d456e62545ac6" target="_blank" rel="noopener">《你用不惯 RxJava，只因缺了这把钥匙》</a> （以下简称 “Rx钥匙” ）。</p>
+<p>原本目标只是给大家一把钥匙，方便大家意会 RxJava 操作符的本质，想不到在后台收到 40 多条留言。</p>
+<p>有的读者因为豁然开朗而喜出望外，不吝留下夸张的赞美；也有读者觉得意犹未尽，表达了对见证更多的愿望。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/57036-0c2e1cc89253dc22.png" alt></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/57036-ed92fc17cc7284e6.png" alt></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/57036-f960ade1565fa041.png" alt></p>
+<p>从留言中，我看到了热心网友们对 Rx钥匙 的期待 和 各自内心世界的丰富多彩，这些期待甚至远远超出了 Rx钥匙 本身，期望它是一把能够解决无聊、带给自己更多的 魔法棒。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/4/25/16a53611f80f218d?w=330&amp;h=285&amp;f=png&amp;s=99624" alt></p>
+<p>再加上，我自己也因为 <strong>“拿 SQL 来隐喻操作符”</strong> 的那番见解，而心生灵感：</p>
+<p>不如做一件史上最无聊的事吧 —— <strong>像设计师一样将每个像素都抠到极致，像工程师一样将工程设计模式和原则应用到每一个功能的编写，用无聊的方式来对抗无聊</strong> —— 这是一款为无聊而生的面向 Android 开发者的操作符练习工具。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Add Operators</th>
+<th style="text-align:center">Output Code</th>
+<th style="text-align:center">Clear Expressions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="https://user-gold-cdn.xitu.io/2019/4/29/16a67c5327b2bae4?w=374&amp;h=666&amp;f=gif&amp;s=1085552" alt></td>
+<td style="text-align:center"><img src="https://user-gold-cdn.xitu.io/2019/4/29/16a67c53289e5af2?w=374&amp;h=666&amp;f=gif&amp;s=477115" alt></td>
+<td style="text-align:center"><img src="https://user-gold-cdn.xitu.io/2019/4/29/16a67c532882840a?w=374&amp;h=666&amp;f=gif&amp;s=273763" alt></td>
+</tr>
+</tbody>
+</table>
+<p>除了提供 “解决无聊” 这一最核心功能之外，你还可以从这个开源项目获得的内容包括：</p>
+<ol>
+<li>整洁的代码风格和标准的资源命名规范。</li>
+<li>基于前沿的、遵循关注点分离的 JetPack MVVM 架构。</li>
+<li>使用 RxJava 和 lambda 表达式。</li>
+<li>AndroidX 和 Material Design 2 的全面使用。</li>
+<li>ConstraintLayout 约束布局的最佳实践。</li>
+<li>为提升手机桌面的逼格做贡献，让知识与美观并存，即使从不打开。</li>
+<li>绝不使用 Dagger，绝不使用奇技淫巧、编写艰深晦涩的代码。</li>
+<li>长期更新。</li>
+</ol>
+<p>如你所见，Rx钥匙的界面效果大体已经出来了，我的目标是，将首页先打磨好，这样 Rx钥匙 的 Apk 最快可能下周就能正式和大家见面了。</p>
+<p>鉴于目前在 RxJava 表达式的书写上存有一些字符联想上的小问题，如果你对此十分熟悉，请不吝参与进来，这个项目会因为你的参与而变得更好！</p>
+<p>项目链接：<br><a href="https://github.com/KunMinX/RxJava2-Operators-Sample" target="_blank" rel="noopener">https://github.com/KunMinX/RxJava2-Operators-Sample</a></p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2018-09-25T11:00:41.000Z">2018-09-25</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Architecture/">Architecture</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    4 minutes read (About 590 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2018/09/25/Android：Viabus - 年轻人的第一款架构/">Android：Viabus - 年轻人的第一款架构</a>
+            
+        </h1>
+        <div class="content">
+            <p><img src="https://upload-images.jianshu.io/upload_images/57036-ff9c68e1237509de.png" alt></p>
         </div>
         
         
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/04/25/这样理解，你也能在 30 秒内讲明白 TCP 三次握手/#more">Read More</a>
+                <a class="button is-size-7 is-light" href="/2018/09/25/Android：Viabus - 年轻人的第一款架构/#more">Read More</a>
                 </div>
             </div>
         </div>

@@ -16,7 +16,7 @@
 <meta property="og:description" content="前言本文最初是为部门内部培训而准备的，但经过一番调研发现，同事们用不惯 RxJava，并不是因为网上介绍 “怎么用” 的教程不够多，恰恰是因为，一上来就急着发车的教程无数、却从未有过哪篇教程 舍得用几句话的功夫点破 RxJava 操作符究竟为何方神圣、我们为什么要用、为什么要那样用。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://kunminx.github.io/images/og_image.png">
-<meta property="og:updated_time" content="2019-04-28T10:55:21.450Z">
+<meta property="og:updated_time" content="2019-04-29T07:23:28.387Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="你用不惯 RxJava，只因缺了这把钥匙">
 <meta name="twitter:description" content="前言本文最初是为部门内部培训而准备的，但经过一番调研发现，同事们用不惯 RxJava，并不是因为网上介绍 “怎么用” 的教程不够多，恰恰是因为，一上来就急着发车的教程无数、却从未有过哪篇教程 舍得用几句话的功夫点破 RxJava 操作符究竟为何方神圣、我们为什么要用、为什么要那样用。">
@@ -155,7 +155,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    6 minutes read (About 943 words)
+                    6 minutes read (About 930 words)
                 </span>
                 
                 
@@ -168,8 +168,7 @@
             
         </h1>
         <div class="content">
-            <p><img src="https://upload-images.jianshu.io/upload_images/57036-a656f3cb7ab534cd.jpg" alt></p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文最初是为部门内部培训而准备的，但经过一番调研发现，同事们用不惯 RxJava，并不是因为网上介绍 “怎么用” 的教程不够多，恰恰是因为，一上来就急着发车的教程无数、却从未有过哪篇教程 <strong>舍得用几句话的功夫点破 RxJava 操作符究竟为何方神圣</strong>、我们为什么要用、为什么要那样用。</p>
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文最初是为部门内部培训而准备的，但经过一番调研发现，同事们用不惯 RxJava，并不是因为网上介绍 “怎么用” 的教程不够多，恰恰是因为，一上来就急着发车的教程无数、却从未有过哪篇教程 <strong>舍得用几句话的功夫点破 RxJava 操作符究竟为何方神圣</strong>、我们为什么要用、为什么要那样用。</p>
 <a id="more"></a>
 <figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Observable.just(<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">7</span>, <span class="hljs-number">9</span>)</span><br><span class="line">    .map(i -&gt; i + <span class="hljs-number">1</span>)</span><br><span class="line">    .filter(i -&gt; i &lt; <span class="hljs-number">5</span>)</span><br><span class="line">    .subscribe(getObserve());</span><br></pre></td></tr></table></figure>
 <p>事实上，在相当长的一段时间里，我也和大部分人一样，只知道使用 RxJava 来完成异步回调，至于那些操作符，则是能不用尽量不用，因为不知道葫芦里卖的什么药，看不懂、不会用。</p>
@@ -182,7 +181,8 @@
 <p>以 Java 为例，咱们 Java 最主要的编程范式是命令式编程。命令式编程 即按顺序执行具体的命令，这些命令<strong>不仅交待了做什么，还详细交待了每一步怎么做</strong>。</p>
 <p>SQL 也是种编程语言，是一种典型的声明式编程。声明式编程的特点是，<strong>只交待做什么，但无须交待怎么做</strong>。</p>
 <h2 id="操作符的本质是声明式编程"><a href="#操作符的本质是声明式编程" class="headerlink" title="操作符的本质是声明式编程"></a>操作符的本质是声明式编程</h2><p>下面回到我们最初的问题上来。你之所以用不惯 RxJava 操作符，是因为你习惯性地使用命令式编程思维 来理解实际上是声明式编程的操作符。<br>学习操作符，就和你在大学里接受的 SQL 语句一样理所当然。</p>
-<p>SQL 你是理解的，就是按一定的规则，向数据库中的数据声明你要做什么。<br><img src="https://upload-images.jianshu.io/upload_images/57036-da21d86723997dd8.png" alt="SQL代码示例"></p>
+<p>SQL 你是理解的，就是按一定的规则，向数据库中的数据声明你要做什么。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/57036-da21d86723997dd8.png" alt="SQL代码示例"></p>
 <p>同理，RxJava 也是按一定的规则，向数据流声明你要做什么。</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/57036-4dd92d6d426660d5.png" alt="操作符伪代码示例"></p>
 <p>转换成代码，便成为以下这样。</p>
@@ -299,7 +299,7 @@
                         Posts
                     </p>
                     <p class="title has-text-weight-normal">
-                        7
+                        8
                     </p>
                 </div>
             </div>
@@ -319,7 +319,7 @@
                         Tags
                     </p>
                     <p class="title has-text-weight-normal">
-                        5
+                        6
                     </p>
                 </div>
             </div>
@@ -424,7 +424,7 @@
                 <span class="level-item">RxJava</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">1</span>
+                <span class="level-item tag">2</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Web/">
@@ -446,7 +446,7 @@
         <h3 class="menu-label">
             Tag Cloud
         </h3>
-        <a href="/tags/AAC/" style="font-size: 10px;">AAC</a> <a href="/tags/RxJava/" style="font-size: 10px;">RxJava</a> <a href="/tags/ViaBus/" style="font-size: 20px;">ViaBus</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/深度思考/" style="font-size: 15px;">深度思考</a>
+        <a href="/tags/AAC/" style="font-size: 10px;">AAC</a> <a href="/tags/RxJava/" style="font-size: 13.33px;">RxJava</a> <a href="/tags/ViaBus/" style="font-size: 20px;">ViaBus</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/深度思考/" style="font-size: 16.67px;">深度思考</a> <a href="/tags/项目推荐/" style="font-size: 13.33px;">项目推荐</a>
     </div>
 </div>
 
@@ -460,6 +460,25 @@
         <h3 class="menu-label">
             Recent
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/04/29/Rx钥匙：为无聊而生的 Android 开发者工具/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Rx钥匙：为无聊而生的 Android 开发者工具">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-29T07:24:45.000Z">2019-04-29</time></div>
+                    <a href="/2019/04/29/Rx钥匙：为无聊而生的 Android 开发者工具/" class="has-link-black-ter is-size-6">Rx钥匙：为无聊而生的 Android 开发者工具</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/RxJava/">RxJava</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -537,25 +556,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2018/09/25/Android：四大架构的优缺点，你真的了解吗？/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Android：四大架构的优缺点，你真的了解吗？">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-09-25T15:00:41.000Z">2018-09-25</time></div>
-                    <a href="/2018/09/25/Android：四大架构的优缺点，你真的了解吗？/" class="has-link-black-ter is-size-6">Android：四大架构的优缺点，你真的了解吗？</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Architecture/">Architecture</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -574,7 +574,7 @@
                     <span class="level-item">April 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">2</span>
+                    <span class="level-item tag">3</span>
                 </span>
             </a>
         </li>
@@ -624,7 +624,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/RxJava/">
                         <span class="tag">RxJava</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
@@ -646,6 +646,13 @@
                     <a class="tags has-addons" href="/tags/深度思考/">
                         <span class="tag">深度思考</span>
                         <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/项目推荐/">
+                        <span class="tag">项目推荐</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
@@ -674,6 +681,25 @@
         
         <article class="media">
             
+            <a href="/2019/04/29/Rx钥匙：为无聊而生的 Android 开发者工具/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Rx钥匙：为无聊而生的 Android 开发者工具">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-29T07:24:45.000Z">2019-04-29</time></div>
+                    <a href="/2019/04/29/Rx钥匙：为无聊而生的 Android 开发者工具/" class="has-link-black-ter is-size-6">Rx钥匙：为无聊而生的 Android 开发者工具</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/RxJava/">RxJava</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/04/25/这样理解，你也能在 30 秒内讲明白 TCP 三次握手/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="这样理解，你也能在 30 秒内讲明白 TCP 三次握手">
@@ -748,25 +774,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2018/09/25/Android：四大架构的优缺点，你真的了解吗？/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Android：四大架构的优缺点，你真的了解吗？">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-09-25T15:00:41.000Z">2018-09-25</time></div>
-                    <a href="/2018/09/25/Android：四大架构的优缺点，你真的了解吗？/" class="has-link-black-ter is-size-6">Android：四大架构的优缺点，你真的了解吗？</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Architecture/">Architecture</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -785,7 +792,7 @@
                     <span class="level-item">April 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">2</span>
+                    <span class="level-item tag">3</span>
                 </span>
             </a>
         </li>
@@ -835,7 +842,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/RxJava/">
                         <span class="tag">RxJava</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
@@ -857,6 +864,13 @@
                     <a class="tags has-addons" href="/tags/深度思考/">
                         <span class="tag">深度思考</span>
                         <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/项目推荐/">
+                        <span class="tag">项目推荐</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
