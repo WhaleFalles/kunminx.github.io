@@ -16,7 +16,7 @@
 <meta property="og:description" content="前言你准备好了吗？本次列车开往 “重构” 之巅，时速 900km/s。风太大听不见，但我就是可以很简单很直的，给你讲述事物本质和解决方案！⚡">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://kunminx.github.io/images/og_image.png">
-<meta property="og:updated_time" content="2019-04-28T10:55:36.059Z">
+<meta property="og:updated_time" content="2019-05-13T08:50:59.942Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android：四大架构的优缺点，你真的了解吗？">
 <meta name="twitter:description" content="前言你准备好了吗？本次列车开往 “重构” 之巅，时速 900km/s。风太大听不见，但我就是可以很简单很直的，给你讲述事物本质和解决方案！⚡">
@@ -155,7 +155,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    15 minutes read (About 2302 words)
+                    15 minutes read (About 2293 words)
                 </span>
                 
                 
@@ -232,7 +232,7 @@
 <p>你完全可以将其理解为 B/S 架构：由 Web 前端向 Web 后端发送了数据请求，后端在处理完毕后响应结果数据给前端，前端再依据需求处理 UI 逻辑。等于说， <strong>AAC 将业务完全压到了 “数据仓库层”</strong>。</p>
 <h2 id="某“解耦分离”架构的由来及特点"><a href="#某“解耦分离”架构的由来及特点" class="headerlink" title="某“解耦分离”架构的由来及特点"></a>某“解耦分离”架构的由来及特点</h2><p>公司项目的第三轮重构采用的是 Clean 架构，而我在业余时间又设计了一款“实现 UI 和业务分离”的某架构，于是向主管申请了 1 周时间，利用“某架构”将 60 个类的核心模块重构了一遍。（不要慌，该架构已开源，文末链接给出）。</p>
 <p>该架构属于“消息驱动编程”，即借助“总线”来转发数据的请求和响应，实现 UI 和 业务的分离。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/57036-ef3ea5e5651b9e90.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="viabus_flow_flow_detail.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/57036-8a4ca215619317b1.png" alt="viabus_flow_cn.png"></p>
 <p>不同于以往的架构，该架构明确界定了什么是 UI，什么是业务。</p>
 <p>UI 的作用是视觉交互，<strong>UI 的职责范围仅限于请求数据和处理 UI 逻辑</strong> 。业务的作用是供应数据，<strong>业务的职责范围仅限于接收请求、处理数据、返回结果数据</strong> 。</p>
 <p>你看，就像前后端分离一样，UI 和业务，可以分别交由不同的人分工合作：</p>

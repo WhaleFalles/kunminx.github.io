@@ -16,7 +16,7 @@
 <meta property="og:description" content="前言高能预警：本文有一点长，建议收藏后再看。 以下你就可以看到，一位单枪匹马的帅哥，是如何以一己之力，重构整座“屎山”的。 这位帅哥一直在徘徊，本文到底该写给谁看？是只在乎写功能的码农吗？不了不了，码农若真的有心">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://kunminx.github.io/images/og_image.png">
-<meta property="og:updated_time" content="2019-04-28T10:55:41.087Z">
+<meta property="og:updated_time" content="2019-05-13T08:50:36.192Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android：你还在等那个，手把手带你重构的人出现吗？">
 <meta name="twitter:description" content="前言高能预警：本文有一点长，建议收藏后再看。 以下你就可以看到，一位单枪匹马的帅哥，是如何以一己之力，重构整座“屎山”的。 这位帅哥一直在徘徊，本文到底该写给谁看？是只在乎写功能的码农吗？不了不了，码农若真的有心">
@@ -155,7 +155,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    20 minutes read (About 2937 words)
+                    20 minutes read (About 2930 words)
                 </span>
                 
                 
@@ -203,7 +203,7 @@
 <h1 id="到底怎样才算解耦"><a href="#到底怎样才算解耦" class="headerlink" title="到底怎样才算解耦"></a>到底怎样才算解耦</h1><p>所谓解耦，是符合工程设计、符合设计模式原则的编码。</p>
 <p>解耦的本质，我只说一遍：</p>
 <p><strong>职责边界明确，职责边界明确，职责边界明确。</strong></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/57036-8c5db4c735ca0880.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="viabus_flow_flow.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/57036-8a4ca215619317b1.png" alt="viabus_flow_cn.png"></p>
 <p><strong>符合单一职责原则：</strong><br>UI 的职责仅限于“展示”，也就是发送请求、处理 UI 逻辑。业务的职责仅限于“提供数据”，也就是接收请求、处理业务逻辑、响应结果数据。</p>
 <p><strong>符合依赖倒置原则、最小知识原则：</strong><br>UI 不需要知道数据是经过怎样的周转得来的，它只需发送请求，并在拿到结果数据后，自己内部消化 UI 逻辑。业务只需处理数据并响应数据给 UI，它不需要知道 UI 会怎样使用数据，更无权干预。</p>
 <p>综上，无论是 UI 还是业务，都不应过度暴露内部逻辑 API 而受控于人，<strong>它们应只暴露请求 API，来响应外部的请求。过程逻辑应只在自己内部独立消化</strong>。</p>
