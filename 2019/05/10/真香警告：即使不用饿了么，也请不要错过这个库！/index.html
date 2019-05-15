@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+<title>真香警告：即使不用饿了么订餐，也请务必收藏好该库！ - KunMinX 的个人博客</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <meta name="description" content="由来LinkageRecyclerView 是一款基于 MVP 架构开发的二级联动列表控件。它是因 “RxJava 魔法师” 这个项目的需求而存在。 在最初寻遍了 GitHub 也没有找到合适的开源库（高度解耦、可远程依赖）之后，我决心研究参考现有开源项目关于二级联动的逻辑，并自己动手编写一个 高度解耦、轻松配置、可通过 Maven 仓库远程依赖 的真正的第三方库。 LinkageRecycler">
+<meta name="keywords" content="Linkage,RecyclerView">
+<meta property="og:type" content="article">
+<meta property="og:title" content="真香警告：即使不用饿了么订餐，也请务必收藏好该库！">
+<meta property="og:url" content="https://kunminx.github.io/2019/05/10/真香警告：即使不用饿了么，也请不要错过这个库！/index.html">
+<meta property="og:site_name" content="KunMinX 的个人博客">
+<meta property="og:description" content="由来LinkageRecyclerView 是一款基于 MVP 架构开发的二级联动列表控件。它是因 “RxJava 魔法师” 这个项目的需求而存在。 在最初寻遍了 GitHub 也没有找到合适的开源库（高度解耦、可远程依赖）之后，我决心研究参考现有开源项目关于二级联动的逻辑，并自己动手编写一个 高度解耦、轻松配置、可通过 Maven 仓库远程依赖 的真正的第三方库。 LinkageRecycler">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://kunminx.github.io/images/og_image.png">
+<meta property="og:updated_time" content="2019-05-15T06:08:03.086Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="真香警告：即使不用饿了么订餐，也请务必收藏好该库！">
+<meta name="twitter:description" content="由来LinkageRecyclerView 是一款基于 MVP 架构开发的二级联动列表控件。它是因 “RxJava 魔法师” 这个项目的需求而存在。 在最初寻遍了 GitHub 也没有找到合适的开源库（高度解耦、可远程依赖）之后，我决心研究参考现有开源项目关于二级联动的逻辑，并自己动手编写一个 高度解耦、轻松配置、可通过 Maven 仓库远程依赖 的真正的第三方库。 LinkageRecycler">
+<meta name="twitter:image" content="https://kunminx.github.io/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="真香警告：即使不用饿了么订餐，也请务必收藏好该库！" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">Home</a>
+                
+                <a class="navbar-item" href="/archives">Archives</a>
+                
+                <a class="navbar-item" href="/categories">Categories</a>
+                
+                <a class="navbar-item" href="/tags">Tags</a>
+                
+                <a class="navbar-item" href="/about">About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="GitHub" href="https://github.com/KunMinX">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catálogo" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-05-10T07:00:41.000Z">2019-05-10</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Library/">Library</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    12 minutes read (About 1726 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                真香警告：即使不用饿了么订餐，也请务必收藏好该库！
+            
+        </h1>
+        <div class="content">
+            <h3 id="由来"><a href="#由来" class="headerlink" title="由来"></a>由来</h3><p>LinkageRecyclerView 是一款基于 MVP 架构开发的二级联动列表控件。它是因 “RxJava 魔法师” 这个项目的需求而存在。</p>
+<p>在最初寻遍了 GitHub 也没有找到合适的开源库（高度解耦、可远程依赖）之后，我决心研究参考现有开源项目关于二级联动的逻辑，并自己动手编写一个 <strong>高度解耦、轻松配置、可通过 Maven 仓库远程依赖</strong> 的真正的第三方库。</p>
+<p>LinkageRecyclerView 的个性化配置十分简单，依托于 MVP 的 “配置解耦” 特性，使用者无需知道内部的实现细节，仅通过实现 Config 类即可完成功能的定制和扩展。</p>
+<p>此外，在不设置自定义配置的情况下，LinkageRecyclerView 最少只需 <strong>一行代码即可运行起来</strong>。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">RxMagic</th>
+<th style="text-align:center">Eleme Linear</th>
+<th style="text-align:center">Eleme Grid</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="https://upload-images.jianshu.io/upload_images/57036-b4d61e70b43a07bb.gif" alt="7.gif"></td>
+<td style="text-align:center"><img src="https://upload-images.jianshu.io/upload_images/57036-04b42bddcdd6cf39.gif" alt="2.gif"></td>
+<td style="text-align:center"><img src="https://upload-images.jianshu.io/upload_images/57036-ada31ea077f0144d.gif" alt="3.gif"></td>
+</tr>
+</tbody>
+</table>
+<a id="more"></a>
+<h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><p>LinkageRecyclerView 的目标是：<strong>一行代码即可接入二级联动列表</strong>。</p>
+<p>除了一键接入而省去 99% 不必要的、复杂的、重复的工作外，你还可以从这个开源项目获得的内容包括：</p>
+<ol>
+<li>整洁的代码风格和标准的资源命名规范。</li>
+<li><strong>MVP 架构在编写第三方库的最佳实践：使用者无需了解内部逻辑，通过实现接口即可轻松完成个性化配置</strong>。</li>
+<li>优秀的代码分层和封装思想，在不做任何个性化配置的情况下，一行代码即可接入。</li>
+<li>主体工程基于前沿的、遵循关注点分离的 JetPack MVVM 架构。</li>
+<li>AndroidX 和 Material Design 2 的全面使用。</li>
+<li>ConstraintLayout 约束布局的最佳实践。</li>
+<li>绝不使用 Dagger，绝不使用奇技淫巧、编写艰深晦涩的代码。</li>
+</ol>
+<p>如果你正在思考 <strong>如何为项目挑选合适的架构</strong> 的话，这个项目值得你参考！</p>
+<p>项目链接：<a href="https://github.com/KunMinX/LinkageRecyclerView" target="_blank" rel="noopener">https://github.com/KunMinX/LinkageRecyclerView</a></p>
+<h3 id="简单使用："><a href="#简单使用：" class="headerlink" title="简单使用："></a>简单使用：</h3><p>1.在 build.gradle 中添加对该库的依赖。</p>
+<figure class="highlight groovy hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">implementation <span class="hljs-string">'com.kunminx.linkage:linkage-recyclerview:1.3.5'</span></span><br></pre></td></tr></table></figure>
+<p>2.依据默认的分组实体类（DefaultGroupedItem）的结构准备一串数据（以下以 JSON 为例）。</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// DefaultGroupedItem.ItemInfo 包含三个字段：</span></span><br><span class="line">String title <span class="hljs-comment">//（必填）二级选项的标题</span></span><br><span class="line">String group <span class="hljs-comment">//（必填）二级选项所在分组的名称，要和对应的一级选项的标题相同</span></span><br><span class="line">String content <span class="hljs-comment">//（选填）二级选项的内容</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight json hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="hljs-attr">"header"</span>: <span class="hljs-string">"优惠"</span>,</span><br><span class="line">    <span class="hljs-attr">"isHeader"</span>: <span class="hljs-literal">true</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="hljs-attr">"isHeader"</span>: <span class="hljs-literal">false</span>,</span><br><span class="line">    <span class="hljs-attr">"info"</span>: &#123;</span><br><span class="line">      <span class="hljs-attr">"content"</span>: <span class="hljs-string">"好吃的食物，增肥神器，有求必应"</span>,</span><br><span class="line">      <span class="hljs-attr">"group"</span>: <span class="hljs-string">"优惠"</span>,</span><br><span class="line">      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"全家桶"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="hljs-attr">"header"</span>: <span class="hljs-string">"热卖"</span>,</span><br><span class="line">    <span class="hljs-attr">"isHeader"</span>: <span class="hljs-literal">true</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="hljs-attr">"isHeader"</span>: <span class="hljs-literal">false</span>,</span><br><span class="line">    <span class="hljs-attr">"info"</span>: &#123;</span><br><span class="line">      <span class="hljs-attr">"content"</span>: <span class="hljs-string">"爆款热卖，月销超过 999 件"</span>,</span><br><span class="line">      <span class="hljs-attr">"group"</span>: <span class="hljs-string">"热卖"</span>,</span><br><span class="line">      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"烤全翅"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>3.在布局中引入 LinkageRecyclerView 。</p>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">LinearLayout</span> </span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"match_parent"</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">android:orientation</span>=<span class="hljs-string">"vertical"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">com.kunminx.linkage.LinkageRecyclerView</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/linkage"</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"match_parent"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">LinearLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>4.在得到数据后，最少只需一行代码即可完成初始化。</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">List&lt;DefaultGroupedItem&gt; items = gson.fromJson(...);</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">//一行代码完成初始化</span></span><br><span class="line">linkage.init(items);</span><br></pre></td></tr></table></figure>
+<p>注意：如使用 JSON，请在 ProGuard Rules 中为该实体类配置混淆白名单：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-keep <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">com</span>.<span class="hljs-title">kunminx</span>.<span class="hljs-title">linkage</span>.<span class="hljs-title">bean</span>.** </span>&#123;*;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="个性化配置："><a href="#个性化配置：" class="headerlink" title="个性化配置："></a>个性化配置：</h3><p>该库为一级和二级 Adapter 分别准备了 Config 接口（<code>ILevelPrimaryAdapterConfig</code> 和 <code>ILevelSecondaryAdapterConfig</code>），<strong>自定义配置时，即是去实现这两个接口，来取代默认的配置</strong>。</p>
+<p>之所以设置成接口的形式，而非 Builder 的形式，是因为二级联动列表内部的联动逻辑需要指明关键的控件。接口相比 Builder 具有强制性，能够让使用者一目了然必须配置的内容，故而采用接口，通过 MVP 架构的方式来编写该库。</p>
+<p>关于个性化配置，具体可以参考我在 <code>ElemeGroupedItem</code> 和 <code>SwitchSampleFragment</code> 中编写的案例：</p>
+<h3 id="Step1：根据需求扩展实体类"><a href="#Step1：根据需求扩展实体类" class="headerlink" title="Step1：根据需求扩展实体类"></a>Step1：根据需求扩展实体类</h3><p>你需要根据需求，在 <code>BaseGroupedItem</code> 的基础上扩展分组实体类，具体的办法是，编写一个实体类，该实体类须继承于 <code>BaseGroupedItem</code>；该实体类的内部类 <code>ItemInfo</code> 也须继承于 <code>BaseGroupedItem.ItemInfo</code>。</p>
+<p>以 Eleme 分组实体类为例，扩充 <code>content</code>、<code>imgUrl</code>、<code>cost</code> 三个字段：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ElemeGroupedItem</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">BaseGroupedItem</span>&lt;<span class="hljs-title">ElemeGroupedItem</span>.<span class="hljs-title">ItemInfo</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ElemeGroupedItem</span><span class="hljs-params">(<span class="hljs-keyword">boolean</span> isHeader, String header)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">super</span>(isHeader, header);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ElemeGroupedItem</span><span class="hljs-params">(ItemInfo item)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">super</span>(item);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ItemInfo</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">BaseGroupedItem</span>.<span class="hljs-title">ItemInfo</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">private</span> String content;</span><br><span class="line">        <span class="hljs-keyword">private</span> String imgUrl;</span><br><span class="line">        <span class="hljs-keyword">private</span> String cost;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ItemInfo</span><span class="hljs-params">(String title, String group, String content)</span> </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">super</span>(title, group);</span><br><span class="line">            <span class="hljs-keyword">this</span>.content = content;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ItemInfo</span><span class="hljs-params">(String title, String group, String content, String imgUrl)</span> </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">this</span>(title, group, content);</span><br><span class="line">            <span class="hljs-keyword">this</span>.imgUrl = imgUrl;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ItemInfo</span><span class="hljs-params">(String title, String group, String content, String imgUrl, String cost)</span> </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">this</span>(title, group, content, imgUrl);</span><br><span class="line">            <span class="hljs-keyword">this</span>.cost = cost;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getContent</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">return</span> content;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setContent</span><span class="hljs-params">(String content)</span> </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">this</span>.content = content;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getImgUrl</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">return</span> imgUrl;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setImgUrl</span><span class="hljs-params">(String imgUrl)</span> </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">this</span>.imgUrl = imgUrl;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getCost</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">return</span> cost;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setCost</span><span class="hljs-params">(String cost)</span> </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">this</span>.cost = cost;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意：如使用 JSON，请在 ProGuard Rules 中为该实体类配置混淆白名单。</p>
+<h3 id="Step2：实现接口，完成自定义配置"><a href="#Step2：实现接口，完成自定义配置" class="headerlink" title="Step2：实现接口，完成自定义配置"></a>Step2：实现接口，完成自定义配置</h3><p>在装载数据和实现自定义配置时，泛型框中须指明你编写的实体类，注意 <code>List&lt;ElemeLinkageItem&gt;</code>，以及 <code>new ILevelSecondaryAdapterConfig&lt;ElemeLinkageItem.ItemInfo&gt;()</code> 这两处。</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">initLinkageDatas</span><span class="hljs-params">(LinkageRecyclerView linkage)</span> </span>&#123;</span><br><span class="line">    Gson gson = <span class="hljs-keyword">new</span> Gson();</span><br><span class="line">    List&lt;ElemeGroupedItem&gt; items = gson.fromJson(...);</span><br><span class="line"></span><br><span class="line">    linkage.init(items, <span class="hljs-keyword">new</span> ILevelPrimaryAdapterConfig() &#123;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-keyword">private</span> Context mContext;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setContext</span><span class="hljs-params">(Context context)</span> </span>&#123;</span><br><span class="line">            mContext = context;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-meta">@Override</span></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getLayoutId</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">return</span> R.layout.default_adapter_linkage_level_primary;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-meta">@Override</span></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getGroupTitleViewId</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">return</span> R.id.tv_group;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-meta">@Override</span></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getRootViewId</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">return</span> R.id.layout_group;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-meta">@Override</span></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onBindViewHolder</span><span class="hljs-params">(</span></span></span><br><span class="line"><span class="hljs-function"><span class="hljs-params">            LinkageLevelPrimaryAdapter.LevelPrimaryViewHolder holder, </span></span></span><br><span class="line"><span class="hljs-function"><span class="hljs-params">            String title, <span class="hljs-keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">            </span><br><span class="line">            ((TextView) holder.mGroupTitle).setText(title);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-meta">@Override</span></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onItemSelected</span><span class="hljs-params">(<span class="hljs-keyword">boolean</span> selected, TextView itemView)</span> </span>&#123;</span><br><span class="line">            itemView.setBackgroundColor(mContext.getResources().getColor(selected</span><br><span class="line">                    ? com.kunminx.linkage.R.color.colorLightBlue</span><br><span class="line">                    : com.kunminx.linkage.R.color.colorWhite));</span><br><span class="line">            itemView.setTextColor(ContextCompat.getColor(mContext, selected</span><br><span class="line">                    ? com.kunminx.linkage.R.color.colorWhite</span><br><span class="line">                    : com.kunminx.linkage.R.color.colorGray));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;, <span class="hljs-keyword">new</span> ILevelSecondaryAdapterConfig&lt;ElemeGroupedItem.ItemInfo&gt;() &#123;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-keyword">private</span> Context mContext;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setContext</span><span class="hljs-params">(Context context)</span> </span>&#123;</span><br><span class="line">            mContext = context;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-meta">@Override</span></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getGridLayoutId</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">return</span> R.layout.adapter_eleme_secondary_grid;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-meta">@Override</span></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getLinearLayoutId</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">return</span> R.layout.adapter_eleme_secondary_linear;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-meta">@Override</span></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getHeaderLayoutId</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">return</span> R.layout.default_adapter_linkage_level_secondary_header;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-meta">@Override</span></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getSpanCountOfGridMode</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">return</span> <span class="hljs-number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-meta">@Override</span></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onBindViewHolder</span><span class="hljs-params">(</span></span></span><br><span class="line"><span class="hljs-function"><span class="hljs-params">            LevelSecondaryViewHolder holder, </span></span></span><br><span class="line"><span class="hljs-function"><span class="hljs-params">            BaseGroupedItem&lt;ElemeGroupedItem.ItemInfo&gt; item, <span class="hljs-keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">            </span><br><span class="line">            ((TextView) holder.getView(R.id.iv_goods_name))</span><br><span class="line">            .setText(item.info.getTitle());</span><br><span class="line">            </span><br><span class="line">            Glide.with(mContext).load(item.info.getImgUrl())</span><br><span class="line">                .into((ImageView) holder.getView(R.id.iv_goods_img));</span><br><span class="line">            </span><br><span class="line">            holder.getView(R.id.iv_goods_item).setOnClickListener(v -&gt; &#123;</span><br><span class="line">                <span class="hljs-comment">//TODO</span></span><br><span class="line">            &#125;);</span><br><span class="line"></span><br><span class="line">            holder.getView(R.id.iv_goods_add).setOnClickListener(v -&gt; &#123;</span><br><span class="line">                <span class="hljs-comment">//TODO</span></span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="hljs-meta">@Override</span></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onBindHeaderViewHolder</span><span class="hljs-params">(</span></span></span><br><span class="line"><span class="hljs-function"><span class="hljs-params">            LevelSecondaryHeaderViewHolder holder,</span></span></span><br><span class="line"><span class="hljs-function"><span class="hljs-params">            BaseGroupedItem&lt;ElemeGroupedItem.ItemInfo&gt; item, <span class="hljs-keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">            <span class="hljs-comment">//TODO</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Thanks-to"><a href="#Thanks-to" class="headerlink" title="Thanks to"></a>Thanks to</h2><p><a href="https://github.com/material-components/material-components-android" target="_blank" rel="noopener">material-components-android</a></p>
+<p><a href="https://developer.android.google.cn/jetpack/androidx" target="_blank" rel="noopener">AndroidX</a></p>
+<h2 id="My-Pages"><a href="#My-Pages" class="headerlink" title="My Pages"></a>My Pages</h2><p>Email：<a href="mailto:kunminx@gmail.com" target="_blank" rel="noopener">kunminx@gmail.com</a></p>
+<p>Home：<a href="https://kunminx.github.io/">KunMinX 的个人博客</a></p>
+<p>Juejin：<a href="https://juejin.im/user/58ab0de9ac502e006975d757/posts" target="_blank" rel="noopener">KunMinX 在掘金</a></p>
+<p><span id="wechatQrcode">KunMinX’s WeChat Public Account（微信公众号）：</span></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/57036-dc3af94a5daf478c.jpg" alt="公众号"></p>
+<h2 id="License"><a href="#License" class="headerlink" title="License"></a>License</h2><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Copyright 2018-2019 KunMinX</span><br><span class="line"></span><br><span class="line">Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span><br><span class="line">you may not use this file except in compliance with the License.</span><br><span class="line">You may obtain a copy of the License at</span><br><span class="line"></span><br><span class="line">   http://www.apache.org/licenses/LICENSE-2.0</span><br><span class="line"></span><br><span class="line">Unless required by applicable law or agreed to in writing, software</span><br><span class="line">distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span><br><span class="line">WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span><br><span class="line">See the License for the specific language governing permissions and</span><br><span class="line">limitations under the License.</span><br></pre></td></tr></table></figure>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/Linkage/">Linkage</a>, <a class="has-link-grey -link" href="/tags/RecyclerView/">RecyclerView</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>Wechat</span>
+    <div class="qrcode"><img src="https://upload-images.jianshu.io/upload_images/57036-dc3af94a5daf478c.jpg" alt="Wechat"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2039/04/29/Rx钥匙：为无聊而生的 Android 开发者工具/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">Rx钥匙：为无聊而生的 Android 开发者工具</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/04/25/这样理解，你也能在 30 秒内讲明白 TCP 三次握手/">
+                <span class="level-item">这样理解，你也能在 30 秒内讲明白 TCP 三次握手</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    
+                        <figure class="image container is-128x128 has-mb-6">
+                            <img class="is-rounded" src="/images/avatar.png" alt="KunMinX">
+                        </figure>
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        KunMinX
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Android Developer
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>HangZhou, China</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Entradas
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        9
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Categorias
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        4
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Etiquetas
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        8
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/KunMinX" target="_blank">
+                SEGUIR</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="https://github.com/KunMinX">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="WeChat" href="https://upload-images.jianshu.io/upload_images/57036-dc3af94a5daf478c.jpg">
+                
+                <i class="fab fa-weixin"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Dribbble" href="http://dribbble.com">
+                
+                <i class="fab fa-dribbble"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Links
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://juejin.im/user/58ab0de9ac502e006975d757/posts" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">掘金</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">juejin.im</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://github.com/KunMinX/RxJava2-Operators-Sample" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Rx钥匙</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">github.com</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Categorias
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Architecture/">
+            <span class="level-start">
+                <span class="level-item">Architecture</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Library/">
+            <span class="level-start">
+                <span class="level-item">Library</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/RxJava/">
+            <span class="level-start">
+                <span class="level-item">RxJava</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Web/">
+            <span class="level-start">
+                <span class="level-item">Web</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Nube de etiquetas
+        </h3>
+        <a href="/tags/AAC/" style="font-size: 10px;">AAC</a> <a href="/tags/Linkage/" style="font-size: 10px;">Linkage</a> <a href="/tags/RecyclerView/" style="font-size: 10px;">RecyclerView</a> <a href="/tags/RxJava/" style="font-size: 13.33px;">RxJava</a> <a href="/tags/ViaBus/" style="font-size: 20px;">ViaBus</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/深度思考/" style="font-size: 16.67px;">深度思考</a> <a href="/tags/项目推荐/" style="font-size: 13.33px;">项目推荐</a>
+    </div>
+</div>
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen is-sticky">
+        
+            
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Catálogo
+            </h3>
+            <ul class="menu-list"><ul class="menu-list"><li>
+        <a class="is-flex" href="#由来">
+        <span class="has-mr-6">1.1</span>
+        <span>由来</span>
+        </a></li><li>
+        <a class="is-flex" href="#目标">
+        <span class="has-mr-6">1.2</span>
+        <span>目标</span>
+        </a></li><li>
+        <a class="is-flex" href="#简单使用：">
+        <span class="has-mr-6">1.3</span>
+        <span>简单使用：</span>
+        </a></li><li>
+        <a class="is-flex" href="#个性化配置：">
+        <span class="has-mr-6">1.4</span>
+        <span>个性化配置：</span>
+        </a></li><li>
+        <a class="is-flex" href="#Step1：根据需求扩展实体类">
+        <span class="has-mr-6">1.5</span>
+        <span>Step1：根据需求扩展实体类</span>
+        </a></li><li>
+        <a class="is-flex" href="#Step2：实现接口，完成自定义配置">
+        <span class="has-mr-6">1.6</span>
+        <span>Step2：实现接口，完成自定义配置</span>
+        </a></li></ul><li>
+        <a class="is-flex" href="#Thanks-to">
+        <span class="has-mr-6">2</span>
+        <span>Thanks to</span>
+        </a></li><li>
+        <a class="is-flex" href="#My-Pages">
+        <span class="has-mr-6">3</span>
+        <span>My Pages</span>
+        </a></li><li>
+        <a class="is-flex" href="#License">
+        <span class="has-mr-6">4</span>
+        <span>License</span>
+        </a></li></ul>
+        </div>
+    </div>
+</div>
+
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recientes
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2039/04/29/Rx钥匙：为无聊而生的 Android 开发者工具/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Rx钥匙：为无聊而生的 Android 开发者工具">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2039-04-29T07:24:45.000Z">2039-04-29</time></div>
+                    <a href="/2039/04/29/Rx钥匙：为无聊而生的 Android 开发者工具/" class="has-link-black-ter is-size-6">Rx钥匙：为无聊而生的 Android 开发者工具</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/RxJava/">RxJava</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/05/10/真香警告：即使不用饿了么，也请不要错过这个库！/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="真香警告：即使不用饿了么订餐，也请务必收藏好该库！">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-10T07:00:41.000Z">2019-05-10</time></div>
+                    <a href="/2019/05/10/真香警告：即使不用饿了么，也请不要错过这个库！/" class="has-link-black-ter is-size-6">真香警告：即使不用饿了么订餐，也请务必收藏好该库！</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Library/">Library</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/04/25/这样理解，你也能在 30 秒内讲明白 TCP 三次握手/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="这样理解，你也能在 30 秒内讲明白 TCP 三次握手">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-25T06:55:05.000Z">2019-04-25</time></div>
+                    <a href="/2019/04/25/这样理解，你也能在 30 秒内讲明白 TCP 三次握手/" class="has-link-black-ter is-size-6">这样理解，你也能在 30 秒内讲明白 TCP 三次握手</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Web/">Web</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/04/18/你用不惯 RxJava，只因缺了这把钥匙/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="你用不惯 RxJava，只因缺了这把钥匙">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-18T07:30:23.000Z">2019-04-18</time></div>
+                    <a href="/2019/04/18/你用不惯 RxJava，只因缺了这把钥匙/" class="has-link-black-ter is-size-6">你用不惯 RxJava，只因缺了这把钥匙</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/RxJava/">RxJava</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2018/10/21/Android：你还在等那个，手把手带你重构的人出现吗？/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Android：你还在等那个，手把手带你重构的人出现吗？">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-10-21T11:00:41.000Z">2018-10-21</time></div>
+                    <a href="/2018/10/21/Android：你还在等那个，手把手带你重构的人出现吗？/" class="has-link-black-ter is-size-6">Android：你还在等那个，手把手带你重构的人出现吗？</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Architecture/">Architecture</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archivos
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2039/04/">
+                <span class="level-start">
+                    <span class="level-item">April 2039</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">May 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">April 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/10/">
+                <span class="level-start">
+                    <span class="level-item">October 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Etiquetas
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/AAC/">
+                        <span class="tag">AAC</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Linkage/">
+                        <span class="tag">Linkage</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/RecyclerView/">
+                        <span class="tag">RecyclerView</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/RxJava/">
+                        <span class="tag">RxJava</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ViaBus/">
+                        <span class="tag">ViaBus</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Web/">
+                        <span class="tag">Web</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/深度思考/">
+                        <span class="tag">深度思考</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/项目推荐/">
+                        <span class="tag">项目推荐</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right is-sticky">
+    
+        
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Catálogo
+            </h3>
+            <ul class="menu-list"><ul class="menu-list"><li>
+        <a class="is-flex" href="#由来">
+        <span class="has-mr-6">1.1</span>
+        <span>由来</span>
+        </a></li><li>
+        <a class="is-flex" href="#目标">
+        <span class="has-mr-6">1.2</span>
+        <span>目标</span>
+        </a></li><li>
+        <a class="is-flex" href="#简单使用：">
+        <span class="has-mr-6">1.3</span>
+        <span>简单使用：</span>
+        </a></li><li>
+        <a class="is-flex" href="#个性化配置：">
+        <span class="has-mr-6">1.4</span>
+        <span>个性化配置：</span>
+        </a></li><li>
+        <a class="is-flex" href="#Step1：根据需求扩展实体类">
+        <span class="has-mr-6">1.5</span>
+        <span>Step1：根据需求扩展实体类</span>
+        </a></li><li>
+        <a class="is-flex" href="#Step2：实现接口，完成自定义配置">
+        <span class="has-mr-6">1.6</span>
+        <span>Step2：实现接口，完成自定义配置</span>
+        </a></li></ul><li>
+        <a class="is-flex" href="#Thanks-to">
+        <span class="has-mr-6">2</span>
+        <span>Thanks to</span>
+        </a></li><li>
+        <a class="is-flex" href="#My-Pages">
+        <span class="has-mr-6">3</span>
+        <span>My Pages</span>
+        </a></li><li>
+        <a class="is-flex" href="#License">
+        <span class="has-mr-6">4</span>
+        <span>License</span>
+        </a></li></ul>
+        </div>
+    </div>
+</div>
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recientes
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2039/04/29/Rx钥匙：为无聊而生的 Android 开发者工具/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Rx钥匙：为无聊而生的 Android 开发者工具">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2039-04-29T07:24:45.000Z">2039-04-29</time></div>
+                    <a href="/2039/04/29/Rx钥匙：为无聊而生的 Android 开发者工具/" class="has-link-black-ter is-size-6">Rx钥匙：为无聊而生的 Android 开发者工具</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/RxJava/">RxJava</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/05/10/真香警告：即使不用饿了么，也请不要错过这个库！/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="真香警告：即使不用饿了么订餐，也请务必收藏好该库！">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-10T07:00:41.000Z">2019-05-10</time></div>
+                    <a href="/2019/05/10/真香警告：即使不用饿了么，也请不要错过这个库！/" class="has-link-black-ter is-size-6">真香警告：即使不用饿了么订餐，也请务必收藏好该库！</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Library/">Library</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/04/25/这样理解，你也能在 30 秒内讲明白 TCP 三次握手/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="这样理解，你也能在 30 秒内讲明白 TCP 三次握手">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-25T06:55:05.000Z">2019-04-25</time></div>
+                    <a href="/2019/04/25/这样理解，你也能在 30 秒内讲明白 TCP 三次握手/" class="has-link-black-ter is-size-6">这样理解，你也能在 30 秒内讲明白 TCP 三次握手</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Web/">Web</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/04/18/你用不惯 RxJava，只因缺了这把钥匙/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="你用不惯 RxJava，只因缺了这把钥匙">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-18T07:30:23.000Z">2019-04-18</time></div>
+                    <a href="/2019/04/18/你用不惯 RxJava，只因缺了这把钥匙/" class="has-link-black-ter is-size-6">你用不惯 RxJava，只因缺了这把钥匙</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/RxJava/">RxJava</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2018/10/21/Android：你还在等那个，手把手带你重构的人出现吗？/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Android：你还在等那个，手把手带你重构的人出现吗？">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-10-21T11:00:41.000Z">2018-10-21</time></div>
+                    <a href="/2018/10/21/Android：你还在等那个，手把手带你重构的人出现吗？/" class="has-link-black-ter is-size-6">Android：你还在等那个，手把手带你重构的人出现吗？</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Architecture/">Architecture</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archivos
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2039/04/">
+                <span class="level-start">
+                    <span class="level-item">April 2039</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">May 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">April 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/10/">
+                <span class="level-start">
+                    <span class="level-item">October 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Etiquetas
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/AAC/">
+                        <span class="tag">AAC</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Linkage/">
+                        <span class="tag">Linkage</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/RecyclerView/">
+                        <span class="tag">RecyclerView</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/RxJava/">
+                        <span class="tag">RxJava</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ViaBus/">
+                        <span class="tag">ViaBus</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Web/">
+                        <span class="tag">Web</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/深度思考/">
+                        <span class="tag">深度思考</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/项目推荐/">
+                        <span class="tag">项目推荐</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="真香警告：即使不用饿了么订餐，也请务必收藏好该库！" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 KunMinX&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="GitHub" href="https://github.com/KunMinX">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/js/clipboard.js" defer></script>
+    
+
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Entradas',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categorias',
+                TAGS: 'Etiquetas',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
