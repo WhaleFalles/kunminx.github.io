@@ -2,7 +2,7 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Etiqueta: 深度思考 - KunMinX 的个人博客</title>
+<title>Tag: 深度思考 - KunMinX 的个人博客</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
@@ -139,12 +139,94 @@
     <div class="card-content">
         <nav class="breadcrumb" aria-label="breadcrumbs">
         <ul>
-            <li><a href="/tags">Etiquetas</a></li>
+            <li><a href="/tags">Tags</a></li>
             <li class="is-active"><a href="#" aria-current="page">深度思考</a></li>
         </ul>
         </nav>
     </div>
 </div>
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-05-17T07:00:28.000Z">2019-05-17</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Library/">Library</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    12 minutes read (About 1775 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/05/17/大物始于小：我的 GitHub star 是如何在 5 天内从 0 飙至 666 的/">大物始于小：我的 GitHub star 是如何在 5 天内从 0 飙至 666 的</a>
+            
+        </h1>
+        <div class="content">
+            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>很高兴和大家见面！</p>
+<p>上周五我在掘金发表了 <a href="https://juejin.im/post/5cd4cec1f265da03b918337b" target="_blank" rel="noopener">《真香警告：即使不用饿了么订餐，也请务必收藏好该库！》</a>，文中主角 <strong>Linkage-RecyclerView</strong> 原本只是为 <a href="https://github.com/KunMinX/RxJava2-Operators-Sample" target="_blank" rel="noopener">《RxJava魔法师》</a>  这个项目的需求而存在的，没想到在各路读者的积极参与下，让一个本来默默无闻的项目，在内容发布的第三天，登陆 GitHub 今日趋势 Java 专区榜单前三，并在 5 天内做到 GitHub star 从 0 飙至 666。（不要慌，项目链接文末已给出）</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/57036-1a7e7b47a63a33df.png" alt></p>
+<p>在此我首先特别感谢热心读者的见证和参与。掘金社区、WanAndroid 读者对源码的认真阅读和交流，让我备受感动。</p>
+<h3 id="开源这个项目的初衷"><a href="#开源这个项目的初衷" class="headerlink" title="开源这个项目的初衷"></a>开源这个项目的初衷</h3><h4 id="每个架构都有专属的用武之地"><a href="#每个架构都有专属的用武之地" class="headerlink" title="每个架构都有专属的用武之地"></a>每个架构都有专属的用武之地</h4><p>开源这个项目的初衷有两个，一个是方便读者借助该项目深入理解，当我们为项目选择架构时，选材的依据是什么。</p>
+<p>就我当前的认知来看，项目开发，无非就是顾及 <code>“配置解耦”</code> 和 <code>“职责分离”</code> 这两件事。</p>
+<p>对于通用必用的控件库和组件库，我们可以将其抽取成模块，做成可供多个项目依赖的第三方库。<br>第三方库的目标是让使用者无需了解内部逻辑、通过外部简单的配置即可轻松上手，因而第三方库适合使用 MVP 架构，来实现 “配置解耦”。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/57036-8a4ca215619317b1.png" alt="viabus_flow_cn.png"></p>
+<p>对于多人参与的主干工程，我们需要确保 UI 和 业务之间可以分工给不同的人协作，这就要求架构必须具备 “关注点分离（SoC）” 或 “职责分离（SoD）” 的特性。</p>
+<p>因而我们可以在主干工程中采用目前主流的关注点分离架构 JetPack MVVM，或者由我自主设计并在公司项目重构中采用的职责分离的 <a href="https://juejin.im/post/5bcd58b6e51d45404c71d23f" target="_blank" rel="noopener">VIABUS Architecture</a>。</p>
+<h4 id="未雨绸缪方能在关键时刻拯救自己"><a href="#未雨绸缪方能在关键时刻拯救自己" class="headerlink" title="未雨绸缪方能在关键时刻拯救自己"></a>未雨绸缪方能在关键时刻拯救自己</h4><p>开源这个项目的另一个缘由是：</p>
+<blockquote>
+<p>有些事我都已忘记，<br>但我现在还记得，<br>在一个晚上，<br>同事阿左问我，今天怎么不开心。</p>
+<p>我说在我的想象中，有一个开源库，<br>与众不同最时尚，接入肯定棒，<br>整个 GitHub 找遍所有的 Repo，都没有。<br>他说将来会找到的，<br>时间，时间，会给我答案。。</p>
+</blockquote>
+<p>哈哈，开玩笑的。缘于，公司某个项目中的另一个需求：为多级联动表单动态绑定数据。</p>
+<p>用过 Spinner 的读者都知道，原生的 Spinner 在 onSelectItem 回调中存在延迟的 bug，虽然延迟只有 100ms，但对于哼哧哼哧地装载、绑定、协调表单数据的多级联动表单来说，实在是致命的错误。</p>
+<p>因而在那天晚上加班改需求的时候，我非常盼望着找到一款当下就可以使用的 PopupWindow + RecyclerView 实现的第三方 Spinner 开源库。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/57036-5c67434240b21d17.jpg" alt></p>
+<p>然而，现实却和我开了个大玩笑，我寻遍了 GitHub 仓库，尝试了若干个项目，都是随便糊弄两下、高度耦合的个人练手项目，这对于急着改需求的我来说，无异于火上浇油。</p>
+<p>由于情况紧急，我选择求助于同在加班的阿左，没想到，阿左居然在项目闲时自己封装了一个 Spinner 库。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/57036-c9f49e09c743b612.png" alt></p>
+<p>虽然一眼望去，Adapter  三方逻辑的解耦程度还有待提高，但这个库既然能独立存在、通过几行代码即可调用，对于彼时的我来说，就已经是最丰盛、最美的食物。</p>
+<p>于是我毫不犹豫地将该库用在了项目上，在几经尝试后，表单初始化数据终于如愿地正常加载。</p>
+<h3 id="如何在-5-天内使-GitHub-star-从-0-飙到-666"><a href="#如何在-5-天内使-GitHub-star-从-0-飙到-666" class="headerlink" title="如何在 5 天内使 GitHub star 从 0 飙到 666"></a>如何在 5 天内使 GitHub star 从 0 飙到 666</h3><p>最后总结一下大家都关心的，如何让自己的作品能被更多地访问、让 GitHub Star 数一路爬升：</p>
+<h4 id="即使忘了其他方法，也请务必记得这个不是方法的方法："><a href="#即使忘了其他方法，也请务必记得这个不是方法的方法：" class="headerlink" title="即使忘了其他方法，也请务必记得这个不是方法的方法："></a>即使忘了其他方法，也请务必记得这个不是方法的方法：</h4><p><strong>———— 向用户提供价值</strong>。</p>
+<p>什么是价值？人们对一件事物有需求，这件事因而有了价值。</p>
+<p>人们有什么需求？人们面临着什么困境？这是每个想要服务于大众的人都要首先考虑明白的。</p>
+<p>换言之，我们所做的每一件事，都务必精准地化解目标用户的痛点，唯有如此，才有机会在纷杂的信息中脱颖而出，让作品受到用户的青睐和珍视。</p>
+<p>每个人服务的领域不同、目标用户也不同，因而用户痛点需要自己在日常生活中投入大量精力去思考和领悟，这也是为什么文章我一周最多只更新一篇的原因。</p>
+<h4 id="再者，就算是制作一款简单的作品，也请务必抱着一颗敬畏的心。"><a href="#再者，就算是制作一款简单的作品，也请务必抱着一颗敬畏的心。" class="headerlink" title="再者，就算是制作一款简单的作品，也请务必抱着一颗敬畏的心。"></a>再者，就算是制作一款简单的作品，也请务必抱着一颗敬畏的心。</h4><p>在 Linkage-RecyclerView 开源的短短几天里，我累计提交了 49 次代码、多达 9k 行的代码变动。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/57036-8fe7731d553156c4.png" alt></p>
+<p>用户不是傻子，代码是好是坏，一眼就能看出来。唯有一丝不苟地对待工程设计和编码，才有机会让用户感到确定和安心。</p>
+<h4 id="此外，酒香也怕巷子深。"><a href="#此外，酒香也怕巷子深。" class="headerlink" title="此外，酒香也怕巷子深。"></a>此外，酒香也怕巷子深。</h4><p>想让精心打磨的作品让更多的用户接触到，就要勇于在社交场合展示自己的价值。产品最终都是服务于人，务必多与用户沟通，让产品和个人品牌往更好的方向发展。</p>
+<p>当然，口说无凭，以下贴上 <strong>别处看不到的、且大家喜闻乐见的</strong> 群聊学（chui）习（niu）交（ba）流（gua）截图：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/57036-476e1f0219b6e2f8.png" alt></p>
+<p>考虑到我在技术社区发文，应以技术分享和经验交流为主。想目睹群聊现场的朋友，请移一步到我的同名公众号阅读原文~</p>
+<p>GitHub 项目链接：<a href="https://github.com/KunMinX/Linkage-RecyclerView" target="_blank" rel="noopener">https://github.com/KunMinX/Linkage-RecyclerView</a></p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
 
     <div class="card">
     
@@ -399,17 +481,17 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Entradas
+                        Posts
                     </p>
                     <p class="title has-text-weight-normal">
-                        9
+                        10
                     </p>
                 </div>
             </div>
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Categorias
+                        Categories
                     </p>
                     <p class="title has-text-weight-normal">
                         4
@@ -419,7 +501,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Etiquetas
+                        Tags
                     </p>
                     <p class="title has-text-weight-normal">
                         8
@@ -429,7 +511,7 @@
         </nav>
         <div class="level">
             <a class="level-item button is-link is-rounded" href="https://github.com/KunMinX" target="_blank">
-                SEGUIR</a>
+                Follow</a>
         </div>
         
         
@@ -508,7 +590,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Categorias
+                Categories
             </h3>
             <ul class="menu-list">
             <li>
@@ -525,7 +607,7 @@
                 <span class="level-item">Library</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">1</span>
+                <span class="level-item tag">2</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/RxJava/">
@@ -553,9 +635,9 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Nube de etiquetas
+            Tag Cloud
         </h3>
-        <a href="/tags/AAC/" style="font-size: 10px;">AAC</a> <a href="/tags/Linkage/" style="font-size: 10px;">Linkage</a> <a href="/tags/RecyclerView/" style="font-size: 10px;">RecyclerView</a> <a href="/tags/RxJava/" style="font-size: 13.33px;">RxJava</a> <a href="/tags/ViaBus/" style="font-size: 20px;">ViaBus</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/深度思考/" style="font-size: 16.67px;">深度思考</a> <a href="/tags/项目推荐/" style="font-size: 13.33px;">项目推荐</a>
+        <a href="/tags/AAC/" style="font-size: 10px;">AAC</a> <a href="/tags/Linkage/" style="font-size: 13.33px;">Linkage</a> <a href="/tags/RecyclerView/" style="font-size: 13.33px;">RecyclerView</a> <a href="/tags/RxJava/" style="font-size: 13.33px;">RxJava</a> <a href="/tags/ViaBus/" style="font-size: 20px;">ViaBus</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/深度思考/" style="font-size: 20px;">深度思考</a> <a href="/tags/项目推荐/" style="font-size: 16.67px;">项目推荐</a>
     </div>
 </div>
 
@@ -569,23 +651,23 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recientes
+            Recent
         </h3>
         
         <article class="media">
             
-            <a href="/2039/04/29/Rx钥匙：为无聊而生的 Android 开发者工具/" class="media-left">
+            <a href="/2019/05/17/大物始于小：我的 GitHub star 是如何在 5 天内从 0 飙至 666 的/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Rx钥匙：为无聊而生的 Android 开发者工具">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="大物始于小：我的 GitHub star 是如何在 5 天内从 0 飙至 666 的">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2039-04-29T07:24:45.000Z">2039-04-29</time></div>
-                    <a href="/2039/04/29/Rx钥匙：为无聊而生的 Android 开发者工具/" class="has-link-black-ter is-size-6">Rx钥匙：为无聊而生的 Android 开发者工具</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-17T07:00:28.000Z">2019-05-17</time></div>
+                    <a href="/2019/05/17/大物始于小：我的 GitHub star 是如何在 5 天内从 0 飙至 666 的/" class="has-link-black-ter is-size-6">大物始于小：我的 GitHub star 是如何在 5 天内从 0 飙至 666 的</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/RxJava/">RxJava</a>
+                        <a class="has-link-grey -link" href="/categories/Library/">Library</a>
                     </p>
                 </div>
             </div>
@@ -605,6 +687,25 @@
                     <a href="/2019/05/10/真香警告：即使不用饿了么，也请不要错过这个库！/" class="has-link-black-ter is-size-6">真香警告：即使不用饿了么订餐，也请务必收藏好该库！</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Library/">Library</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/04/29/Rx钥匙：为无聊而生的 Android 开发者工具/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Rx钥匙：为无聊而生的 Android 开发者工具">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-29T07:24:45.000Z">2019-04-29</time></div>
+                    <a href="/2019/04/29/Rx钥匙：为无聊而生的 Android 开发者工具/" class="has-link-black-ter is-size-6">Rx钥匙：为无聊而生的 Android 开发者工具</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/RxJava/">RxJava</a>
                     </p>
                 </div>
             </div>
@@ -648,25 +749,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2018/10/21/Android：你还在等那个，手把手带你重构的人出现吗？/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Android：你还在等那个，手把手带你重构的人出现吗？">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-10-21T11:00:41.000Z">2018-10-21</time></div>
-                    <a href="/2018/10/21/Android：你还在等那个，手把手带你重构的人出现吗？/" class="has-link-black-ter is-size-6">Android：你还在等那个，手把手带你重构的人出现吗？</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Architecture/">Architecture</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -675,20 +757,9 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archivos
+            Archives
         </h3>
         <ul class="menu-list">
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2039/04/">
-                <span class="level-start">
-                    <span class="level-item">April 2039</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">1</span>
-                </span>
-            </a>
-        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/05/">
@@ -696,7 +767,7 @@
                     <span class="level-item">May 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -707,7 +778,7 @@
                     <span class="level-item">April 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">2</span>
+                    <span class="level-item tag">3</span>
                 </span>
             </a>
         </li>
@@ -743,7 +814,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Etiquetas
+                Tags
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
@@ -757,14 +828,14 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Linkage/">
                         <span class="tag">Linkage</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/RecyclerView/">
                         <span class="tag">RecyclerView</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
@@ -792,14 +863,14 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/深度思考/">
                         <span class="tag">深度思考</span>
-                        <span class="tag is-grey">4</span>
+                        <span class="tag is-grey">5</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/项目推荐/">
                         <span class="tag">项目推荐</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
@@ -825,23 +896,23 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recientes
+            Recent
         </h3>
         
         <article class="media">
             
-            <a href="/2039/04/29/Rx钥匙：为无聊而生的 Android 开发者工具/" class="media-left">
+            <a href="/2019/05/17/大物始于小：我的 GitHub star 是如何在 5 天内从 0 飙至 666 的/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Rx钥匙：为无聊而生的 Android 开发者工具">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="大物始于小：我的 GitHub star 是如何在 5 天内从 0 飙至 666 的">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2039-04-29T07:24:45.000Z">2039-04-29</time></div>
-                    <a href="/2039/04/29/Rx钥匙：为无聊而生的 Android 开发者工具/" class="has-link-black-ter is-size-6">Rx钥匙：为无聊而生的 Android 开发者工具</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-17T07:00:28.000Z">2019-05-17</time></div>
+                    <a href="/2019/05/17/大物始于小：我的 GitHub star 是如何在 5 天内从 0 飙至 666 的/" class="has-link-black-ter is-size-6">大物始于小：我的 GitHub star 是如何在 5 天内从 0 飙至 666 的</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/RxJava/">RxJava</a>
+                        <a class="has-link-grey -link" href="/categories/Library/">Library</a>
                     </p>
                 </div>
             </div>
@@ -861,6 +932,25 @@
                     <a href="/2019/05/10/真香警告：即使不用饿了么，也请不要错过这个库！/" class="has-link-black-ter is-size-6">真香警告：即使不用饿了么订餐，也请务必收藏好该库！</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Library/">Library</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/04/29/Rx钥匙：为无聊而生的 Android 开发者工具/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Rx钥匙：为无聊而生的 Android 开发者工具">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-29T07:24:45.000Z">2019-04-29</time></div>
+                    <a href="/2019/04/29/Rx钥匙：为无聊而生的 Android 开发者工具/" class="has-link-black-ter is-size-6">Rx钥匙：为无聊而生的 Android 开发者工具</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/RxJava/">RxJava</a>
                     </p>
                 </div>
             </div>
@@ -904,25 +994,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2018/10/21/Android：你还在等那个，手把手带你重构的人出现吗？/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Android：你还在等那个，手把手带你重构的人出现吗？">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-10-21T11:00:41.000Z">2018-10-21</time></div>
-                    <a href="/2018/10/21/Android：你还在等那个，手把手带你重构的人出现吗？/" class="has-link-black-ter is-size-6">Android：你还在等那个，手把手带你重构的人出现吗？</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Architecture/">Architecture</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -931,20 +1002,9 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archivos
+            Archives
         </h3>
         <ul class="menu-list">
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2039/04/">
-                <span class="level-start">
-                    <span class="level-item">April 2039</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">1</span>
-                </span>
-            </a>
-        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/05/">
@@ -952,7 +1012,7 @@
                     <span class="level-item">May 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -963,7 +1023,7 @@
                     <span class="level-item">April 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">2</span>
+                    <span class="level-item tag">3</span>
                 </span>
             </a>
         </li>
@@ -999,7 +1059,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Etiquetas
+                Tags
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
@@ -1013,14 +1073,14 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Linkage/">
                         <span class="tag">Linkage</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/RecyclerView/">
                         <span class="tag">RecyclerView</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
@@ -1048,14 +1108,14 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/深度思考/">
                         <span class="tag">深度思考</span>
-                        <span class="tag is-grey">4</span>
+                        <span class="tag is-grey">5</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/项目推荐/">
                         <span class="tag">项目推荐</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
@@ -1234,10 +1294,10 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Entradas',
+                POSTS: 'Posts',
                 PAGES: 'Pages',
-                CATEGORIES: 'Categorias',
-                TAGS: 'Etiquetas',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
                 UNTITLED: '(Untitled)',
             },
             CONTENT_URL: '/content.json',
