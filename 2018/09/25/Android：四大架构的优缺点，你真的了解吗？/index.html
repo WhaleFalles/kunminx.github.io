@@ -8,7 +8,7 @@
 
 
     <meta name="description" content="前言你准备好了吗？本次列车开往 “重构” 之巅，时速 900km/s。风太大听不见，但我就是可以很简单很直的，给你讲述事物本质和解决方案！⚡">
-<meta name="keywords" content="ViaBus,深度思考,AAC">
+<meta name="keywords" content="VIABUS,深度思考,AAC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android：四大架构的优缺点，你真的了解吗？">
 <meta property="og:url" content="https://kunminx.github.io/2018/09/25/Android：四大架构的优缺点，你真的了解吗？/index.html">
@@ -16,7 +16,7 @@
 <meta property="og:description" content="前言你准备好了吗？本次列车开往 “重构” 之巅，时速 900km/s。风太大听不见，但我就是可以很简单很直的，给你讲述事物本质和解决方案！⚡">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://kunminx.github.io/images/og_image.png">
-<meta property="og:updated_time" content="2019-05-15T03:09:51.545Z">
+<meta property="og:updated_time" content="2019-05-17T13:57:58.111Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android：四大架构的优缺点，你真的了解吗？">
 <meta name="twitter:description" content="前言你准备好了吗？本次列车开往 “重构” 之巅，时速 900km/s。风太大听不见，但我就是可以很简单很直的，给你讲述事物本质和解决方案！⚡">
@@ -126,7 +126,7 @@
                     
                 
                 
-                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catálogo" href="javascript:;">
                     <i class="fas fa-list-ul"></i>
                 </a>
                 
@@ -159,7 +159,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    15 minutes read (About 2293 words)
+                    15 minutes read (About 2299 words)
                 </span>
                 
                 
@@ -213,26 +213,26 @@
 <li>难以分工，难以将 View、Controller、Model 分给不同的人写。</li>
 <li>难以维护，没有中间件接口做缓冲，难以替换底层的实现。</li>
 </ul>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">public class NoteListFragment extends BaseFragment &#123;</span><br><span class="line"></span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    public void refreshList() &#123;</span><br><span class="line">        new Thread(new Runnable() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public void run() &#123;</span><br><span class="line"></span><br><span class="line">                //view 中直接依赖 model。那么 view 须等 model 编写好才能开工。</span><br><span class="line"></span><br><span class="line">                mNoteList = mDataManager.getNoteList();</span><br><span class="line">                mHandler.sendMessage(REFRESH_LIST, mNoteList);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).start();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private Handler mHandler = new Handler() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        public void handleMessage(Message msg) &#123;</span><br><span class="line">            switch (msg) &#123;</span><br><span class="line">                case REFRESH_LIST:</span><br><span class="line">                    mAdapter.setList(mNoteList);</span><br><span class="line">                    mAdapter.notifyDataSetChanged();</span><br><span class="line">                    break;</span><br><span class="line">                default:</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">   </span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NoteListFragment</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">BaseFragment</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">refreshList</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">new</span> Thread(<span class="hljs-keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="hljs-meta">@Override</span></span><br><span class="line">            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">                <span class="hljs-comment">//view 中直接依赖 model。那么 view 须等 model 编写好才能开工。</span></span><br><span class="line"></span><br><span class="line">                mNoteList = mDataManager.getNoteList();</span><br><span class="line">                mHandler.sendMessage(REFRESH_LIST, mNoteList);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).start();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">private</span> Handler mHandler = <span class="hljs-keyword">new</span> Handler() &#123;</span><br><span class="line">        <span class="hljs-meta">@Override</span></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">handleMessage</span><span class="hljs-params">(Message msg)</span> </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">switch</span> (msg) &#123;</span><br><span class="line">                <span class="hljs-keyword">case</span> REFRESH_LIST:</span><br><span class="line">                    mAdapter.setList(mNoteList);</span><br><span class="line">                    mAdapter.notifyDataSetChanged();</span><br><span class="line">                    <span class="hljs-keyword">break</span>;</span><br><span class="line">                <span class="hljs-keyword">default</span>:</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">   </span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="MVP-架构的特点与局限"><a href="#MVP-架构的特点与局限" class="headerlink" title="MVP 架构的特点与局限"></a>MVP 架构的特点与局限</h2><ul>
 <li>MVP 架构的特点是 面向接口编程。在 View、Presenter、Model 之间分别用 中间件接口 做衔接，当有新的底层实现时，能够无缝替换。</li>
 <li>此外，MVP 的 View 和 Model 并不相互依赖，因此可以说是对 View 和 Model 做了代码解耦。</li>
 </ul>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">public class NoteListContract &#123;</span><br><span class="line"></span><br><span class="line">    interface INoteListView &#123;</span><br><span class="line"></span><br><span class="line">        void showDialog(String msg);</span><br><span class="line"></span><br><span class="line">        void showTip(String tip);</span><br><span class="line"></span><br><span class="line">        void refreshList(List&lt;NoteBean&gt; beans);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    interface INoteListPresenter &#123;</span><br><span class="line"></span><br><span class="line">        void requestNotes(String type);</span><br><span class="line"></span><br><span class="line">        void updateNotes(NoteBean... beans);</span><br><span class="line"></span><br><span class="line">        void deleteNotes(NoteBean... beans);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    interface INoteListModel &#123;</span><br><span class="line"></span><br><span class="line">        List&lt;NoteBean&gt; getNoteList();</span><br><span class="line"></span><br><span class="line">        int updateNote(NoteBean bean);</span><br><span class="line"></span><br><span class="line">        int deleteNote(NoteBean bean);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NoteListContract</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">INoteListView</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">showDialog</span><span class="hljs-params">(String msg)</span></span>;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">showTip</span><span class="hljs-params">(String tip)</span></span>;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">refreshList</span><span class="hljs-params">(List&lt;NoteBean&gt; beans)</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">INoteListPresenter</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">requestNotes</span><span class="hljs-params">(String type)</span></span>;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">updateNotes</span><span class="hljs-params">(NoteBean... beans)</span></span>;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">deleteNotes</span><span class="hljs-params">(NoteBean... beans)</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">INoteListModel</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-function">List&lt;NoteBean&gt; <span class="hljs-title">getNoteList</span><span class="hljs-params">()</span></span>;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">updateNote</span><span class="hljs-params">(NoteBean bean)</span></span>;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">deleteNote</span><span class="hljs-params">(NoteBean bean)</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>但 MVP 架构有其局限性。按我的理解，MVP 设计的初衷是，<strong>“让天下没有难替换的 View 和 Model”</strong> 。该初衷背后所基于的假设是，“上层逻辑稳定，但底层实现更替频繁” 。在这个假设的引导下，<strong>Presenter 除了承担业务逻辑的责任，还越界接管了 UI逻辑，这使得 UI 和 业务发生了耦合</strong>。</p>
 <p>如此，一旦 UI 需求变化，UI 和 业务的编写者都会受到牵连，占据 2 份甚至更多工时。</p>
 <p>且由于 UI 编写者的“权力上缴”，使得在 UI 编写完成后 <strong>无法独立完成单元测试</strong>。（因为此处缺少了 UI 逻辑 —— 总不能为了测试，而背着 Presenter 自己另外写一波吧。所以除了那种“上层逻辑稳定”的组件，无论从哪个角度来看，用 MVP 来架构项目，都是不合适的）</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">public class NoteListPresenter implements NoteListContract.INoteListPresenter &#123;</span><br><span class="line"></span><br><span class="line">    private NoteListContract.INoteListModel mDataManager;</span><br><span class="line">    private NoteListContract.INoteListView mView;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void requestNotes(String type) &#123;</span><br><span class="line">        Observable.create(new ObservableOnSubscribe&lt;List&lt;NoteBean&gt;&gt;() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public void subscribe(ObservableEmitter&lt;List&lt;NoteBean&gt;&gt; e) throws Exception &#123;</span><br><span class="line">                List&lt;NoteBean&gt; noteBeans = mDataManager.getNoteList();</span><br><span class="line">                e.onNext(noteBeans);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())</span><br><span class="line">                .subscribe(new Consumer&lt;List&lt;NoteBean&gt;&gt;() &#123;</span><br><span class="line">                    @Override</span><br><span class="line">                    public void accept(List&lt;NoteBean&gt; beans) throws Exception &#123;</span><br><span class="line"></span><br><span class="line">                        //presenter 直接干预了 UI 在拿到数据后做什么，使得职责上没有发生解耦。</span><br><span class="line"></span><br><span class="line">                        //正常来说，解耦意味着，presenter 的职能边界仅限返回结果数据，</span><br><span class="line">                        //由 UI 来依据响应码处理 UI 逻辑。</span><br><span class="line"></span><br><span class="line">                        mView.refreshList(beans);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NoteListPresenter</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">NoteListContract</span>.<span class="hljs-title">INoteListPresenter</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">private</span> NoteListContract.INoteListModel mDataManager;</span><br><span class="line">    <span class="hljs-keyword">private</span> NoteListContract.INoteListView mView;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">requestNotes</span><span class="hljs-params">(String type)</span> </span>&#123;</span><br><span class="line">        Observable.create(<span class="hljs-keyword">new</span> ObservableOnSubscribe&lt;List&lt;NoteBean&gt;&gt;() &#123;</span><br><span class="line">            <span class="hljs-meta">@Override</span></span><br><span class="line">            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">subscribe</span><span class="hljs-params">(ObservableEmitter&lt;List&lt;NoteBean&gt;&gt; e)</span> <span class="hljs-keyword">throws</span> Exception </span>&#123;</span><br><span class="line">                List&lt;NoteBean&gt; noteBeans = mDataManager.getNoteList();</span><br><span class="line">                e.onNext(noteBeans);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())</span><br><span class="line">                .subscribe(<span class="hljs-keyword">new</span> Consumer&lt;List&lt;NoteBean&gt;&gt;() &#123;</span><br><span class="line">                    <span class="hljs-meta">@Override</span></span><br><span class="line">                    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">accept</span><span class="hljs-params">(List&lt;NoteBean&gt; beans)</span> <span class="hljs-keyword">throws</span> Exception </span>&#123;</span><br><span class="line"></span><br><span class="line">                        <span class="hljs-comment">//presenter 直接干预了 UI 在拿到数据后做什么，使得职责上没有发生解耦。</span></span><br><span class="line"></span><br><span class="line">                        <span class="hljs-comment">//正常来说，解耦意味着，presenter 的职能边界仅限返回结果数据，</span></span><br><span class="line">                        <span class="hljs-comment">//由 UI 来依据响应码处理 UI 逻辑。</span></span><br><span class="line"></span><br><span class="line">                        mView.refreshList(beans);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="Clean-架构的特点和不足"><a href="#Clean-架构的特点和不足" class="headerlink" title="Clean 架构的特点和不足"></a>Clean 架构的特点和不足</h2><p><img src="https://upload-images.jianshu.io/upload_images/57036-3a34477a3a4c6618.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mvp_flow.png"></p>
 <p>为解决 Presenter <strong>职能边界不明确</strong> 的问题，在 Clean 架构中，业务逻辑的职能被转移到领域层，由 Usecase 专职管理。Presenter 则弱化为 ViewModel ，作为代理数据请求，和衔接数据回调的缓冲区。</p>
 <p>Clean 架构的特点是 <strong>单向依赖、数据驱动编程</strong>。 <code>View -&gt; ViewModel -&gt; Usecase -&gt; Model</code> 。</p>
 <p>View 对 ViewModel 的单向依赖，是通过 DataBinding 特性实现的。ViewModel 只负责代理数据请求，在 Usecase 处理完业务返回结果数据时，结果数据被赋值给可观察的 DataBinding 数据，而 View 则依据数据的变化而变化。</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">public class NoteListViewModel &#123;</span><br><span class="line"></span><br><span class="line">    private ObservableList&lt;NoteBean&gt; mListObservable = new ObservableArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    private void requestNotes(String type) &#123;</span><br><span class="line">        if (null == mRequestNotesUsecase) &#123;</span><br><span class="line">            mRequestNotesUsecase = new ProveListInitUseCase();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        mUseCaseHandler.execute(mRequestNotesUsecase, new RequestNotesUsecase.RequestValues(type),</span><br><span class="line">                new UseCase.UseCaseCallback&lt;RequestNotesUsecase.ResponseValue&gt;() &#123;</span><br><span class="line">                    @Override</span><br><span class="line">                    public void onSuccess(RequestNotesUsecase.ResponseValue response) &#123;</span><br><span class="line"></span><br><span class="line">                        //viewModel 的可观察数据发生变化后，databinding 会自动更新 UI 展示。</span><br><span class="line"></span><br><span class="line">                        mListObservable.clear();</span><br><span class="line">                        mListObservable.addAll(response.getNotes());</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                    @Override</span><br><span class="line">                    public void onError() &#123;</span><br><span class="line"></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NoteListViewModel</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">private</span> ObservableList&lt;NoteBean&gt; mListObservable = <span class="hljs-keyword">new</span> ObservableArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">requestNotes</span><span class="hljs-params">(String type)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">null</span> == mRequestNotesUsecase) &#123;</span><br><span class="line">            mRequestNotesUsecase = <span class="hljs-keyword">new</span> ProveListInitUseCase();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        mUseCaseHandler.execute(mRequestNotesUsecase, <span class="hljs-keyword">new</span> RequestNotesUsecase.RequestValues(type),</span><br><span class="line">                <span class="hljs-keyword">new</span> UseCase.UseCaseCallback&lt;RequestNotesUsecase.ResponseValue&gt;() &#123;</span><br><span class="line">                    <span class="hljs-meta">@Override</span></span><br><span class="line">                    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(RequestNotesUsecase.ResponseValue response)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">                        <span class="hljs-comment">//viewModel 的可观察数据发生变化后，databinding 会自动更新 UI 展示。</span></span><br><span class="line"></span><br><span class="line">                        mListObservable.clear();</span><br><span class="line">                        mListObservable.addAll(response.getNotes());</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                    <span class="hljs-meta">@Override</span></span><br><span class="line">                    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>但 Clean 架构也有不足：粒度太细 。一个 UseCase 受限于请求参数，因而只能处理一类请求。View 请求的数据包含几种类型，就至少需要准备几个 UseCase 。UseCase 是依据当前 View 对数据的需求量身定制的，因此 <strong>UseCase 的复用率极低，项目会因而急剧的增加类和重复代码</strong>。</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/57036-c9c22a02df248093.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="too_much_usecase.png"></p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">public class RequestNotesUseCase extends UseCase&lt;RequestNotesUseCase.RequestValues, RequestNotesUseCase.ResponseValue&gt; &#123;</span><br><span class="line"></span><br><span class="line">    private DataManager mDataManager;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void executeUseCase(final RequestValues values) &#123;</span><br><span class="line">        List&lt;NoteBean&gt; noteBeans = mDataManager.getNotes();</span><br><span class="line">        ...</span><br><span class="line">        getUseCaseCallback().onSuccess(new RequestNotesUseCase.ResponseValue(noteBeans));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //每新建一个 UseCase 类，都需要手动为其配置 请求参数列表 和 响应参数列表。</span><br><span class="line"></span><br><span class="line">    public static final class RequestValues implements UseCase.RequestValues &#123;</span><br><span class="line">        private String type;</span><br><span class="line"></span><br><span class="line">        public String getType() &#123;</span><br><span class="line">            return type;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public void setType(String type) &#123;</span><br><span class="line">            this.type = type;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static final class ResponseValue implements UseCase.ResponseValue &#123;</span><br><span class="line"></span><br><span class="line">        public List&lt;NoteBean&gt; mBeans;</span><br><span class="line"></span><br><span class="line">        public ResponseValue(List&lt;NoteBean&gt; beans) &#123;</span><br><span class="line">            mBeans = beans;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RequestNotesUseCase</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">UseCase</span>&lt;<span class="hljs-title">RequestNotesUseCase</span>.<span class="hljs-title">RequestValues</span>, <span class="hljs-title">RequestNotesUseCase</span>.<span class="hljs-title">ResponseValue</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">private</span> DataManager mDataManager;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">executeUseCase</span><span class="hljs-params">(<span class="hljs-keyword">final</span> RequestValues values)</span> </span>&#123;</span><br><span class="line">        List&lt;NoteBean&gt; noteBeans = mDataManager.getNotes();</span><br><span class="line">        ...</span><br><span class="line">        getUseCaseCallback().onSuccess(<span class="hljs-keyword">new</span> RequestNotesUseCase.ResponseValue(noteBeans));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">//每新建一个 UseCase 类，都需要手动为其配置 请求参数列表 和 响应参数列表。</span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RequestValues</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">UseCase</span>.<span class="hljs-title">RequestValues</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">private</span> String type;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getType</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">return</span> type;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setType</span><span class="hljs-params">(String type)</span> </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">this</span>.type = type;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ResponseValue</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">UseCase</span>.<span class="hljs-title">ResponseValue</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-keyword">public</span> List&lt;NoteBean&gt; mBeans;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ResponseValue</span><span class="hljs-params">(List&lt;NoteBean&gt; beans)</span> </span>&#123;</span><br><span class="line">            mBeans = beans;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="AAC-架构的特点"><a href="#AAC-架构的特点" class="headerlink" title="AAC 架构的特点"></a>AAC 架构的特点</h2><p>AAC 也是数据驱动编程。只不过它不依赖于 MVVM 特性，而是直接在 View 中写个观察者回调，以接收结果数据并处理 UI 逻辑。</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public class NoteListFragment extends BaseFragment &#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void onActivityCreated(@Nullable Bundle savedInstanceState) &#123;</span><br><span class="line">        super.onActivityCreated(savedInstanceState);</span><br><span class="line">        viewModel.getNote().observe(this, new Observer&lt;NoteBean&gt;() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public void onChanged(@Nullable NoteBean bean) &#123;</span><br><span class="line">                //update UI</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NoteListFragment</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">BaseFragment</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onActivityCreated</span><span class="hljs-params">(@Nullable Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">super</span>.onActivityCreated(savedInstanceState);</span><br><span class="line">        viewModel.getNote().observe(<span class="hljs-keyword">this</span>, <span class="hljs-keyword">new</span> Observer&lt;NoteBean&gt;() &#123;</span><br><span class="line">            <span class="hljs-meta">@Override</span></span><br><span class="line">            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onChanged</span><span class="hljs-params">(@Nullable NoteBean bean)</span> </span>&#123;</span><br><span class="line">                <span class="hljs-comment">//update UI</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>你完全可以将其理解为 B/S 架构：由 Web 前端向 Web 后端发送了数据请求，后端在处理完毕后响应结果数据给前端，前端再依据需求处理 UI 逻辑。等于说， <strong>AAC 将业务完全压到了 “数据仓库层”</strong>。</p>
 <h2 id="某“解耦分离”架构的由来及特点"><a href="#某“解耦分离”架构的由来及特点" class="headerlink" title="某“解耦分离”架构的由来及特点"></a>某“解耦分离”架构的由来及特点</h2><p>公司项目的第三轮重构采用的是 Clean 架构，而我在业余时间又设计了一款“实现 UI 和业务分离”的某架构，于是向主管申请了 1 周时间，利用“某架构”将 60 个类的核心模块重构了一遍。（不要慌，该架构已开源，文末链接给出）。</p>
 <p>该架构属于“消息驱动编程”，即借助“总线”来转发数据的请求和响应，实现 UI 和 业务的分离。</p>
@@ -250,7 +250,7 @@
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>综上，本文介绍了 4 个架构以及它们的优缺点。在实际项目开发中，可根据项目规模的大小、项目上层逻辑的稳定程度，来选择最合适的架构。</p>
 <p>看完这篇文章，如你觉得有所收获和启发，请不吝点赞，你的点赞就是对我最大的支持！</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/57036-6c0fb0643a79a2d4.gif?imageMogr2/auto-orient/strip" alt></p>
-<h2 id="更多访问"><a href="#更多访问" class="headerlink" title="更多访问"></a>更多访问</h2><p><a href="https://www.jianshu.com/p/6545767d3e548" target="_blank" rel="noopener">1分钟掌握 ViaBus 架构的使用</a><br><a href="https://www.jianshu.com/p/0748c3ee1368" target="_blank" rel="noopener">Viabus - 年轻人的第一款架构</a><br><a href="https://www.jianshu.com/p/22e110193ea9" target="_blank" rel="noopener">Android：你还在等那个，手把手带你重构的人出现吗？</a></p>
+<h2 id="更多访问"><a href="#更多访问" class="headerlink" title="更多访问"></a>更多访问</h2><p><a href="https://www.jianshu.com/p/6545767d3e548" target="_blank" rel="noopener">1分钟掌握 ViaBus 架构的使用</a><br><a href="https://www.jianshu.com/p/0748c3ee1368" target="_blank" rel="noopener">VIABUS  - 年轻人的第一款架构</a><br><a href="https://www.jianshu.com/p/22e110193ea9" target="_blank" rel="noopener">Android：你还在等那个，手把手带你重构的人出现吗？</a></p>
 
         </div>
         
@@ -258,7 +258,7 @@
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/AAC/">AAC</a>, <a class="has-link-grey -link" href="/tags/ViaBus/">ViaBus</a>, <a class="has-link-grey -link" href="/tags/深度思考/">深度思考</a>
+                    <a class="has-link-grey -link" href="/tags/AAC/">AAC</a>, <a class="has-link-grey -link" href="/tags/VIABUS/">VIABUS</a>, <a class="has-link-grey -link" href="/tags/深度思考/">深度思考</a>
                 </div>
             </div>
         </div>
@@ -295,16 +295,16 @@
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2018/09/30/Android：这是一个高级工程师的国庆充电规划/">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2018/10/21/Android：你还在等那个，手把手带你重构的人出现吗？/">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">Android：这是一个高级工程师的国庆充电规划</span>
+                <span class="level-item">Android：你还在等那个，手把手带你重构的人出现吗？</span>
             </a>
         </div>
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2018/09/25/Android：1分钟掌握 ViaBus 架构的使用/">
-                <span class="level-item">Android：1分钟掌握 ViaBus 架构的使用</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2018/09/25/Android：1分钟掌握 VIABUS 架构的使用/">
+                <span class="level-item">Android：1分钟掌握 VIABUS 架构的使用</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -355,17 +355,17 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Posts
+                        Entradas
                     </p>
                     <p class="title has-text-weight-normal">
-                        10
+                        9
                     </p>
                 </div>
             </div>
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Categories
+                        Categorias
                     </p>
                     <p class="title has-text-weight-normal">
                         4
@@ -375,7 +375,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Tags
+                        Etiquetas
                     </p>
                     <p class="title has-text-weight-normal">
                         8
@@ -385,7 +385,7 @@
         </nav>
         <div class="level">
             <a class="level-item button is-link is-rounded" href="https://github.com/KunMinX" target="_blank">
-                Follow</a>
+                SEGUIR</a>
         </div>
         
         
@@ -464,7 +464,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Categories
+                Categorias
             </h3>
             <ul class="menu-list">
             <li>
@@ -473,7 +473,7 @@
                 <span class="level-item">Architecture</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">5</span>
+                <span class="level-item tag">4</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Library/">
@@ -509,9 +509,9 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Tag Cloud
+            Nube de etiquetas
         </h3>
-        <a href="/tags/AAC/" style="font-size: 10px;">AAC</a> <a href="/tags/Linkage/" style="font-size: 13.33px;">Linkage</a> <a href="/tags/RecyclerView/" style="font-size: 13.33px;">RecyclerView</a> <a href="/tags/RxJava/" style="font-size: 13.33px;">RxJava</a> <a href="/tags/ViaBus/" style="font-size: 20px;">ViaBus</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/深度思考/" style="font-size: 20px;">深度思考</a> <a href="/tags/项目推荐/" style="font-size: 16.67px;">项目推荐</a>
+        <a href="/tags/AAC/" style="font-size: 10px;">AAC</a> <a href="/tags/Linkage/" style="font-size: 12.5px;">Linkage</a> <a href="/tags/RecyclerView/" style="font-size: 12.5px;">RecyclerView</a> <a href="/tags/RxJava/" style="font-size: 12.5px;">RxJava</a> <a href="/tags/VIABUS/" style="font-size: 17.5px;">VIABUS</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/深度思考/" style="font-size: 20px;">深度思考</a> <a href="/tags/项目推荐/" style="font-size: 15px;">项目推荐</a>
     </div>
 </div>
 
@@ -524,7 +524,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Catalogue
+                Catálogo
             </h3>
             <ul class="menu-list"><ul class="menu-list"><li>
         <a class="is-flex" href="#前言">
@@ -572,7 +572,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recent
+            Recientes
         </h3>
         
         <article class="media">
@@ -678,7 +678,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archives
+            Archivos
         </h3>
         <ul class="menu-list">
         
@@ -721,7 +721,7 @@
                     <span class="level-item">September 2018</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">4</span>
+                    <span class="level-item tag">3</span>
                 </span>
             </a>
         </li>
@@ -735,7 +735,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Tags
+                Etiquetas
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
@@ -768,9 +768,9 @@
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/ViaBus/">
-                        <span class="tag">ViaBus</span>
-                        <span class="tag is-grey">5</span>
+                    <a class="tags has-addons" href="/tags/VIABUS/">
+                        <span class="tag">VIABUS</span>
+                        <span class="tag is-grey">4</span>
                     </a>
                 </div>
                 
@@ -816,7 +816,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Catalogue
+                Catálogo
             </h3>
             <ul class="menu-list"><ul class="menu-list"><li>
         <a class="is-flex" href="#前言">
@@ -864,7 +864,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recent
+            Recientes
         </h3>
         
         <article class="media">
@@ -970,7 +970,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archives
+            Archivos
         </h3>
         <ul class="menu-list">
         
@@ -1013,7 +1013,7 @@
                     <span class="level-item">September 2018</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">4</span>
+                    <span class="level-item tag">3</span>
                 </span>
             </a>
         </li>
@@ -1027,7 +1027,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Tags
+                Etiquetas
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
@@ -1060,9 +1060,9 @@
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/ViaBus/">
-                        <span class="tag">ViaBus</span>
-                        <span class="tag is-grey">5</span>
+                    <a class="tags has-addons" href="/tags/VIABUS/">
+                        <span class="tag">VIABUS</span>
+                        <span class="tag is-grey">4</span>
                     </a>
                 </div>
                 
@@ -1262,10 +1262,10 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Posts',
+                POSTS: 'Entradas',
                 PAGES: 'Pages',
-                CATEGORIES: 'Categories',
-                TAGS: 'Tags',
+                CATEGORIES: 'Categorias',
+                TAGS: 'Etiquetas',
                 UNTITLED: '(Untitled)',
             },
             CONTENT_URL: '/content.json',

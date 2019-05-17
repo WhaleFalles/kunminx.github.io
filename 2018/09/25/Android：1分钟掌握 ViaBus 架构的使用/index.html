@@ -2,21 +2,21 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Android：1分钟掌握 ViaBus 架构的使用 - KunMinX 的个人博客</title>
+<title>Android：1分钟掌握 VIABUS 架构的使用 - KunMinX 的个人博客</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="keywords" content="ViaBus">
+    <meta name="keywords" content="VIABUS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android：1分钟掌握 ViaBus 架构的使用">
-<meta property="og:url" content="https://kunminx.github.io/2018/09/25/Android：1分钟掌握 ViaBus 架构的使用/index.html">
+<meta property="og:title" content="Android：1分钟掌握 VIABUS 架构的使用">
+<meta property="og:url" content="https://kunminx.github.io/2018/09/25/Android：1分钟掌握 VIABUS 架构的使用/index.html">
 <meta property="og:site_name" content="KunMinX 的个人博客">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://kunminx.github.io/images/og_image.png">
-<meta property="og:updated_time" content="2019-05-15T03:10:09.528Z">
+<meta property="og:updated_time" content="2019-05-17T13:54:39.361Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android：1分钟掌握 ViaBus 架构的使用">
+<meta name="twitter:title" content="Android：1分钟掌握 VIABUS 架构的使用">
 <meta name="twitter:image" content="https://kunminx.github.io/images/og_image.png">
 
 
@@ -91,7 +91,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Android：1分钟掌握 ViaBus 架构的使用" height="28">
+                <img src="/images/logo.svg" alt="Android：1分钟掌握 VIABUS 架构的使用" height="28">
             
             </a>
         </div>
@@ -123,7 +123,7 @@
                     
                 
                 
-                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catálogo" href="javascript:;">
                     <i class="fas fa-list-ul"></i>
                 </a>
                 
@@ -156,7 +156,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    3 minutes read (About 470 words)
+                    3 minutes read (About 476 words)
                 </span>
                 
                 
@@ -165,25 +165,21 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                Android：1分钟掌握 ViaBus 架构的使用
+                Android：1分钟掌握 VIABUS 架构的使用
             
         </h1>
         <div class="content">
             <p><img src="https://upload-images.jianshu.io/upload_images/57036-8a4ca215619317b1.png" alt="viabus_flow_cn.png"></p>
 <a id="more"></a>
-<p><strong>0. 在模块的 build.gradle 添加如下依赖</strong><br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">implementation &quot;com.kunminx.viabus:viabus-architecture:0.4.3&quot;</span><br></pre></td></tr></table></figure></p>
-<p><strong>1. 定义接口，用于发送请求</strong>。</p>
-<p>接口须继承于 IRequest，如：<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public interface INoteRequest extends IRequest&#123;</span><br><span class="line"></span><br><span class="line">    void queryList();</span><br><span class="line"></span><br><span class="line">    void insert(NoteBean bean);</span><br><span class="line"></span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong>2. 定义 bus，用于支持请求接口的访问</strong>。</p>
-<p>bus 须继承于BaseBus，如：<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public class NoteBus extends BaseBus &#123;</span><br><span class="line"></span><br><span class="line">    public static INoteRequest note() &#123;</span><br><span class="line">        return (INoteRequest) getRequest(INoteRequest.class);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="0-在模块的-build-gradle-添加如下依赖"><a href="#0-在模块的-build-gradle-添加如下依赖" class="headerlink" title="0. 在模块的 build.gradle 添加如下依赖"></a>0. 在模块的 build.gradle 添加如下依赖</h4><figure class="highlight groovy hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">implementation <span class="hljs-string">"com.kunminx.viabus:viabus-architecture:0.4.3"</span></span><br></pre></td></tr></table></figure>
+<h4 id="1-定义接口，用于发送请求。"><a href="#1-定义接口，用于发送请求。" class="headerlink" title="1. 定义接口，用于发送请求。"></a>1. 定义接口，用于发送请求。</h4><p>接口须继承于 IRequest，如：<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">INoteRequest</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">IRequest</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">queryList</span><span class="hljs-params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">insert</span><span class="hljs-params">(NoteBean bean)</span></span>;</span><br><span class="line"></span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="2-定义-bus，用于支持请求接口的访问。"><a href="#2-定义-bus，用于支持请求接口的访问。" class="headerlink" title="2. 定义 bus，用于支持请求接口的访问。"></a>2. 定义 bus，用于支持请求接口的访问。</h4><p>bus 须继承于BaseBus，如：<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NoteBus</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">BaseBus</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> INoteRequest <span class="hljs-title">note</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> (INoteRequest) getRequest(INoteRequest.class);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p><img src="https://upload-images.jianshu.io/upload_images/57036-6420db66dff7739c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="viabus_view_bus_business_1.png"></p>
-<p><strong>3. 将 ui 注册成为响应接收者</strong>。</p>
-<p>在 ui 中，通过 bus 发送数据请求。并在 onResult 中，依据响应码实现 ui 逻辑的处理。<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">public class NoteListFragment extends Fragment implements IResponse &#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void onCreate(@Nullable Bundle savedInstanceState) &#123;</span><br><span class="line">        ...</span><br><span class="line">        NoteBus.registerResponseObserver(this);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) &#123;</span><br><span class="line">        ...</span><br><span class="line">	NoteBus.note().queryList();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override </span><br><span class="line">    public void onResult(Result testResult) &#123;</span><br><span class="line"></span><br><span class="line">        String resultCode = (String) testResult.getResultCode();</span><br><span class="line"></span><br><span class="line">        switch (resultCode) &#123;</span><br><span class="line">            case NoteResultCode.QUERY_LIST:</span><br><span class="line">                if (testResult.getResultObject() != null) &#123;</span><br><span class="line">                    mAdapter.setList((List&lt;NoteBean&gt;) testResult.getResultObject());</span><br><span class="line">                    mAdapter.notifyDataSetChanged();</span><br><span class="line">                &#125;</span><br><span class="line">                break;</span><br><span class="line">            case NoteResultCode.INSERTED:</span><br><span class="line">            ...</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void onDestroy() &#123;</span><br><span class="line">        ...</span><br><span class="line">        NoteBus.unregisterResponseObserver(this);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong>4. 在模块的管理类中，将 业务 注册成为请求处理者</strong>。<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public class MainActivity extends AppCompatActivity &#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</span><br><span class="line">        NoteBusiness noteBusiness = new NoteBusiness();</span><br><span class="line">        noteBusiness.init(getApplicationContext());</span><br><span class="line">        NoteBus.registerRequestHandler(noteBusiness);</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong>5. 在业务中异步处理各种请求</strong>。</p>
-<p>期间可发送进度消息，最后可返回结果数据。业务须继承于 BaseBusiness。<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public class NoteBusiness extends BaseBusiness&lt;NoteBus&gt; implements INoteRequest &#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void queryList() &#123;</span><br><span class="line">        handleRequest((e) -&gt; &#123;</span><br><span class="line">            List&lt;NoteBean&gt; list = mDataBase.getList(null, null);</span><br><span class="line">	    ... </span><br><span class="line">	    sendMessage(e, new Result(NoteResultCode.PROGRESS, bean.getId()));</span><br><span class="line">	    ... </span><br><span class="line">            return new Result(NoteResultCode.QUERY_LIST, list); </span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void insert(NoteBean bean) &#123;</span><br><span class="line">        handleRequest((e) -&gt; &#123; ... &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>⭐ ViaBus 架构已在 Github 开源，欢迎 Star &amp; Fork ~<br><a href="https://github.com/KunMinX/android-viabus-architecture" target="_blank" rel="noopener">Github : KunMinX / android-viabus-architecture</a></p>
-<h4 id="更多文章"><a href="#更多文章" class="headerlink" title="更多文章"></a>更多文章</h4><p><a href="https://www.jianshu.com/p/9ef813d5c1af" target="_blank" rel="noopener">Android：四大架构的优缺点，你真的了解吗？</a><br><a href="https://www.jianshu.com/p/0748c3ee1368" target="_blank" rel="noopener">Viabus - 年轻人的第一款架构</a><br><a href="https://www.jianshu.com/p/22e110193ea9" target="_blank" rel="noopener">Android：你还在等那个，手把手带你重构的人出现吗？</a></p>
+<h4 id="3-将-ui-注册成为响应接收者。"><a href="#3-将-ui-注册成为响应接收者。" class="headerlink" title="3. 将 ui 注册成为响应接收者。"></a>3. 将 ui 注册成为响应接收者。</h4><p>在 ui 中，通过 bus 发送数据请求。并在 onResult 中，依据响应码实现 ui 逻辑的处理。<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NoteListFragment</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Fragment</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IResponse</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(@Nullable Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        ...</span><br><span class="line">        NoteBus.registerResponseObserver(<span class="hljs-keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onViewCreated</span><span class="hljs-params">(View view, @Nullable Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        ...</span><br><span class="line">	NoteBus.note().queryList();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@Override</span> </span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onResult</span><span class="hljs-params">(Result testResult)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        String resultCode = (String) testResult.getResultCode();</span><br><span class="line"></span><br><span class="line">        <span class="hljs-keyword">switch</span> (resultCode) &#123;</span><br><span class="line">            <span class="hljs-keyword">case</span> NoteResultCode.QUERY_LIST:</span><br><span class="line">                <span class="hljs-keyword">if</span> (testResult.getResultObject() != <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">                    mAdapter.setList((List&lt;NoteBean&gt;) testResult.getResultObject());</span><br><span class="line">                    mAdapter.notifyDataSetChanged();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="hljs-keyword">break</span>;</span><br><span class="line">            <span class="hljs-keyword">case</span> NoteResultCode.INSERTED:</span><br><span class="line">            ...</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onDestroy</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        ...</span><br><span class="line">        NoteBus.unregisterResponseObserver(<span class="hljs-keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="4-在模块的管理类中，将-业务-注册成为请求处理者。"><a href="#4-在模块的管理类中，将-业务-注册成为请求处理者。" class="headerlink" title="4. 在模块的管理类中，将 业务 注册成为请求处理者。"></a>4. 在模块的管理类中，将 业务 注册成为请求处理者。</h4><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MainActivity</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        NoteBusiness noteBusiness = <span class="hljs-keyword">new</span> NoteBusiness();</span><br><span class="line">        noteBusiness.init(getApplicationContext());</span><br><span class="line">        NoteBus.registerRequestHandler(noteBusiness);</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="5-在业务中异步处理各种请求。"><a href="#5-在业务中异步处理各种请求。" class="headerlink" title="5. 在业务中异步处理各种请求。"></a>5. 在业务中异步处理各种请求。</h4><p>期间可发送进度消息，最后可返回结果数据。业务须继承于 BaseBusiness。<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NoteBusiness</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">BaseBusiness</span>&lt;<span class="hljs-title">NoteBus</span>&gt; <span class="hljs-keyword">implements</span> <span class="hljs-title">INoteRequest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">queryList</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        handleRequest((e) -&gt; &#123;</span><br><span class="line">            List&lt;NoteBean&gt; list = mDataBase.getList(<span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>);</span><br><span class="line">	    ... </span><br><span class="line">	    sendMessage(e, <span class="hljs-keyword">new</span> Result(NoteResultCode.PROGRESS, bean.getId()));</span><br><span class="line">	    ... </span><br><span class="line">            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Result(NoteResultCode.QUERY_LIST, list); </span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">insert</span><span class="hljs-params">(NoteBean bean)</span> </span>&#123;</span><br><span class="line">        handleRequest((e) -&gt; &#123; ... &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>⭐ VIABUS 架构已在 Github 开源，欢迎 Star &amp; Fork ~<br><a href="https://github.com/KunMinX/android-viabus-architecture" target="_blank" rel="noopener">Github : KunMinX / android-viabus-architecture</a></p>
+<h4 id="更多文章"><a href="#更多文章" class="headerlink" title="更多文章"></a>更多文章</h4><p><a href="https://www.jianshu.com/p/9ef813d5c1af" target="_blank" rel="noopener">Android：四大架构的优缺点，你真的了解吗？</a><br><a href="https://www.jianshu.com/p/0748c3ee1368" target="_blank" rel="noopener">VIABUS - 年轻人的第一款架构</a><br><a href="https://www.jianshu.com/p/22e110193ea9" target="_blank" rel="noopener">Android：你还在等那个，手把手带你重构的人出现吗？</a></p>
 
         </div>
         
@@ -191,7 +187,7 @@
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/ViaBus/">ViaBus</a>
+                    <a class="has-link-grey -link" href="/tags/VIABUS/">VIABUS</a>
                 </div>
             </div>
         </div>
@@ -236,8 +232,8 @@
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2018/09/25/Android：Viabus - 年轻人的第一款架构/">
-                <span class="level-item">Android：Viabus - 年轻人的第一款架构</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2018/09/25/Android：VIABUS - 年轻人的第一款架构/">
+                <span class="level-item">Android：VIABUS - 年轻人的第一款架构</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -288,17 +284,17 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Posts
+                        Entradas
                     </p>
                     <p class="title has-text-weight-normal">
-                        10
+                        9
                     </p>
                 </div>
             </div>
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Categories
+                        Categorias
                     </p>
                     <p class="title has-text-weight-normal">
                         4
@@ -308,7 +304,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Tags
+                        Etiquetas
                     </p>
                     <p class="title has-text-weight-normal">
                         8
@@ -318,7 +314,7 @@
         </nav>
         <div class="level">
             <a class="level-item button is-link is-rounded" href="https://github.com/KunMinX" target="_blank">
-                Follow</a>
+                SEGUIR</a>
         </div>
         
         
@@ -397,7 +393,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Categories
+                Categorias
             </h3>
             <ul class="menu-list">
             <li>
@@ -406,7 +402,7 @@
                 <span class="level-item">Architecture</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">5</span>
+                <span class="level-item tag">4</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Library/">
@@ -442,9 +438,9 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Tag Cloud
+            Nube de etiquetas
         </h3>
-        <a href="/tags/AAC/" style="font-size: 10px;">AAC</a> <a href="/tags/Linkage/" style="font-size: 13.33px;">Linkage</a> <a href="/tags/RecyclerView/" style="font-size: 13.33px;">RecyclerView</a> <a href="/tags/RxJava/" style="font-size: 13.33px;">RxJava</a> <a href="/tags/ViaBus/" style="font-size: 20px;">ViaBus</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/深度思考/" style="font-size: 20px;">深度思考</a> <a href="/tags/项目推荐/" style="font-size: 16.67px;">项目推荐</a>
+        <a href="/tags/AAC/" style="font-size: 10px;">AAC</a> <a href="/tags/Linkage/" style="font-size: 12.5px;">Linkage</a> <a href="/tags/RecyclerView/" style="font-size: 12.5px;">RecyclerView</a> <a href="/tags/RxJava/" style="font-size: 12.5px;">RxJava</a> <a href="/tags/VIABUS/" style="font-size: 17.5px;">VIABUS</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/深度思考/" style="font-size: 20px;">深度思考</a> <a href="/tags/项目推荐/" style="font-size: 15px;">项目推荐</a>
     </div>
 </div>
 
@@ -457,11 +453,35 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Catalogue
+                Catálogo
             </h3>
             <ul class="menu-list"><li>
-        <a class="is-flex" href="#更多文章">
+        <a class="is-flex" href="#0-在模块的-build-gradle-添加如下依赖">
         <span class="has-mr-6">1</span>
+        <span>0. 在模块的 build.gradle 添加如下依赖</span>
+        </a></li><li>
+        <a class="is-flex" href="#1-定义接口，用于发送请求。">
+        <span class="has-mr-6">2</span>
+        <span>1. 定义接口，用于发送请求。</span>
+        </a></li><li>
+        <a class="is-flex" href="#2-定义-bus，用于支持请求接口的访问。">
+        <span class="has-mr-6">3</span>
+        <span>2. 定义 bus，用于支持请求接口的访问。</span>
+        </a></li><li>
+        <a class="is-flex" href="#3-将-ui-注册成为响应接收者。">
+        <span class="has-mr-6">4</span>
+        <span>3. 将 ui 注册成为响应接收者。</span>
+        </a></li><li>
+        <a class="is-flex" href="#4-在模块的管理类中，将-业务-注册成为请求处理者。">
+        <span class="has-mr-6">5</span>
+        <span>4. 在模块的管理类中，将 业务 注册成为请求处理者。</span>
+        </a></li><li>
+        <a class="is-flex" href="#5-在业务中异步处理各种请求。">
+        <span class="has-mr-6">6</span>
+        <span>5. 在业务中异步处理各种请求。</span>
+        </a></li><li>
+        <a class="is-flex" href="#更多文章">
+        <span class="has-mr-6">7</span>
         <span>更多文章</span>
         </a></li></ul>
         </div>
@@ -473,7 +493,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recent
+            Recientes
         </h3>
         
         <article class="media">
@@ -579,7 +599,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archives
+            Archivos
         </h3>
         <ul class="menu-list">
         
@@ -622,7 +642,7 @@
                     <span class="level-item">September 2018</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">4</span>
+                    <span class="level-item tag">3</span>
                 </span>
             </a>
         </li>
@@ -636,7 +656,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Tags
+                Etiquetas
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
@@ -669,9 +689,9 @@
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/ViaBus/">
-                        <span class="tag">ViaBus</span>
-                        <span class="tag is-grey">5</span>
+                    <a class="tags has-addons" href="/tags/VIABUS/">
+                        <span class="tag">VIABUS</span>
+                        <span class="tag is-grey">4</span>
                     </a>
                 </div>
                 
@@ -717,11 +737,35 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Catalogue
+                Catálogo
             </h3>
             <ul class="menu-list"><li>
-        <a class="is-flex" href="#更多文章">
+        <a class="is-flex" href="#0-在模块的-build-gradle-添加如下依赖">
         <span class="has-mr-6">1</span>
+        <span>0. 在模块的 build.gradle 添加如下依赖</span>
+        </a></li><li>
+        <a class="is-flex" href="#1-定义接口，用于发送请求。">
+        <span class="has-mr-6">2</span>
+        <span>1. 定义接口，用于发送请求。</span>
+        </a></li><li>
+        <a class="is-flex" href="#2-定义-bus，用于支持请求接口的访问。">
+        <span class="has-mr-6">3</span>
+        <span>2. 定义 bus，用于支持请求接口的访问。</span>
+        </a></li><li>
+        <a class="is-flex" href="#3-将-ui-注册成为响应接收者。">
+        <span class="has-mr-6">4</span>
+        <span>3. 将 ui 注册成为响应接收者。</span>
+        </a></li><li>
+        <a class="is-flex" href="#4-在模块的管理类中，将-业务-注册成为请求处理者。">
+        <span class="has-mr-6">5</span>
+        <span>4. 在模块的管理类中，将 业务 注册成为请求处理者。</span>
+        </a></li><li>
+        <a class="is-flex" href="#5-在业务中异步处理各种请求。">
+        <span class="has-mr-6">6</span>
+        <span>5. 在业务中异步处理各种请求。</span>
+        </a></li><li>
+        <a class="is-flex" href="#更多文章">
+        <span class="has-mr-6">7</span>
         <span>更多文章</span>
         </a></li></ul>
         </div>
@@ -733,7 +777,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recent
+            Recientes
         </h3>
         
         <article class="media">
@@ -839,7 +883,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archives
+            Archivos
         </h3>
         <ul class="menu-list">
         
@@ -882,7 +926,7 @@
                     <span class="level-item">September 2018</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">4</span>
+                    <span class="level-item tag">3</span>
                 </span>
             </a>
         </li>
@@ -896,7 +940,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Tags
+                Etiquetas
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
@@ -929,9 +973,9 @@
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/ViaBus/">
-                        <span class="tag">ViaBus</span>
-                        <span class="tag is-grey">5</span>
+                    <a class="tags has-addons" href="/tags/VIABUS/">
+                        <span class="tag">VIABUS</span>
+                        <span class="tag is-grey">4</span>
                     </a>
                 </div>
                 
@@ -973,7 +1017,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Android：1分钟掌握 ViaBus 架构的使用" height="28">
+                    <img src="/images/logo.svg" alt="Android：1分钟掌握 VIABUS 架构的使用" height="28">
                 
                 </a>
                 <p class="is-size-7">
@@ -1131,10 +1175,10 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Posts',
+                POSTS: 'Entradas',
                 PAGES: 'Pages',
-                CATEGORIES: 'Categories',
-                TAGS: 'Tags',
+                CATEGORIES: 'Categorias',
+                TAGS: 'Etiquetas',
                 UNTITLED: '(Untitled)',
             },
             CONTENT_URL: '/content.json',
