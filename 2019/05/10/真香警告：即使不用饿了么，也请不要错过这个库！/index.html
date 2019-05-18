@@ -16,7 +16,7 @@
 <meta property="og:description" content="由来LinkageRecyclerView 是一款基于 MVP 架构开发的二级联动列表控件。它是因 “RxJava 魔法师” 这个项目的需求而存在。 在最初寻遍了 GitHub 也没有找到合适的开源库（高度解耦、可远程依赖）之后，我决心研究参考现有开源项目关于二级联动的逻辑，并自己动手编写一个 高度解耦、轻松配置、可通过 Maven 仓库远程依赖 的真正的第三方库。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://kunminx.github.io/images/og_image.png">
-<meta property="og:updated_time" content="2019-05-17T13:51:07.517Z">
+<meta property="og:updated_time" content="2019-05-18T03:37:16.399Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="真香警告：即使不用饿了么订餐，也请务必收藏好该库！">
 <meta name="twitter:description" content="由来LinkageRecyclerView 是一款基于 MVP 架构开发的二级联动列表控件。它是因 “RxJava 魔法师” 这个项目的需求而存在。 在最初寻遍了 GitHub 也没有找到合适的开源库（高度解耦、可远程依赖）之后，我决心研究参考现有开源项目关于二级联动的逻辑，并自己动手编写一个 高度解耦、轻松配置、可通过 Maven 仓库远程依赖 的真正的第三方库。">
@@ -126,7 +126,7 @@
                     
                 
                 
-                <a class="navbar-item is-hidden-tablet catalogue" title="Catálogo" href="javascript:;">
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
                     <i class="fas fa-list-ul"></i>
                 </a>
                 
@@ -159,7 +159,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    12 minutes read (About 1726 words)
+                    6 minutes read (About 852 words)
                 </span>
                 
                 
@@ -216,23 +216,7 @@
 <figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">List&lt;DefaultGroupedItem&gt; items = gson.fromJson(...);</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">//一行代码完成初始化</span></span><br><span class="line">linkage.init(items);</span><br></pre></td></tr></table></figure>
 <p>注意：如使用 JSON，请在 ProGuard Rules 中为该实体类配置混淆白名单：</p>
 <figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-keep <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">com</span>.<span class="hljs-title">kunminx</span>.<span class="hljs-title">linkage</span>.<span class="hljs-title">bean</span>.** </span>&#123;*;&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="个性化配置："><a href="#个性化配置：" class="headerlink" title="个性化配置："></a>个性化配置：</h3><p>该库为一级和二级 Adapter 分别准备了 Config 接口（<code>ILevelPrimaryAdapterConfig</code> 和 <code>ILevelSecondaryAdapterConfig</code>），<strong>自定义配置时，即是去实现这两个接口，来取代默认的配置</strong>。</p>
-<p>之所以设置成接口的形式，而非 Builder 的形式，是因为二级联动列表内部的联动逻辑需要指明关键的控件。接口相比 Builder 具有强制性，能够让使用者一目了然必须配置的内容，故而采用接口，通过 MVP 架构的方式来编写该库。</p>
-<p>关于个性化配置，具体可以参考我在 <code>ElemeGroupedItem</code> 和 <code>SwitchSampleFragment</code> 中编写的案例：</p>
-<h3 id="Step1：根据需求扩展实体类"><a href="#Step1：根据需求扩展实体类" class="headerlink" title="Step1：根据需求扩展实体类"></a>Step1：根据需求扩展实体类</h3><p>你需要根据需求，在 <code>BaseGroupedItem</code> 的基础上扩展分组实体类，具体的办法是，编写一个实体类，该实体类须继承于 <code>BaseGroupedItem</code>；该实体类的内部类 <code>ItemInfo</code> 也须继承于 <code>BaseGroupedItem.ItemInfo</code>。</p>
-<p>以 Eleme 分组实体类为例，扩充 <code>content</code>、<code>imgUrl</code>、<code>cost</code> 三个字段：</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ElemeGroupedItem</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">BaseGroupedItem</span>&lt;<span class="hljs-title">ElemeGroupedItem</span>.<span class="hljs-title">ItemInfo</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ElemeGroupedItem</span><span class="hljs-params">(<span class="hljs-keyword">boolean</span> isHeader, String header)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">super</span>(isHeader, header);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ElemeGroupedItem</span><span class="hljs-params">(ItemInfo item)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">super</span>(item);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ItemInfo</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">BaseGroupedItem</span>.<span class="hljs-title">ItemInfo</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">private</span> String content;</span><br><span class="line">        <span class="hljs-keyword">private</span> String imgUrl;</span><br><span class="line">        <span class="hljs-keyword">private</span> String cost;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ItemInfo</span><span class="hljs-params">(String title, String group, String content)</span> </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">super</span>(title, group);</span><br><span class="line">            <span class="hljs-keyword">this</span>.content = content;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ItemInfo</span><span class="hljs-params">(String title, String group, String content, String imgUrl)</span> </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">this</span>(title, group, content);</span><br><span class="line">            <span class="hljs-keyword">this</span>.imgUrl = imgUrl;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ItemInfo</span><span class="hljs-params">(String title, String group, String content, String imgUrl, String cost)</span> </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">this</span>(title, group, content, imgUrl);</span><br><span class="line">            <span class="hljs-keyword">this</span>.cost = cost;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getContent</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">return</span> content;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setContent</span><span class="hljs-params">(String content)</span> </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">this</span>.content = content;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getImgUrl</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">return</span> imgUrl;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setImgUrl</span><span class="hljs-params">(String imgUrl)</span> </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">this</span>.imgUrl = imgUrl;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getCost</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">return</span> cost;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setCost</span><span class="hljs-params">(String cost)</span> </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">this</span>.cost = cost;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>注意：如使用 JSON，请在 ProGuard Rules 中为该实体类配置混淆白名单。</p>
-<h3 id="Step2：实现接口，完成自定义配置"><a href="#Step2：实现接口，完成自定义配置" class="headerlink" title="Step2：实现接口，完成自定义配置"></a>Step2：实现接口，完成自定义配置</h3><p>在装载数据和实现自定义配置时，泛型框中须指明你编写的实体类，注意 <code>List&lt;ElemeLinkageItem&gt;</code>，以及 <code>new ILevelSecondaryAdapterConfig&lt;ElemeLinkageItem.ItemInfo&gt;()</code> 这两处。</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">initLinkageDatas</span><span class="hljs-params">(LinkageRecyclerView linkage)</span> </span>&#123;</span><br><span class="line">    Gson gson = <span class="hljs-keyword">new</span> Gson();</span><br><span class="line">    List&lt;ElemeGroupedItem&gt; items = gson.fromJson(...);</span><br><span class="line"></span><br><span class="line">    linkage.init(items, <span class="hljs-keyword">new</span> ILevelPrimaryAdapterConfig() &#123;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-keyword">private</span> Context mContext;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setContext</span><span class="hljs-params">(Context context)</span> </span>&#123;</span><br><span class="line">            mContext = context;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-meta">@Override</span></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getLayoutId</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">return</span> R.layout.default_adapter_linkage_level_primary;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-meta">@Override</span></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getGroupTitleViewId</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">return</span> R.id.tv_group;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-meta">@Override</span></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getRootViewId</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">return</span> R.id.layout_group;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-meta">@Override</span></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onBindViewHolder</span><span class="hljs-params">(</span></span></span><br><span class="line"><span class="hljs-function"><span class="hljs-params">            LinkageLevelPrimaryAdapter.LevelPrimaryViewHolder holder, </span></span></span><br><span class="line"><span class="hljs-function"><span class="hljs-params">            String title, <span class="hljs-keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">            </span><br><span class="line">            ((TextView) holder.mGroupTitle).setText(title);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-meta">@Override</span></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onItemSelected</span><span class="hljs-params">(<span class="hljs-keyword">boolean</span> selected, TextView itemView)</span> </span>&#123;</span><br><span class="line">            itemView.setBackgroundColor(mContext.getResources().getColor(selected</span><br><span class="line">                    ? com.kunminx.linkage.R.color.colorLightBlue</span><br><span class="line">                    : com.kunminx.linkage.R.color.colorWhite));</span><br><span class="line">            itemView.setTextColor(ContextCompat.getColor(mContext, selected</span><br><span class="line">                    ? com.kunminx.linkage.R.color.colorWhite</span><br><span class="line">                    : com.kunminx.linkage.R.color.colorGray));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;, <span class="hljs-keyword">new</span> ILevelSecondaryAdapterConfig&lt;ElemeGroupedItem.ItemInfo&gt;() &#123;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-keyword">private</span> Context mContext;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setContext</span><span class="hljs-params">(Context context)</span> </span>&#123;</span><br><span class="line">            mContext = context;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-meta">@Override</span></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getGridLayoutId</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">return</span> R.layout.adapter_eleme_secondary_grid;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-meta">@Override</span></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getLinearLayoutId</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">return</span> R.layout.adapter_eleme_secondary_linear;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-meta">@Override</span></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getHeaderLayoutId</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">return</span> R.layout.default_adapter_linkage_level_secondary_header;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-meta">@Override</span></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getSpanCountOfGridMode</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">return</span> <span class="hljs-number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-meta">@Override</span></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onBindViewHolder</span><span class="hljs-params">(</span></span></span><br><span class="line"><span class="hljs-function"><span class="hljs-params">            LevelSecondaryViewHolder holder, </span></span></span><br><span class="line"><span class="hljs-function"><span class="hljs-params">            BaseGroupedItem&lt;ElemeGroupedItem.ItemInfo&gt; item, <span class="hljs-keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">            </span><br><span class="line">            ((TextView) holder.getView(R.id.iv_goods_name))</span><br><span class="line">            .setText(item.info.getTitle());</span><br><span class="line">            </span><br><span class="line">            Glide.with(mContext).load(item.info.getImgUrl())</span><br><span class="line">                .into((ImageView) holder.getView(R.id.iv_goods_img));</span><br><span class="line">            </span><br><span class="line">            holder.getView(R.id.iv_goods_item).setOnClickListener(v -&gt; &#123;</span><br><span class="line">                <span class="hljs-comment">//TODO</span></span><br><span class="line">            &#125;);</span><br><span class="line"></span><br><span class="line">            holder.getView(R.id.iv_goods_add).setOnClickListener(v -&gt; &#123;</span><br><span class="line">                <span class="hljs-comment">//TODO</span></span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="hljs-meta">@Override</span></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onBindHeaderViewHolder</span><span class="hljs-params">(</span></span></span><br><span class="line"><span class="hljs-function"><span class="hljs-params">            LevelSecondaryHeaderViewHolder holder,</span></span></span><br><span class="line"><span class="hljs-function"><span class="hljs-params">            BaseGroupedItem&lt;ElemeGroupedItem.ItemInfo&gt; item, <span class="hljs-keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">            <span class="hljs-comment">//TODO</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Thanks-to"><a href="#Thanks-to" class="headerlink" title="Thanks to"></a>Thanks to</h2><p><a href="https://github.com/material-components/material-components-android" target="_blank" rel="noopener">material-components-android</a></p>
-<p><a href="https://developer.android.google.cn/jetpack/androidx" target="_blank" rel="noopener">AndroidX</a></p>
-<h2 id="My-Pages"><a href="#My-Pages" class="headerlink" title="My Pages"></a>My Pages</h2><p>Email：<a href="mailto:kunminx@gmail.com" target="_blank" rel="noopener">kunminx@gmail.com</a></p>
-<p>Home：<a href="https://kunminx.github.io/">KunMinX 的个人博客</a></p>
-<p>Juejin：<a href="https://juejin.im/user/58ab0de9ac502e006975d757/posts" target="_blank" rel="noopener">KunMinX 在掘金</a></p>
-<p><span id="wechatQrcode">KunMinX’s WeChat Public Account（微信公众号）：</span></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/57036-dc3af94a5daf478c.jpg" alt="公众号"></p>
-<h2 id="License"><a href="#License" class="headerlink" title="License"></a>License</h2><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Copyright 2018-2019 KunMinX</span><br><span class="line"></span><br><span class="line">Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span><br><span class="line">you may not use this file except in compliance with the License.</span><br><span class="line">You may obtain a copy of the License at</span><br><span class="line"></span><br><span class="line">   http://www.apache.org/licenses/LICENSE-2.0</span><br><span class="line"></span><br><span class="line">Unless required by applicable law or agreed to in writing, software</span><br><span class="line">distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span><br><span class="line">WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span><br><span class="line">See the License for the specific language governing permissions and</span><br><span class="line">limitations under the License.</span><br></pre></td></tr></table></figure>
+<h3 id="个性化配置："><a href="#个性化配置：" class="headerlink" title="个性化配置："></a>个性化配置：</h3><p>项目链接：<a href="https://github.com/KunMinX/Linkage-RecyclerView" target="_blank" rel="noopener">https://github.com/KunMinX/Linkage-RecyclerView</a></p>
 
         </div>
         
@@ -337,7 +321,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Entradas
+                        Posts
                     </p>
                     <p class="title has-text-weight-normal">
                         9
@@ -347,7 +331,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Categorias
+                        Categories
                     </p>
                     <p class="title has-text-weight-normal">
                         4
@@ -357,7 +341,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Etiquetas
+                        Tags
                     </p>
                     <p class="title has-text-weight-normal">
                         8
@@ -367,7 +351,7 @@
         </nav>
         <div class="level">
             <a class="level-item button is-link is-rounded" href="https://github.com/KunMinX" target="_blank">
-                SEGUIR</a>
+                Follow</a>
         </div>
         
         
@@ -446,7 +430,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Categorias
+                Categories
             </h3>
             <ul class="menu-list">
             <li>
@@ -491,7 +475,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Nube de etiquetas
+            Tag Cloud
         </h3>
         <a href="/tags/AAC/" style="font-size: 10px;">AAC</a> <a href="/tags/Linkage/" style="font-size: 12.5px;">Linkage</a> <a href="/tags/RecyclerView/" style="font-size: 12.5px;">RecyclerView</a> <a href="/tags/RxJava/" style="font-size: 12.5px;">RxJava</a> <a href="/tags/VIABUS/" style="font-size: 17.5px;">VIABUS</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/深度思考/" style="font-size: 20px;">深度思考</a> <a href="/tags/项目推荐/" style="font-size: 15px;">项目推荐</a>
     </div>
@@ -506,44 +490,24 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Catálogo
+                Catalogue
             </h3>
-            <ul class="menu-list"><ul class="menu-list"><li>
+            <ul class="menu-list"><li>
         <a class="is-flex" href="#由来">
-        <span class="has-mr-6">1.1</span>
+        <span class="has-mr-6">1</span>
         <span>由来</span>
         </a></li><li>
         <a class="is-flex" href="#目标">
-        <span class="has-mr-6">1.2</span>
+        <span class="has-mr-6">2</span>
         <span>目标</span>
         </a></li><li>
         <a class="is-flex" href="#简单使用：">
-        <span class="has-mr-6">1.3</span>
+        <span class="has-mr-6">3</span>
         <span>简单使用：</span>
         </a></li><li>
         <a class="is-flex" href="#个性化配置：">
-        <span class="has-mr-6">1.4</span>
-        <span>个性化配置：</span>
-        </a></li><li>
-        <a class="is-flex" href="#Step1：根据需求扩展实体类">
-        <span class="has-mr-6">1.5</span>
-        <span>Step1：根据需求扩展实体类</span>
-        </a></li><li>
-        <a class="is-flex" href="#Step2：实现接口，完成自定义配置">
-        <span class="has-mr-6">1.6</span>
-        <span>Step2：实现接口，完成自定义配置</span>
-        </a></li></ul><li>
-        <a class="is-flex" href="#Thanks-to">
-        <span class="has-mr-6">2</span>
-        <span>Thanks to</span>
-        </a></li><li>
-        <a class="is-flex" href="#My-Pages">
-        <span class="has-mr-6">3</span>
-        <span>My Pages</span>
-        </a></li><li>
-        <a class="is-flex" href="#License">
         <span class="has-mr-6">4</span>
-        <span>License</span>
+        <span>个性化配置：</span>
         </a></li></ul>
         </div>
     </div>
@@ -554,7 +518,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recientes
+            Recent
         </h3>
         
         <article class="media">
@@ -660,7 +624,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archivos
+            Archives
         </h3>
         <ul class="menu-list">
         
@@ -717,7 +681,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Etiquetas
+                Tags
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
@@ -798,44 +762,24 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Catálogo
+                Catalogue
             </h3>
-            <ul class="menu-list"><ul class="menu-list"><li>
+            <ul class="menu-list"><li>
         <a class="is-flex" href="#由来">
-        <span class="has-mr-6">1.1</span>
+        <span class="has-mr-6">1</span>
         <span>由来</span>
         </a></li><li>
         <a class="is-flex" href="#目标">
-        <span class="has-mr-6">1.2</span>
+        <span class="has-mr-6">2</span>
         <span>目标</span>
         </a></li><li>
         <a class="is-flex" href="#简单使用：">
-        <span class="has-mr-6">1.3</span>
+        <span class="has-mr-6">3</span>
         <span>简单使用：</span>
         </a></li><li>
         <a class="is-flex" href="#个性化配置：">
-        <span class="has-mr-6">1.4</span>
-        <span>个性化配置：</span>
-        </a></li><li>
-        <a class="is-flex" href="#Step1：根据需求扩展实体类">
-        <span class="has-mr-6">1.5</span>
-        <span>Step1：根据需求扩展实体类</span>
-        </a></li><li>
-        <a class="is-flex" href="#Step2：实现接口，完成自定义配置">
-        <span class="has-mr-6">1.6</span>
-        <span>Step2：实现接口，完成自定义配置</span>
-        </a></li></ul><li>
-        <a class="is-flex" href="#Thanks-to">
-        <span class="has-mr-6">2</span>
-        <span>Thanks to</span>
-        </a></li><li>
-        <a class="is-flex" href="#My-Pages">
-        <span class="has-mr-6">3</span>
-        <span>My Pages</span>
-        </a></li><li>
-        <a class="is-flex" href="#License">
         <span class="has-mr-6">4</span>
-        <span>License</span>
+        <span>个性化配置：</span>
         </a></li></ul>
         </div>
     </div>
@@ -846,7 +790,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recientes
+            Recent
         </h3>
         
         <article class="media">
@@ -952,7 +896,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archivos
+            Archives
         </h3>
         <ul class="menu-list">
         
@@ -1009,7 +953,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Etiquetas
+                Tags
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
@@ -1244,10 +1188,10 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Entradas',
+                POSTS: 'Posts',
                 PAGES: 'Pages',
-                CATEGORIES: 'Categorias',
-                TAGS: 'Etiquetas',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
                 UNTITLED: '(Untitled)',
             },
             CONTENT_URL: '/content.json',
