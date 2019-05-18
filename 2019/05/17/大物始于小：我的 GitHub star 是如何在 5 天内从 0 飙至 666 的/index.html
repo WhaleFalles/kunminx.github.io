@@ -8,7 +8,7 @@
 
 
     <meta name="description" content="前言很高兴和大家见面！ 上周五我在掘金发表了 《真香警告：即使不用饿了么订餐，也请务必收藏好该库！》，文中主角 Linkage-RecyclerView 原本只是为 《RxJava魔法师》  这个项目的需求而存在的，没想到在各路读者的积极参与下，让一个本来默默无闻的项目，在内容发布的第三天，登陆 GitHub 今日趋势 Java 专区榜单前三，并在 5 天内做到 GitHub star 从 0 飙">
-<meta name="keywords" content="项目推荐,Linkage,RecyclerView,深度思考">
+<meta name="keywords" content="项目推荐,深度思考,Linkage,RecyclerView">
 <meta property="og:type" content="article">
 <meta property="og:title" content="大物始于小：我的 GitHub star 是如何在 5 天内从 0 飙至 666 的">
 <meta property="og:url" content="https://kunminx.github.io/2019/05/17/大物始于小：我的 GitHub star 是如何在 5 天内从 0 飙至 666 的/index.html">
@@ -16,7 +16,7 @@
 <meta property="og:description" content="前言很高兴和大家见面！ 上周五我在掘金发表了 《真香警告：即使不用饿了么订餐，也请务必收藏好该库！》，文中主角 Linkage-RecyclerView 原本只是为 《RxJava魔法师》  这个项目的需求而存在的，没想到在各路读者的积极参与下，让一个本来默默无闻的项目，在内容发布的第三天，登陆 GitHub 今日趋势 Java 专区榜单前三，并在 5 天内做到 GitHub star 从 0 飙">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://kunminx.github.io/images/og_image.png">
-<meta property="og:updated_time" content="2019-05-17T13:47:35.177Z">
+<meta property="og:updated_time" content="2019-05-18T03:43:57.833Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="大物始于小：我的 GitHub star 是如何在 5 天内从 0 飙至 666 的">
 <meta name="twitter:description" content="前言很高兴和大家见面！ 上周五我在掘金发表了 《真香警告：即使不用饿了么订餐，也请务必收藏好该库！》，文中主角 Linkage-RecyclerView 原本只是为 《RxJava魔法师》  这个项目的需求而存在的，没想到在各路读者的积极参与下，让一个本来默默无闻的项目，在内容发布的第三天，登陆 GitHub 今日趋势 Java 专区榜单前三，并在 5 天内做到 GitHub star 从 0 飙">
@@ -159,7 +159,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    12 minutes read (About 1776 words)
+                    12 minutes read (About 1781 words)
                 </span>
                 
                 
@@ -174,7 +174,7 @@
         <div class="content">
             <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>很高兴和大家见面！</p>
 <p>上周五我在掘金发表了 <a href="https://juejin.im/post/5cd4cec1f265da03b918337b" target="_blank" rel="noopener">《真香警告：即使不用饿了么订餐，也请务必收藏好该库！》</a>，文中主角 <strong>Linkage-RecyclerView</strong> 原本只是为 <a href="https://github.com/KunMinX/RxJava2-Operators-Sample" target="_blank" rel="noopener">《RxJava魔法师》</a>  这个项目的需求而存在的，没想到在各路读者的积极参与下，让一个本来默默无闻的项目，在内容发布的第三天，登陆 GitHub 今日趋势 Java 专区榜单前三，并在 5 天内做到 GitHub star 从 0 飙至 666。<a id="more"></a>（不要慌，项目链接文末已给出）</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/57036-1a7e7b47a63a33df.png" alt></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/57036-1a7e7b47a63a33df.png" alt="star"></p>
 <p>在此我首先特别感谢热心读者的见证和参与。掘金社区、WanAndroid 读者对源码的认真阅读和交流，让我备受感动。</p>
 <h3 id="开源这个项目的初衷"><a href="#开源这个项目的初衷" class="headerlink" title="开源这个项目的初衷"></a>开源这个项目的初衷</h3><h4 id="每个架构都有专属的用武之地"><a href="#每个架构都有专属的用武之地" class="headerlink" title="每个架构都有专属的用武之地"></a>每个架构都有专属的用武之地</h4><p>开源这个项目的初衷有两个，一个是方便读者借助该项目深入理解，当我们为项目选择架构时，选材的依据是什么。</p>
 <p>就我当前的认知来看，项目开发，无非就是顾及 <code>“配置解耦”</code> 和 <code>“职责分离”</code> 这两件事。</p>
@@ -190,10 +190,10 @@
 <p>哈哈，开玩笑的。缘于，公司某个项目中的另一个需求：为多级联动表单动态绑定数据。</p>
 <p>用过 Spinner 的读者都知道，原生的 Spinner 在 onSelectItem 回调中存在延迟的 bug，虽然延迟只有 100ms，但对于哼哧哼哧地装载、绑定、协调表单数据的多级联动表单来说，实在是致命的错误。</p>
 <p>因而在那天晚上加班改需求的时候，我非常盼望着找到一款当下就可以使用的 PopupWindow + RecyclerView 实现的第三方 Spinner 开源库。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/57036-5c67434240b21d17.jpg" alt></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/57036-5c67434240b21d17.jpg" alt="cry"></p>
 <p>然而，现实却和我开了个大玩笑，我寻遍了 GitHub 仓库，尝试了若干个项目，都是随便糊弄两下、高度耦合的个人练手项目，这对于急着改需求的我来说，无异于火上浇油。</p>
 <p>由于情况紧急，我选择求助于同在加班的阿左，没想到，阿左居然在项目闲时自己封装了一个 Spinner 库。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/57036-c9f49e09c743b612.png" alt></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/57036-c9f49e09c743b612.png" alt="spinner"></p>
 <p>虽然一眼望去，Adapter  三方逻辑的解耦程度还有待提高，但这个库既然能独立存在、通过几行代码即可调用，对于彼时的我来说，就已经是最丰盛、最美的食物。</p>
 <p>于是我毫不犹豫地将该库用在了项目上，在几经尝试后，表单初始化数据终于如愿地正常加载。</p>
 <h3 id="如何在-5-天内使-GitHub-star-从-0-飙到-666"><a href="#如何在-5-天内使-GitHub-star-从-0-飙到-666" class="headerlink" title="如何在 5 天内使 GitHub star 从 0 飙到 666"></a>如何在 5 天内使 GitHub star 从 0 飙到 666</h3><p>最后总结一下大家都关心的，如何让自己的作品能被更多地访问、让 GitHub Star 数一路爬升：</p>
@@ -203,11 +203,11 @@
 <p>换言之，我们所做的每一件事，都务必精准地化解目标用户的痛点，唯有如此，才有机会在纷杂的信息中脱颖而出，让作品受到用户的青睐和珍视。</p>
 <p>每个人服务的领域不同、目标用户也不同，因而用户痛点需要自己在日常生活中投入大量精力去思考和领悟，这也是为什么文章我一周最多只更新一篇的原因。</p>
 <h4 id="再者，就算是制作一款简单的作品，也请务必抱着一颗敬畏的心。"><a href="#再者，就算是制作一款简单的作品，也请务必抱着一颗敬畏的心。" class="headerlink" title="再者，就算是制作一款简单的作品，也请务必抱着一颗敬畏的心。"></a>再者，就算是制作一款简单的作品，也请务必抱着一颗敬畏的心。</h4><p>在 Linkage-RecyclerView 开源的短短几天里，我累计提交了 49 次代码、多达 9k 行的代码变动。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/57036-8fe7731d553156c4.png" alt></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/57036-8fe7731d553156c4.png" alt="githubCommit"></p>
 <p>用户不是傻子，代码是好是坏，一眼就能看出来。唯有一丝不苟地对待工程设计和编码，才有机会让用户感到确定和安心。</p>
 <h4 id="此外，酒香也怕巷子深。"><a href="#此外，酒香也怕巷子深。" class="headerlink" title="此外，酒香也怕巷子深。"></a>此外，酒香也怕巷子深。</h4><p>想让精心打磨的作品让更多的用户接触到，就要勇于在社交场合展示自己的价值。产品最终都是服务于人，务必多与用户沟通，让产品和个人品牌往更好的方向发展。</p>
 <p>当然，口说无凭，以下贴上 <strong>别处看不到的、且大家喜闻乐见的</strong> 群聊学（chui）习（niu）交（ba）流（gua）截图：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/57036-476e1f0219b6e2f8.png" alt></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/57036-476e1f0219b6e2f8.png" alt="chuiniu"></p>
 <p>考虑到我在技术社区发文，应以技术分享和经验交流为主。想目睹群聊现场的朋友，请移一步到我的同名公众号阅读原文~</p>
 <p>GitHub 项目链接：<a href="https://github.com/KunMinX/Linkage-RecyclerView" target="_blank" rel="noopener">https://github.com/KunMinX/Linkage-RecyclerView</a></p>
 
